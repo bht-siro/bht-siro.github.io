@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIRo-AEMP &middot; Surgical Instrument Reprocessing &middot; SIRo Lab</title>
+  <meta name="description" content="SIRo-AEMP: validating the SIRo Soft Hand for the reprocessing of surgical instruments. Funded by Land Berlin (IBB) under ProValid, with enamentis GmbH.">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="SIRo-AEMP, Surgical Instrument Reprocessing">
+  <meta property="og:description" content="A soft robotic hand that sorts, opens and racks contaminated surgical instruments for machine cleaning.">
+  <meta property="og:image" content="images/siro-softhand.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIRo-AEMP, Surgical Instrument Reprocessing">
+  <meta name="twitter:description" content="Validating the SIRo Soft Hand in sterile processing. Funded by Land Berlin (IBB), ProValid.">
+  <meta name="twitter:image" content="images/siro-softhand.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.55); font-size: var(--fs-md); max-width: 640px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0; }
+    .approach-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-lg); }
+    .approach-card__num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--color-accent); color: #fff; font-weight: 700; margin-bottom: var(--space-sm); }
+    .approach-card h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-xs); }
+    .approach-card p { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: 0; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: var(--space-md); margin: var(--space-md) 0; }
+    .meta-pill { font-size: var(--fs-sm); font-weight: 600; color: var(--color-accent); background: var(--color-accent-subtle); border-radius: 100px; padding: 0.4rem 1rem; }
+    .figure { margin: var(--space-lg) 0; }
+    .figure img { width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); display: block; }
+    .figure figcaption { font-size: var(--fs-sm); color: var(--color-text-light); line-height: 1.6; margin-top: var(--space-xs); }
+    @media (max-width: 768px) { .approach-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#projects" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to projects
+      </a>
+      <span class="section__label">Project &middot; SIRo-AEMP</span>
+      <h1>Surgical Instrument Reprocessing</h1>
+      <p>After every operation, the instruments used have to be reprocessed. The work is monotonous and carries a real risk of injury and infection. We are testing whether a compliant robotic hand can take it over.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>The task</h2>
+      <p>In a sterile processing department (in German: <em>Aufbereitungseinheit f&uuml;r Medizinprodukte</em>, AEMP), contaminated instruments arrive in sieve trays, often tangled and in no particular order. Before machine cleaning they have to be identified, checked, opened where they have a joint, and racked so that every surface is reachable by the washer.</p>
+      <p>In <strong>SIRo-AEMP</strong> we equip a robot arm with a <a href="softhand.html">SIRo Soft Hand</a> and a camera and give it exactly this job: pick individual instruments out of the tray, open scissors and retractors, and place them in a controlled and secure way into the containers in which they are sterilised.</p>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-card__num">1</div>
+          <h3>Grasping what is tangled</h3>
+          <p>Instruments arrive interlocked and unsorted. Separating them requires a hand that tolerates contact and adapts to unplanned geometry rather than one that needs a known grasp pose.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card__num">2</div>
+          <h3>Seeing what reflects</h3>
+          <p>Polished steel is a hard case for camera-based perception. Recognising and localising highly reflective instruments reliably is one of the central technical questions of the project.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card__num">3</div>
+          <h3>Handling what is sharp</h3>
+          <p>Scalpels, sharp tips and cutting edges have to be handled without damaging the instrument, the gripper or anything else. Compliance helps here, but it has to be paired with deliberate motion planning.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card__num">4</div>
+          <h3>Opening what is hinged</h3>
+          <p>Hinged instruments only get clean if they are opened first. Doing that reliably needs the fine-motor capability the SIRo Soft Hand was built for: fingers, a thumb and a movable wrist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Why this project matters to the lab</h2>
+      <p>SIRo-AEMP is a validation project. Years of work on variable stiffness, Bowden-cable actuation and programmable fingertip compliance have produced a hand that performs well in the lab. Here it has to hold up under realistic conditions, against a task defined by a clinical process rather than by us.</p>
+      <p>That makes it a useful stress test in both directions. It shows which of our design decisions survive contact with an industrial workflow, and it feeds concrete requirements back into the next generation of the <a href="softhand.html">SIRo Soft Hand</a>. The project also prepares the ground for a possible spin-off from BHT.</p>
+      <figure class="figure">
+        <img src="images/siro-softhand.jpg" alt="The SIRo Soft Hand, a tendon-driven anthropomorphic hand with variable stiffness" loading="lazy" width="3000" height="2000">
+        <figcaption>The SIRo Soft Hand: fingers, thumb and a movable wrist. In SIRo-AEMP it is combined with a robot arm and a camera to prepare contaminated surgical instruments for machine cleaning.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Funding and partners</h2>
+      <p>SIRo-AEMP is funded by the State of Berlin through Investitionsbank Berlin (IBB) under <em>ProValid</em>, the programme for validating research results. The project started in April 2026. Industry partner is <strong>enamentis GmbH</strong>, which specialises in the automation of sterile goods logistics.</p>
+      <div class="meta-row">
+        <span class="meta-pill">Land Berlin (IBB) &middot; ProValid</span>
+        <span class="meta-pill">Start 04/2026</span>
+        <span class="meta-pill">enamentis GmbH</span>
+        <span class="meta-pill">BHT Berlin</span>
+      </div>
+      <p><a href="https://projekt.bht-berlin.de/harmonik/forschung/simulation-waeschepflege-bsh-1" target="_blank" rel="noopener">Project page at BHT</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Collaborators</h2>
+      <div class="collaborators">
+        <div class="collaborator">
+          <a href="steffen-puhlmann.html">Steffen Puhlmann</a>
+          <p>Brings the SIRo Soft Hand into the workflow and is responsible for the hand itself.</p>
+        </div>
+        <div class="collaborator">
+          <a href="adrian-sieler.html">Adrian Sieler</a>
+          <p>In-hand manipulation with the soft hand, applied to surgical instruments: moving an object within the hand rather than moving the whole arm.</p>
+        </div>
+        <div class="collaborator">
+          <a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a>
+          <p>Project lead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>

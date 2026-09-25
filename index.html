@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIRo Lab &middot; Soft Interactive Robotics Laboratory</title>
+  <meta name="description" content="SIRo Lab at Berliner Hochschule f&uuml;r Technik: compliant robotic hands, variable stiffness, teleoperation and physical human-robot interaction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="SIRo Lab, Soft Interactive Robotics Laboratory">
+  <meta property="og:description" content="Compliant robotic hands and arms, variable stiffness, teleoperation, and physical human-robot interaction at Berliner Hochschule f&uuml;r Technik.">
+  <meta property="og:image" content="images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIRo Lab, Soft Interactive Robotics Laboratory">
+  <meta name="twitter:description" content="Compliant hands and arms, teleoperation, dynamic manipulation. BHT Berlin.">
+  <meta name="twitter:image" content="images/siro_landing.jpeg">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="#about">The lab</a></li>
+            <li><a href="#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="#p-appl-fm">APPL-FM</a></li>
+            <li><a href="#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- ===== Hero, Clean White with Logo Watermark ===== -->
+  <section class="hero" id="hero">
+    <!-- Bewegter Hintergrund, ausgetauscht am 21. September 2026 (Kommentar Ranjit 1 und 3).
+         Vorher lief hier mp-kinesthetic-teaching.mp4: eine Hochkantaufnahme mit schwarzen
+         Balken links und rechts und eingebranntem Text am rechten Rand. Beides war im
+         Hero sichtbar und sah nach Handyvideo aus.
+         Jetzt: ein durchgehender Ausschnitt aus der Catch-Up-Challenge im Gewaechshaus
+         (48,1 bis 51,9 Sekunden), auf halbe Geschwindigkeit gebracht und am Ende in den
+         Anfang geblendet, damit die Schleife keinen Sprung hat. Querformat, formatfuellend,
+         ohne eingebrannte Schrift. Inhalt passt zum Untertitel (greenhouses) und zeigt
+         einen nachgiebigen Greifer bei echter Arbeit an der Pflanze.
+         Quelle: images/Catch-Up-Challenge eng.mp4. Beim Neuschneiden Sekunde 44 meiden,
+         dort steht noch die eingebrannte Einblendung "Defoliating". -->
+    <div class="hero__video" aria-hidden="true">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-hero-greenhouse.jpg">
+        <source data-src="images/hero-greenhouse.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Giant watermark logo in background -->
+    <img src="images/logo-full-watermark.png" alt="" class="hero__watermark" aria-hidden="true" width="4959" height="806">
+
+    <!-- Decorative spring SVGs -->
+    <svg class="hero__spring-decor hero__spring-decor--left" viewBox="0 0 120 300" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.08">
+      <path d="M60 10 C90 30, 30 50, 60 70 C90 90, 30 110, 60 130 C90 150, 30 170, 60 190 C90 210, 30 230, 60 250 C90 270, 30 290, 60 300" stroke="#0a7e8c"/>
+    </svg>
+    <svg class="hero__spring-decor hero__spring-decor--right" viewBox="0 0 120 300" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.06">
+      <path d="M60 10 C90 30, 30 50, 60 70 C90 90, 30 110, 60 130 C90 150, 30 170, 60 190 C90 210, 30 230, 60 250" stroke="#0a7e8c"/>
+    </svg>
+
+    <div class="hero__content">
+      <img src="images/logo-icon-only-transparent.png" alt="SIRo Lab Logo" class="hero__logo-main" width="726" height="725">
+      <span class="hero__label">Berliner Hochschule f&uuml;r Technik</span>
+      <h1 class="hero__title"><em>Compliance</em> makes<br>the difference</h1>
+      <p class="hero__subtitle">We develop compliant robotic hands and arms, teleoperate humanoid robots in greenhouses, classrooms and care settings, and teach them dynamic skills from human demonstration.</p>
+      <a href="#research" class="hero__cta">
+        Explore our research
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <span class="section__label">About the Lab</span>
+          <h2 class="section__title">Let the hardware do the heavy lifting</h2>
+          <p>The SIRo Lab builds robotic hands and arms with real springs, real elasticity and variable stiffness: not mimicked, not pneumatic, not soft in the silicone sense, but mechanically compliant by mechanism design. From nonlinear torsional springs to Bowden-cable stiffness modulation, we develop the actuation principles that make compliance practical.</p>
+          <p>Good hardware simplifies control, but it does not replace it. We design variable-stiffness hands with programmable fingertip compliance, where the passive deformation of the material itself becomes part of the computation. We teach our robots dynamic skills through movement primitives learned from human demonstration, and we equip a TIAGo Pro humanoid with these hands to bring the whole system into applied settings: greenhouse harvesting, ambulatory care and university teaching.</p>
+          <p>As a university of applied sciences we work pragmatically, and the constraint is a design tool rather than an excuse. Hardware that shifts complexity away from control tends to outperform elaborate systems that fight their own mechanics, and it also tends to be affordable enough that students can build it. The boundary between basic and applied research stays fluid here: a question about stiffness perception turns into a hand design, and a care project raises fundamental questions about telemanipulation.</p>
+          <p>All of it points one way. A hand whose fingers yield, an arm whose joints are coupled through springs, and a way of commanding both that feels like being there: these are parts of an elastic humanoid system. We are not announcing one. We are working out, part by part, what such a system would have to be made of, and TIAGo Pro carries the parts in the meantime.</p>
+          <p>We are a small team at <a href="https://www.bht-berlin.de" target="_blank" rel="noopener">Berliner Hochschule f&uuml;r Technik</a>, embedded in the Bachelor&rsquo;s programme for Humanoid Robotics and part of the <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener"><em lang="de">Haus der Robotik</em></a>. We simulate, we prototype, we test, but the goal is always hardware that works outside the lab.</p>
+          <div class="about__institution">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+            Berliner Hochschule f&uuml;r Technik, Haus der Robotik
+          </div>
+        </div>
+        <div class="about__image reveal reveal-delay-2">
+          <img src="images/siro_landing.jpeg" alt="SIRo Lab team at a conference" loading="lazy" width="1280" height="660">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Research Questions ===== -->
+  <!-- Ordnungsachse der Seite (Grillrunde 18. September 2026): vier Fragen fuehren,
+       die Plattformen folgen daraus. Reihenfolge und Wortlaut NICHT einzeln aendern,
+       sie werden auf den Plattform- und Personenseiten woertlich wiederholt. -->
+  <section class="section section--alt" id="research">
+    <div class="container">
+      <span class="section__label reveal">Research</span>
+      <h2 class="section__title reveal">Four questions, and the machines they produce</h2>
+      <p class="section__intro reveal">We do not start from a robot and look for something to do with it. We start from a question, and the platform follows from it. All four questions point in the same direction: an elastic humanoid system, built from parts whose compliance is mechanical rather than computed.</p>
+
+      <!-- Zitat war bis 18. September eine eigene Sektion. Es steht jetzt hier, weil es
+           genau diese vier Fragen begruendet (Entscheidung Hannes, Grillrunde). -->
+      <blockquote class="research-creed reveal">
+        <p class="research-creed__quote" lang="de">&ldquo;Kapieren vor Kopieren&rdquo;</p>
+        <p class="research-creed__gloss">&ldquo;Comprehend before you copy&rdquo; &middot; Markus Grebenstein, designer of the Awiwi Hand of the DLR Hand Arm System and Hannes H&ouml;ppner&rsquo;s former supervisor at DLR</p>
+        <p class="research-creed__text">Biology is where the questions come from, not where the answers are copied. The human hand is a powerful starting point and a poor blueprint. We study principles such as variable stiffness, antagonistic actuation and tendon-driven motion, and then decide, one at a time, what is worth translating into a mechanism and what is not. Understanding comes before imitation, which is why each of the four questions below is a question and not a specification.</p>
+      </blockquote>
+      <div class="research-grid reveal-stagger">
+
+        <div class="research-card">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11.5V14m0-2.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm10 0V14m0-2.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM4.5 20.5a4 4 0 014-4h7a4 4 0 014 4"/></svg>
+          </div>
+          <h3 class="research-card__title">Mechanical Intelligence</h3>
+          <p class="research-card__question">How much of the control can the hardware itself take over?</p>
+          <p class="research-card__desc">When a hand meets something it has not been told about, an expensive sensor and an actuator can work out a response, or a spring can simply yield. Springs conform to objects and react to their surroundings without being asked to. We build hands that use this: variable stiffness from Bowden cables, and fingertips whose passive deformation is designed so that grasping behaviour is shaped before any controller runs.</p>
+          <ul class="research-card__subtopics">
+            <li>Variable stiffness from Bowden cables (VSB)</li>
+            <li>Programmable fingertip compliance</li>
+            <li>Morphological computation</li>
+            <li>Grasping without explicit force control</li>
+          </ul>
+          <p class="research-card__link"><a href="softhand.html">SIRo Soft Hand &rarr;</a></p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9a3 3 0 016 0v4a3 3 0 006 0V4"/><circle cx="7" cy="20" r="1.6"/><circle cx="19" cy="4" r="1.6"/></svg>
+          </div>
+          <h3 class="research-card__title">Stiffness Shaping</h3>
+          <p class="research-card__question">What becomes possible when elasticity spans more than one joint?</p>
+          <p class="research-card__desc">A spring across two joints does what two separate springs cannot. It transfers energy between the joints, and it lets the stiffness ellipse at the end-effector be set in shape, size and orientation. An arm can then follow a key into a lock, or stay stiff across the axis of a nail so the hammer does not slip. Our open questions are which couplings belong where, and where a series-elastic joint is enough instead of a variable-stiffness one.</p>
+          <ul class="research-card__subtopics">
+            <li>Multiarticular and biarticular couplings</li>
+            <li>Cartesian stiffness ellipses: shape, size, orientation</li>
+            <li>Energy transfer between joints</li>
+            <li>Impact behaviour and directed compliance</li>
+          </ul>
+          <p class="research-card__link"><a href="multiarticular-arm.html">Multiarticular VSA Arm &rarr;</a></p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="research-card__title">Movement Primitives</h3>
+          <p class="research-card__question">How does a robot learn movements from a person, and build tasks from them?</p>
+          <p class="research-card__desc">A throw is decided at the instant of release, not along the trajectory, so a primitive has to condition on position and velocity together. We build on DMP, VMP and ProDMP to learn such primitives from human demonstration and collect them into a catalogue. Work on composition has begun and has no results yet. The idea is to let language models assemble a task from the primitives in the catalogue, so that a vocabulary of movement becomes a language of manipulation.</p>
+          <ul class="research-card__subtopics">
+            <li>Velocity-aware via-point primitives (V2MP)</li>
+            <li>Learning from demonstration</li>
+            <li>A library of movement primitives</li>
+            <li>Task composition through language models, work begun</li>
+          </ul>
+          <p class="research-card__link"><a href="movement-primitives.html">Movement primitives &rarr;</a></p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="research-card__title">Immersive Teleoperation</h3>
+          <p class="research-card__question">How does someone with no training in operating a humanoid control it with ease, and feel what the robot feels?</p>
+          <p class="research-card__desc">A carer, a greenhouse grower or a lecturer in agile project management should be able to put a humanoid to work without being able to programme it. We are following two answers at once. One raises immersion as far as it will go: the input station returns what the robot feels, so that contact arrives at the operator as contact rather than as a number on a screen. The other keeps the device deliberately simple and does without haptic feedback, aiming instead at a low barrier to use. That device is nearly finished and not yet in use. Which of the two a given setting needs is itself the question.</p>
+          <ul class="research-card__subtopics">
+            <li>Visuo-haptic input station (VHIS)</li>
+            <li>Haptic feedback instead of pose streaming</li>
+            <li>Spatial configuration and workspace optimisation</li>
+            <li>Operation by non-experts</li>
+          </ul>
+          <p class="research-card__link"><a href="vhis.html">Visuo-Haptic Input Station &rarr;</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Platforms & Infrastructure ===== -->
+  <section class="section" id="platforms">
+    <div class="container">
+      <span class="section__label reveal">Platforms</span>
+      <h2 class="section__title reveal">Hardware we can build and maintain ourselves</h2>
+      <p class="section__intro reveal">Understanding a mechanism well enough to build it, repair it and change it is part of the research question, not a side effect of it. We therefore make as much of our hardware ourselves as we reasonably can. Three of these four platforms are built in the lab. TIAGo Pro is the exception we bought, and the multiarticular VSA arm is the limb that would eventually replace what we are currently borrowing.</p>
+      <div class="platforms-grid reveal-stagger">
+        <div class="platform-card">
+          <div class="platform-card__image">
+            <img src="images/siro-softhand.jpg" alt="SIRo Soft Hand, tendon-driven anthropomorphic hand with variable stiffness" loading="lazy" width="3000" height="2000">
+          </div>
+          <div class="platform-card__body">
+            <h3 class="platform-card__title"><a href="softhand.html">SIRo Soft Hand</a></h3>
+            <p class="platform-card__desc">Our oldest platform: a tendon-driven anthropomorphic hand with variable stiffness through Bowden-cable-based actuation (VSB) and programmable fingertip compliance. Three hands exist, the right one nearly finished. It is built to replace TIAGo Pro&rsquo;s last two wrist axes, and that integration is the next step, planned for this year. The passive deformation of its soft fingertips is engineered to shape grasping behaviour, so part of the computation happens in the hardware.</p>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card__image">
+            <img src="images/TIAGo_pro.webp" alt="TIAGo Pro dual-arm humanoid robot with SIRo Soft Hands" style="object-position: center 22%;" loading="lazy" width="2560" height="2560">
+          </div>
+          <div class="platform-card__body">
+            <h3 class="platform-card__title"><a href="tiago.html">TIAGo Pro</a></h3>
+            <p class="platform-card__desc">The one platform we did not build. Bought, instrumented, and the robot everything else is built around. What already runs on it, and what does not, is in the section below.</p>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card__image">
+            <img src="images/VHIS.png" alt="Concept drawing of the Visuo-Haptic Input Station: operator between two FR3 cobot arms controlling TIAGo Pro" loading="lazy" width="1080" height="642">
+          </div>
+          <div class="platform-card__body">
+            <h3 class="platform-card__title"><a href="vhis.html">Visuo-Haptic Input Station (VHIS)</a></h3>
+            <p class="platform-card__desc">The operator side of tele.interaction: a dual-arm cobot station meant to command TIAGo Pro through the operator&rsquo;s own arm movements, with contact conveyed back as contact. Published so far is the method for placing the cobots around the operator, using workspace modelling, volumetric intersection analysis and ergonomic metrics. Commanding a robot arm and returning haptic feedback have been shown internally.</p>
+          </div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card__image">
+            <img src="images/arm-biarticular-schematic.png" alt="Schematic of two robot joints with dashed lines indicating biarticular couplings spanning both joints" loading="lazy" width="1240" height="886">
+          </div>
+          <div class="platform-card__body">
+            <h3 class="platform-card__title"><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></h3>
+            <p class="platform-card__desc">A robot arm with variable stiffness and biarticular spring couplings, transferring the principle of muscles that span two joints into engineered mechanisms. It targets dynamic tasks such as throwing and catching. Built and measured several times; the measurements are not yet evaluated.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Research Ecosystem Overview ===== -->
+  <section class="section section--alt" id="ecosystem">
+    <div class="container">
+      <span class="section__label reveal">How it all connects</span>
+      <h2 class="section__title reveal">How the four questions meet on one robot</h2>
+      <p class="section__intro reveal">TIAGo Pro is the one platform we did not build. We bought it and are making it the place where the other three come together. Each of its arms has seven degrees of freedom, and our hand brings a wrist of its own, because the variable stiffness has to act there and because the motors driving it would not otherwise fit into the forearm. The plan is therefore to take the last two axes off the robot and mount the hand, with its own wrist, in their place. One of the three is already there: movement primitives are learned on this robot, with a 7-DoF arm and the standard gripper.</p>
+      <div class="ecosystem__labels reveal">
+        <span>What we build</span>
+        <span>What carries it</span>
+        <span>Where it is headed</span>
+      </div>
+      <div class="ecosystem reveal">
+        <!-- Left: Research Topics -->
+        <div class="ecosystem__col ecosystem__col--topics">
+          <div class="ecosystem__card ecosystem__card--topic">
+            <div class="ecosystem__thumb"><img src="images/thumb-vhis.jpg" alt="Concept drawing of the visuo-haptic input station: an operator coupled to two cobot arms" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="vhis.html">Visuo-Haptic Input Station</a></h3>
+              <p>Built to command the robot and return what it feels</p>
+            </div>
+          </div>
+          <div class="ecosystem__card ecosystem__card--topic">
+            <div class="ecosystem__thumb"><img src="images/thumb-primitives.jpg" alt="TIAGo Pro with overlaid release trajectories from throwing experiments" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="movement-primitives.html">Movement Primitives</a></h3>
+              <p>Learned on the robot, from human demonstration</p>
+            </div>
+          </div>
+          <div class="ecosystem__card ecosystem__card--topic">
+            <div class="ecosystem__thumb"><img src="images/thumb-softhand.jpg" alt="The SIRo Soft Hand, a tendon-driven anthropomorphic hand" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="softhand.html">SIRo Soft Hand</a></h3>
+              <p>Built to replace the last two wrist axes, mounting planned</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: TIAGo -->
+        <div class="ecosystem__col ecosystem__col--center">
+          <div class="ecosystem__arrows ecosystem__arrows--left">
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="ecosystem__platform">
+            <img src="images/TIAGo_pro.webp" alt="TIAGo Pro with SIRo Soft Hands" loading="lazy" width="2560" height="2560">
+            <h3>TIAGo Pro</h3>
+            <p>the robot the other three run on</p>
+          </div>
+          <div class="ecosystem__arrows ecosystem__arrows--right">
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 40 10" fill="none"><path d="M0 5h32M28 1l6 4-6 4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+
+        <!-- Right: Applications -->
+        <div class="ecosystem__col ecosystem__col--apps">
+          <div class="ecosystem__card ecosystem__card--app">
+            <span class="ecosystem__app-num">1</span>
+            <div class="ecosystem__thumb"><img src="images/thumb-teaching.jpg" alt="AI visualisation: students and a humanoid robot playing the ball point game in a seminar room" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="teaching.html">Teaching</a></h3>
+              <p>Student challenges on research hardware</p>
+              <span class="status-tag status-tag--running">running</span>
+            </div>
+          </div>
+          <div class="ecosystem__card ecosystem__card--app">
+            <span class="ecosystem__app-num">2</span>
+            <div class="ecosystem__thumb"><img src="images/thumb-sterile.jpg" alt="AI visualisation: a robot hand sorting surgical instruments in a sterile processing department" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="siro-aemp.html">Instrument Reprocessing</a></h3>
+              <p>Surgical instruments, handled by the hand itself</p>
+              <span class="status-tag status-tag--trials">first trials</span>
+            </div>
+          </div>
+          <div class="ecosystem__card ecosystem__card--app">
+            <span class="ecosystem__app-num">3</span>
+            <div class="ecosystem__thumb"><img src="images/thumb-greenhouse.jpg" alt="AI visualisation: a humanoid robot harvesting tomatoes in a greenhouse" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="greenhouse.html">Greenhouse</a></h3>
+              <p>Harvesting and plant handling under teleoperation</p>
+              <span class="status-tag status-tag--trials">first student experiments</span>
+            </div>
+          </div>
+          <div class="ecosystem__card ecosystem__card--app">
+            <span class="ecosystem__app-num">4</span>
+            <div class="ecosystem__thumb"><img src="images/thumb-care.jpg" alt="AI visualisation: a humanoid robot assisting an older person" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__card-body">
+              <h3><a href="ambulatory-care.html">Ambulatory Care</a></h3>
+              <p>Which fine-motor care tasks compliant teleoperation can support</p>
+              <span class="status-tag status-tag--running">running</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="ecosystem__note reveal">The tags say how far the work has come, not whether a system is deployed: in the greenhouse it is student teams with hands they built themselves, in care and teaching the projects are under way. The application images are AI visualisations of what these settings could look like, not photographs of work done. Instrument reprocessing is the exception in this picture: there the hand works on a separate arm, not on TIAGo Pro.</p>
+      <!-- Der VSA-Arm haengt bewusst NICHT am Traeger. Nicht in die Grafik zwingen
+           (Review 17. September, Entscheidung Grillrunde 18. September). -->
+      <div class="ecosystem__aside reveal">
+        <h3>And the limb that comes next</h3>
+        <p>TIAGo Pro is a stand-in. Its arms are good ones, but they are not ours and they are not elastic, and elasticity is the property this whole body of work is about. The <a href="multiarticular-arm.html">multiarticular VSA arm</a> is the answer to that: the arm an elastic humanoid would need, worked out on a test stand before it carries anything. Hand and arm are two limbs of the same machine, which is why all of this points towards an elastic humanoid system rather than towards a better gripper.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects & Topics ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="section__label reveal">Projects</span>
+      <h2 class="section__title reveal">Externally funded projects</h2>
+      <p class="section__intro reveal">Funding and research questions are not the same thing. One project can carry several questions at once, and not every question has a project behind it yet. Listed here are the projects with external funding, with the people working in each.</p>
+
+      <p class="subsection-intro reveal">Third-party funded work, with funding body and running time.</p>
+      <div class="projects-grid reveal-stagger">
+        <div class="project-card" id="p-tele-interaction">
+          <span class="project-card__funder">DFG &middot; <span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW &middot; 533327659 &middot; 2024&ndash;2028</span>
+          <h3 class="project-card__title"><a href="https://www.bht-berlin.de/3326/article/9119" target="_blank" rel="noopener">tele.interaction</a></h3>
+          <p class="project-card__desc">The core infrastructure project: collaborative robot arms and a mobile humanoid with elastic joints for research on soft manipulation and visuo-haptic teleoperation. It covers three domains, greenhouse harvesting, university teaching and ambulatory care, and funds the TIAGo Pro platform and the VHIS.</p>
+            <p class="project-card__people"><a href="steffen-puhlmann.html">Steffen Puhlmann</a> &middot; <a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a> &middot; <a href="rafid-abyaad.html">Rafid Abyaad</a></p>
+          <p class="project-card__people">Ranjit Santhanaraman, Felix Schl&uuml;ter</p>
+        </div>
+        <div class="project-card" id="p-appl-fm">
+          <span class="project-card__funder">DFG &middot; <span lang="de">Forschungsimpulse</span> HAW &middot; 2024&ndash;2029</span>
+          <h3 class="project-card__title"><a href="https://projekt.bht-berlin.de/impact/forschung/berlin-initiative-for-applied-foundation-model-research-appl-fm" target="_blank" rel="noopener">APPL-FM</a></h3>
+          <p class="project-card__desc">Berlin Initiative for Applied Foundation Model Research, a BHT-wide programme on foundation models across robotics, quantitative biology and predictive medicine. Our contribution is data-efficient learning from demonstration for dexterous manipulation with soft robotic hands. The programme also supports conference participation and the groundwork for a possible DFG Research Unit.</p>
+            <p class="project-card__people"><a href="steffen-puhlmann.html">Steffen Puhlmann</a></p>
+        </div>
+        <div class="project-card" id="p-robo4care">
+          <span class="project-card__funder">IFAF Berlin &middot; 2026&ndash;2027</span>
+          <h3 class="project-card__title"><a href="https://www.ifaf-berlin.de/news/neue-ifaf-projekte-2026/" target="_blank" rel="noopener">Robo4Care</a></h3>
+          <p class="project-card__desc">Relieving care workers on two fronts: robotic assistance for fine-motor tasks such as medication preparation, and wearable exoskeletons for physically demanding patient transfers. TIAGo Pro with compliant hands is to take on the manipulation, exoskeletons the ergonomic strain. With ASH Berlin, HTW Berlin, Fraunhofer IZM/IPK, Johannesstift Diakonie and IFA/DGUV.</p>
+            <p class="project-card__people"><a href="linnea-jakob.html">Linn&eacute;a Jakob</a> &middot; <a href="felix-schlueter.html">Felix Schl&uuml;ter</a> &middot; <a href="steffen-puhlmann.html">Steffen Puhlmann</a></p>
+        </div>
+        <div class="project-card" id="p-siro-aemp">
+          <span class="project-card__funder">Land Berlin (IBB) &middot; ProValid &middot; from 04/2026</span>
+          <h3 class="project-card__title"><a href="siro-aemp.html">SIRo-AEMP</a></h3>
+          <p class="project-card__desc">Validating the lab&rsquo;s hand research in surgical instrument reprocessing. A SIRo Soft Hand on a robot arm, guided by camera, is to recognise contaminated instruments, open scissors and retractors and place them safely into sterilisation containers. Industry partner is enamentis GmbH; the project also prepares a possible spin-off from BHT.</p>
+            <p class="project-card__people"><a href="steffen-puhlmann.html">Steffen Puhlmann</a> &middot; <a href="adrian-sieler.html">Adrian Sieler</a></p>
+          <p class="project-card__people">Steffen Puhlmann, Adrian Sieler</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== Teaching ===== -->
+  <section class="section section--alt" id="teaching">
+    <div class="container">
+      <span class="section__label reveal">Teaching</span>
+      <h2 class="section__title reveal">Research and teaching feed each other</h2>
+      <div class="teaching__content">
+        <div class="teaching__text reveal">
+          <p>At the SIRo Lab, students work on the same hardware researchers use. The lab is embedded in BHT&rsquo;s B.Sc. Humanoid Robotics, one of the few programmes in Germany dedicated to humanoid robotics, and our research platforms are available to students from the second semester onwards.</p>
+          <p>The <a href="robotics-project.html">Robotics Project</a> challenges make this concrete: students design soft robotic hands and test them in scenarios taken directly from our research, including greenhouse harvesting, everyday manipulation and delicate object handling. The tasks of the 2024 Catch-Up Challenge are the same ones we address in the DFG tele.interaction project.</p>
+          <p>TIAGo Pro also appears in the classroom, as a scrum master in agile exercises and as a participant in the ball pointing game. The robot is part of the course, not a demonstration behind glass.</p>
+          <p>The traffic runs both ways, and that is the point. Open research questions become project topics, theses and internships, so students work on something nobody has answered yet rather than on an exercise with a known solution. What comes back is not only a report. Student prototypes that hold up become lab platforms, and results from theses turn into the groundwork of the next paper. A lab of this size can only cover four research questions at once because students carry part of them.</p>
+        </div>
+        <div class="teaching__highlights reveal reveal-delay-1">
+          <div class="teaching__highlight">
+            <div class="teaching__highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div>
+              <h3><a href="theses.html">Where topics come from</a></h3>
+              <p>Every thesis and internship topic is cut out of one of the four research questions, which means the answer is not known in advance.</p>
+            </div>
+          </div>
+          <div class="teaching__highlight">
+            <div class="teaching__highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <h3>Real Challenges, Real Hardware</h3>
+              <p>Student challenges mirror actual research tasks: greenhouse automation, manipulation and teleoperation.</p>
+            </div>
+          </div>
+          <div class="teaching__highlight">
+            <div class="teaching__highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h3><a href="theses.html">Theses and internships</a></h3>
+              <p>Bachelor&rsquo;s and Master&rsquo;s theses and internships take on parts of the four research questions, and the results feed back into the lab. <a href="theses.html">How to ask &rarr;</a></p>
+            </div>
+          </div>
+          <div class="teaching__highlight">
+            <div class="teaching__highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Results that travel</h3>
+              <p>Prototypes that hold up become lab platforms, and findings from student work have changed what the lab does next.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Team ===== -->
+  <section class="section" id="team">
+    <div class="container">
+      <span class="section__label reveal">Team</span>
+      <h2 class="section__title reveal">The people behind the platforms</h2>
+      <p class="section__intro reveal">Each researcher works on one of the four questions above, and each person&rsquo;s page starts with that question rather than with a curriculum vitae.</p>
+      <p class="section__intro reveal">Compliant hands, teleoperation stations, dynamic skill libraries: every platform in the lab is built and maintained by someone on this list. Follow a name for their research, projects and publications.</p>
+      <div class="team-grid reveal-stagger">
+        <div class="team-card">
+          <div class="team-card__image">
+            <img src="images/rafid-abyaad.jpg" alt="Rafid Abyaad" loading="lazy" width="225" height="225">
+          </div>
+          <h3 class="team-card__name"><a href="rafid-abyaad.html">Rafid Abyaad</a></h3>
+          <p class="team-card__role">Researcher</p>
+          <p class="team-card__focus">Movement Primitives &amp; Dynamic Manipulation</p>
+          <div class="team-card__links">
+            <a href="mailto:Rafid.Abyaad@bht-berlin.de">Email</a>
+            <a href="https://orcid.org/0000-0002-8478-592X" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <img src="thumbs/hannes-hoeppner.jpg" alt="Prof. Dr.-Ing. Hannes Höppner" loading="lazy" width="1024" height="1024">
+          </div>
+          <h3 class="team-card__name"><a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a></h3>
+          <p class="team-card__role">Lab Director</p>
+          <p class="team-card__focus">Professor for Humanoid Robotics</p>
+          <div class="team-card__links">
+            <a href="mailto:hannes.hoeppner@bht-berlin.de">Email</a>
+            <a href="https://orcid.org/0000-0003-3184-7653" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://scholar.google.de/citations?user=NywhVDsAAAAJ" target="_blank" rel="noopener">Scholar</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <div style="width:100%;height:100%;background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-light);font-size:2rem;">LJ</div>
+          </div>
+          <h3 class="team-card__name"><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></h3>
+          <p class="team-card__role">Researcher</p>
+          <p class="team-card__focus">Multiarticular VSA Robot Arm</p>
+          <div class="team-card__links">
+            <a href="mailto:Linnea.Jakob@bht-berlin.de">Email</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <img src="thumbs/st_puh.png" alt="Steffen Puhlmann" loading="lazy" width="200" height="200">
+          </div>
+          <h3 class="team-card__name"><a href="steffen-puhlmann.html">Steffen Puhlmann</a></h3>
+          <p class="team-card__role">PhD Researcher</p>
+          <p class="team-card__focus">Soft Robotic Hands, Soft Dexterous Manipulation</p>
+          <div class="team-card__links">
+            <a href="mailto:Steffen.Puhlmann@bht-berlin.de">Email</a>
+            <a href="https://orcid.org/0000-0002-3821-2127" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <img src="images/ranjit-santhanaraman.1024x1024.jpg" alt="Ranjit Santhanaraman" loading="lazy" width="1024" height="1024">
+          </div>
+          <h3 class="team-card__name"><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></h3>
+          <p class="team-card__role">Researcher</p>
+          <p class="team-card__focus">Visuo-Haptic Teleoperation Station</p>
+          <div class="team-card__links">
+            <a href="mailto:Ranjit.Santhanaraman@bht-berlin.de">Email</a>
+            <a href="https://orcid.org/0009-0008-0842-4541" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <div style="width:100%;height:100%;background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-light);font-size:2rem;">FS</div>
+          </div>
+          <h3 class="team-card__name"><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></h3>
+          <p class="team-card__role">Researcher</p>
+          <p class="team-card__focus">Soft Robotic Hands, Teleoperation</p>
+          <div class="team-card__links">
+            <a href="mailto:Felix.Schlueter@bht-berlin.de">Email</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <div style="width:100%;height:100%;background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-light);font-size:2rem;">AS</div>
+          </div>
+          <h3 class="team-card__name"><a href="adrian-sieler.html">Adrian Sieler</a></h3>
+          <p class="team-card__role">Researcher</p>
+          <p class="team-card__focus">Soft Robotic Hands, Instrument Reprocessing</p>
+          <div class="team-card__links">
+            <a href="mailto:Adrian.Sieler@bht-berlin.de">Email</a>
+            <a href="https://orcid.org/0009-0005-6494-7433" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image">
+            <img src="images/TIAGo.jpg" alt="TIAGo Pro" style="object-fit:cover;" loading="lazy" width="500" height="540">
+          </div>
+          <h3 class="team-card__name"><a href="tiago.html">TIAGo Pro</a></h3>
+          <p class="team-card__role">Lab Resident</p>
+          <p class="team-card__focus">Member since 06/2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Video Feature: Haus der Robotik ===== -->
+  <section class="video-feature video-feature--full" id="video-feature" data-dark-section>
+    <div class="video-feature__bg">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-tiago-cutting-rope.jpg">
+        <source data-src="images/tiago-cutting-rope.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-feature__overlay"></div>
+    <div class="video-feature__content">
+      <span class="video-feature__label">Haus der Robotik</span>
+      <h2 class="video-feature__title">Opening the Haus der Robotik</h2>
+      <p class="video-feature__text">TIAGo Pro cutting the ribbon at the opening of BHT&rsquo;s <em lang="de">Haus der Robotik</em> in July 2025.</p>
+      <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener" class="video-feature__cta">
+        Learn more
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Haus der Robotik ===== -->
+  <!-- Abschliessende Verortung. KEINE Personennamen der anderen Labore (Regel seit 14. Juli),
+       und dies ist weiterhin die SIRo-Lab-Seite, keine Seite ueber das Haus. -->
+  <section class="section section--alt" id="house">
+    <div class="container">
+      <span class="section__label reveal">Where we are</span>
+      <h2 class="section__title reveal">Second floor, where the hands are</h2>
+      <div class="house__grid">
+        <div class="house__text reveal">
+          <p>The SIRo Lab is one of three research laboratories in BHT&rsquo;s <em lang="de">Haus der Robotik</em> on Kurf&uuml;rstenstra&szlig;e, which opened in July 2025. The building is laid out roughly like the robots inside it: walking and the workshop on the ground floor, manipulation in the middle, cognition at the top. We are on the second floor, which is where the hands are, and that is not a coincidence.</p>
+          <p>The other two floors are occupied by the <a href="http://www.neurorobotik.de/index_en.php" target="_blank" rel="noopener">Neurorobotics Research Laboratory</a>, which works on morphologies and distributed neural control for autonomous behaviour, and the <a href="https://www.biorobotiklabor.de/" target="_blank" rel="noopener">Compliant Robotics Laboratory</a>, which works on inherent compliance through pneumatic and artificial muscles, and on walking. Between the three floors the house covers neurorobotics and cognition, compliant locomotion, and soft dexterous manipulation, teleoperation and physical human-robot interaction.</p>
+          <p>What that is worth in practice is equipment none of the three could justify alone: humanoid and mobile platforms including <a href="tiago.html">TIAGo Pro</a> and a bipedal Digit, collaborative manipulators, our own <a href="vhis.html">visuo-haptic interfaces</a>, and a workshop with laser cutting, milling and several printing processes on the ground floor. A hand designed upstairs in the morning can be printed downstairs in the afternoon.</p>
+        </div>
+        <figure class="house__figure reveal reveal-delay-1">
+          <img src="images/haus-der-robotik.jpg" alt="Facade of the Haus der Robotik on Kurfuerstenstrasse, a 1914 building with ten columns" loading="lazy" width="1600" height="1056">
+          <figcaption><em lang="de">Haus der Robotik</em>, Kurf&uuml;rstenstra&szlig;e 141, Berlin. Three laboratories, one building, one workshop.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact / Footer ===== -->
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="images/logo-full-white.png" alt="SIRo Lab" class="footer__logo-img" loading="lazy" width="4900" height="747">
+          </div>
+          <p class="footer__desc">Soft Interactive Robotics Laboratory at Berliner Hochschule f&uuml;r Technik. Compliant hands, teleoperation, physical interaction, part of the Haus der Robotik.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer__links">
+            <li><a href="mailto:hannes.hoeppner@bht-berlin.de">hannes.hoeppner@bht-berlin.de</a></li>
+            <li><a href="tel:+493045042357">+49 (0)30 4504-2357</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <ul class="footer__links">
+            <li><strong>Lab</strong>, <em lang="de">Haus der Robotik</em></li>
+            <li>Kurf&uuml;rstenstra&szlig;e 141</li>
+            <li>10785 Berlin, Germany</li>
+            <li style="margin-top:0.5rem;"><strong>Post</strong>, Berliner Hochschule f&uuml;r Technik</li>
+            <li>Luxemburger Str. 10</li>
+            <li>13353 Berlin, Germany</li>
+          </ul>
+          <h3 style="margin-top: var(--space-md);">Links</h3>
+          <ul class="footer__links">
+            <li><a href="https://www.bht-berlin.de" target="_blank" rel="noopener">BHT Berlin</a></li>
+            <li><a href="https://scholar.google.de/citations?user=NywhVDsAAAAJ" target="_blank" rel="noopener">Google Scholar (H. H&ouml;ppner)</a></li>
+            <li><a href="https://www.researchgate.net/profile/Hannes-Hoeppner" target="_blank" rel="noopener">ResearchGate (H. H&ouml;ppner)</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="https://www.bht-berlin.de/people/detail/2024" target="_blank" rel="noopener">Prof. Dr.-Ing. Hannes H&ouml;ppner</a> &middot; SIRo Lab is part of the <em lang="de">Haus der Robotik</em></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Nav: scroll state + dark section detection
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+
+    function updateNav() {
+      const scrollY = window.scrollY;
+
+      // Solid bg after scrolling
+      if (scrollY > 60) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+
+      // Check if nav overlaps a dark section
+      if (!nav.classList.contains('is-scrolled')) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) {
+            overDark = true;
+          }
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Hero watermark parallax
+    const watermark = document.querySelector('.hero__watermark');
+    if (watermark && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+        const progress = Math.min(scrollY / heroHeight, 1);
+        watermark.style.transform = `translate(-50%, -50%) scale(${1 + progress * 0.3})`;
+        watermark.style.opacity = 0.035 * (1 - progress * 0.8);
+      }, { passive: true });
+    }
+
+    // Scroll-based reveal animations
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal-stagger, .fade-in').forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navAnchors = document.querySelectorAll('.nav__links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      navAnchors.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+          a.classList.add('active');
+        }
+      });
+    }, { passive: true });
+    // Lazy-load videos: only fetch + play when scrolled into view.
+    // Seit 18. September (Review F12): kein Autoplay bei reduzierter Bewegung, und jedes
+    // automatisch laufende Video bekommt einen Schalter (WCAG 2.2.2 Pause, Stop, Hide).
+    // Runde 2, N3: Schalter am eigenen Abschnitt verankern und beim Fortsetzen nur
+    // sichtbare Videos starten, nicht alle der Seite.
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let motionPaused = reduceMotion;
+
+    const loadVideo = (v) => {
+      if (v.dataset.loaded) return;
+      v.querySelectorAll('source[data-src]').forEach(s => { s.src = s.dataset.src; });
+      v.load(); v.dataset.loaded = '1';
+    };
+
+    const syncToggles = () => {
+      document.querySelectorAll('.motion-toggle').forEach(b => {
+        b.textContent = motionPaused ? 'Play background video' : 'Pause background video';
+        b.setAttribute('aria-pressed', motionPaused ? 'true' : 'false');
+      });
+    };
+
+    // Ein Schalter je Abschnitt mit automatisch laufendem Hintergrundvideo
+    lazyVideos.forEach(v => {
+      if (v.hasAttribute('controls')) return;
+      const host = v.closest('section') || v.parentElement;
+      if (!host || host.querySelector('.motion-toggle')) return;
+      // Der Schalter ist absolut positioniert und braucht einen positionierten Vorfahren,
+      // sonst landet er am Seitenanfang statt in seinem Abschnitt.
+      host.classList.add('has-motion-toggle');
+      const btn = document.createElement('button');
+      btn.className = 'motion-toggle';
+      btn.type = 'button';
+      btn.addEventListener('click', () => {
+        motionPaused = !motionPaused;
+        syncToggles();
+        lazyVideos.forEach(x => {
+          if (x.hasAttribute('controls')) return;
+          if (motionPaused) { x.pause(); return; }
+          if (x.dataset.visible === '1') { loadVideo(x); x.play().catch(() => {}); }
+        });
+      });
+      host.appendChild(btn);
+    });
+    syncToggles();
+
+    if ('IntersectionObserver' in window) {
+      const vObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const v = e.target;
+          v.dataset.visible = e.isIntersecting ? '1' : '0';
+          if (e.isIntersecting) {
+            if (motionPaused && !v.hasAttribute('controls')) return;
+            loadVideo(v);
+            v.play().catch(() => {});
+          } else { v.pause(); }
+        });
+      }, { threshold: 0.25 });
+      lazyVideos.forEach(v => vObs.observe(v));
+    } else {
+      lazyVideos.forEach(v => { v.dataset.visible = '1'; loadVideo(v); if (!motionPaused) { v.play().catch(()=>{}); } });
+    }
+  </script>
+</body>
+</html>

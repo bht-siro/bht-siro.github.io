@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Project &middot; Soft Robotic Hands &middot; SIRo Lab</title>
+  <meta name="description" content="Teaching project in BHT's Humanoid Robotics bachelor programme, students design, build, and test soft robotic hands in real-world challenges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Robotics Project, SIRo Lab">
+  <meta property="og:description" content="A hands-on course where bachelor students design, build, and test soft robotic hands, then prove them in real-world challenges.">
+  <meta property="og:image" content="images/poster-arm-challenge-2023.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Robotics Project, SIRo Lab">
+  <meta name="twitter:description" content="Students build soft robotic hands and prove them in real-world challenges.">
+  <meta name="twitter:image" content="images/poster-arm-challenge-2023.jpg">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.5); font-size: var(--fs-md); max-width: 640px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section h3 { font-size: var(--fs-lg); margin: var(--space-xl) 0 var(--space-sm); color: var(--color-accent); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .content-section ul { margin: var(--space-md) 0 var(--space-lg) var(--space-md); max-width: var(--measure); }
+    .content-section li { margin-bottom: 0.6rem; }
+
+    /* Video embed */
+    .video-wrapper { position: relative; width: 100%; max-width: 800px; margin: var(--space-lg) 0; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: #000; }
+    .video-wrapper video { width: 100%; display: block; }
+    .video-wrapper__caption { padding: var(--space-sm) var(--space-md); background: var(--color-bg-dark); color: rgba(255,255,255,0.7); font-size: var(--fs-sm); }
+    .video-wrapper__caption strong { color: var(--color-white); }
+
+    /* Challenge cards */
+    .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0; }
+    .challenge-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden; }
+    .challenge-card__header { background: var(--color-bg-dark); color: var(--color-white); padding: var(--space-md); }
+    .challenge-card__year { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-accent-light); font-weight: 600; }
+    .challenge-card__title { font-size: var(--fs-lg); font-weight: 700; margin-top: 0.2rem; }
+    .challenge-card__body { padding: var(--space-md); }
+    .challenge-card__body p { margin-bottom: var(--space-xs); font-size: var(--fs-sm); }
+
+    .task-list { list-style: none; margin: var(--space-sm) 0; padding: 0; }
+    .task-list li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); font-size: var(--fs-sm); }
+    .task-list li:last-child { border-bottom: none; }
+    .task-list__icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--color-accent-subtle); color: var(--color-accent); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; margin-top: 0.1rem; }
+
+    .inspiration-box { background: var(--color-accent-subtle); border-left: 3px solid var(--color-accent); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: var(--space-md); margin: var(--space-lg) 0; max-width: 780px; }
+    .result-label { font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent); margin-top: var(--space-md); margin-bottom: 0.4rem; }
+    .inspiration-box h3 { font-size: var(--fs-sm); font-weight: 700; color: var(--color-accent); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .inspiration-box p { font-size: var(--fs-sm); margin-bottom: 0; }
+
+    @media (max-width: 768px) { .challenge-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#teaching" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to teaching
+      </a>
+      <span class="section__label">Teaching &middot; B.Sc. <span lang="de">Humanoide Robotik</span> (HROB)</span>
+      <h1>Robotics Project: Soft Robotic Hands</h1>
+      <p>A hands-on project course where bachelor students design, build, and test soft robotic hands, then prove them in real-world challenges against concrete manipulation tasks.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>From Lecture Hall to Lab</h2>
+      <p>Within BHT&rsquo;s bachelor programme in Humanoid Robotics (<span lang="de">Humanoide Robotik</span>, HROB), the Robotics Project module offers students the opportunity to apply theoretical knowledge in mechanical design, actuation, and control to a tangible engineering challenge: building a functional soft robotic hand from scratch.</p>
+      <p>Working in small teams over the course of a semester, students go through the full design cycle: conceptual sketching, CAD modelling, 3D printing and assembly, tendon routing and actuation integration, and finally testing under realistic task conditions. The project is directly embedded in the SIRo Lab&rsquo;s research on variable-stiffness hands, giving students access to current research hardware, methods and supervision.</p>
+      <p>The course covers mechanical design and robot construction, robotics fundamentals, and human-robot interaction, all framed around the practical challenge of making a hand that works.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>The Challenges</h2>
+      <p>Each year, the project culminates in a competitive challenge where student teams put their soft robotic hands to the test. The challenges are designed to evaluate grasping, manipulation, and task execution under real-world constraints.</p>
+
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <div class="challenge-card__header">
+            <div class="challenge-card__year">2023</div>
+            <div class="challenge-card__title">ARM Challenge</div>
+          </div>
+          <div class="challenge-card__body">
+            <p>For the first challenge the tasks were taken directly from the <a href="https://cybathlon.com/en/event/disciplines/arm" target="_blank" rel="noopener">Cybathlon Arm Prosthesis Race</a> and run with student teams. Where Cybathlon pilots compete with powered prostheses, our students competed with hands they had designed and built themselves, on the same everyday manipulation tasks.</p>
+            <ul class="task-list">
+              <li><span class="task-list__icon">1</span> <span>Grasping and lifting objects of various sizes and weights</span></li>
+              <li><span class="task-list__icon">2</span> <span>Manipulating compliant objects (clothing, soft containers)</span></li>
+              <li><span class="task-list__icon">3</span> <span>Bimanual coordination tasks (e.g., zipping, hanging)</span></li>
+              <li><span class="task-list__icon">4</span> <span>Timed completion: task success as primary metric, speed as secondary</span></li>
+            </ul>
+
+            <div class="inspiration-box">
+              <h3>Where the tasks come from</h3>
+              <p>The <a href="https://cybathlon.com/" target="_blank" rel="noopener">Cybathlon</a>, organised by ETH Zurich, is a global competition for assistive technology, including powered arm prostheses. Using its task catalogue unchanged gave the student teams an external, established benchmark instead of one we had written ourselves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-card__header">
+            <div class="challenge-card__year">2024</div>
+            <div class="challenge-card__title">Catch-Up Challenge</div>
+          </div>
+          <div class="challenge-card__body">
+            <p>The second challenge moved into the BHT greenhouse and added the constraint that turned it into a teleoperation problem in miniature. Each team had to build two things: a soft hand, and a controller small enough to be held in one hand. The hand was then operated single-handedly through that controller, on living tomato plants.</p>
+            <p>That is the same question the lab works on at full scale, where a <a href="tiago.html">TIAGo Pro</a> with <a href="softhand.html">SIRo Soft Hands</a> is commanded through the <a href="vhis.html">Visuo-Haptic Input Station</a>. The students met it with a device they could build in a semester.</p>
+            <ul class="task-list">
+              <li><span class="task-list__icon">1</span> <span><strong>Ausgeizen</strong> (de-suckering): removing lateral shoots from tomato plants to direct growth</span></li>
+              <li><span class="task-list__icon">2</span> <span><strong>Entblatten</strong> (defoliation): strategic leaf removal to improve light and airflow</span></li>
+              <li><span class="task-list__icon">3</span> <span><strong>Einzelfruchternte</strong> (single fruit harvest): picking individual ripe tomatoes without damage</span></li>
+              <li><span class="task-list__icon">4</span> <span><strong><span lang="de">Rispenernte</span> mit Schere</strong> (cluster harvest): harvesting entire fruit clusters by cutting the stem with scissors</span></li>
+            </ul>
+            <p style="margin-top: var(--space-sm); color: var(--color-text-light);">These tasks are representative of real challenges in horticultural automation, where soft compliance is essential to avoid crop damage. The name is a play on ketchup, given what the tomatoes usually end up as, and on catching up with what a human hand does among the plants.</p>
+            <p class="result-label">What came out of it</p>
+            <ul class="task-list">
+              <li><span class="task-list__icon">&#10003;</span> <span><strong>Picking single fruits worked.</strong> The compliant hands managed it without damaging the tomatoes.</span></li>
+              <li><span class="task-list__icon">!</span> <span><strong>De-suckering and defoliating did not go well.</strong> The plants were damaged in the process.</span></li>
+              <li><span class="task-list__icon">&times;</span> <span><strong>Cutting clusters failed.</strong> The hands could not close the scissors: not enough grip force.</span></li>
+              <li><span class="task-list__icon">&times;</span> <span><strong>A second attempt in a later semester failed the same way</strong>, with hands designed specifically for the scissors. Grip force, not compliance, is where the limit sits.</span></li>
+            </ul>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-light);">That last line is the reason the challenges are worth running. A negative result on real plants tells the lab something a simulation would not have.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Challenge Videos</h2>
+      <p>Watch the student teams in action, designing, building, and competing with their soft robotic hands.</p>
+
+      <div class="video-wrapper">
+        <video controls preload="none" poster="images/poster-arm-challenge-2023.jpg">
+          <source src="images/arm-challenge-2023.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+        <div class="video-wrapper__caption">
+          <strong>ARM Challenge 2023</strong>. Student teams test their soft robotic hands on the task catalogue of the Cybathlon Arm Prosthesis Race, taken over unchanged.
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls preload="none" poster="images/poster-catch-up-challenge-2024.jpg">
+          <source src="images/catch-up-challenge-2024.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+        <div class="video-wrapper__caption">
+          <strong>Catch-Up Challenge 2024</strong>. Soft robotic hands applied to greenhouse tasks: de-suckering, defoliation, fruit harvesting, and cluster cutting.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Learning Outcomes</h2>
+      <p>Through the Robotics Project, students develop competencies across the full engineering spectrum:</p>
+      <ul>
+        <li><strong>Mechanical design</strong>: CAD, 3D printing, material selection, tendon routing, compliant mechanism design</li>
+        <li><strong>Actuation &amp; control</strong>: servo integration, variable-stiffness mechanisms, sensor feedback</li>
+        <li><strong>Experimental methods</strong>: task design, performance measurement, iterative improvement</li>
+        <li><strong>Teamwork &amp; communication</strong>: collaborative engineering, presentation of results, competitive deadline pressure</li>
+        <li><strong>Research connection</strong>: direct exposure to active research problems in soft robotics and manipulation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Context</h2>
+      <p>The Robotics Project is taught as part of the <strong>B.Sc. Humanoide Robotik</strong> at Berliner Hochschule f&uuml;r Technik. The programme, one of the few bachelor&rsquo;s degrees in Germany dedicated to humanoid robotics, combines mechanical engineering, electronics, computer science, and human-robot interaction in a practice-oriented curriculum.</p>
+      <p>Prof. Dr.-Ing. Hannes H&ouml;ppner leads the SIRo Lab and teaches courses in mechanical design, robot construction, and human-robot interaction within the programme. The lab is located at BHT&rsquo;s <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener">Haus der Robotik</a>.</p>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>

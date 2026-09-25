@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications &amp; Patents &middot; SIRo Lab</title>
+  <meta name="description" content="Publications and patents from the Soft Interactive Robotics Laboratory at Berliner Hochschule für Technik.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Publications &amp; Patents, SIRo Lab">
+  <meta property="og:description" content="Publications and patents from SIRo Lab members and collaborators at Berliner Hochschule f&uuml;r Technik.">
+  <meta property="og:image" content="images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Publications &amp; Patents, SIRo Lab">
+  <meta name="twitter:description" content="Publications and patents from the Soft Interactive Robotics Laboratory.">
+  <meta name="twitter:image" content="images/siro_landing.jpeg">
+  <style>
+    /* --- Publications page specific --- */
+    .pub-hero {
+      background: var(--color-bg-dark);
+      padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl);
+      color: var(--color-white);
+    }
+    .pub-hero h1 {
+      color: var(--color-white);
+      font-size: var(--fs-2xl);
+      margin-bottom: var(--space-xs);
+    }
+    .pub-hero p {
+      color: rgba(255,255,255,0.5);
+      font-size: var(--fs-md);
+      max-width: 600px;
+    }
+    .pub-hero .section__label {
+      color: var(--color-accent-light);
+    }
+    .pub-nav {
+      position: sticky;
+      top: 100px; /* Hoehe von .nav__inner, sonst 28px Ueberdeckung (Review F13) */
+      z-index: 100;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-sm) 0;
+      overflow-x: auto;
+    }
+    .pub-nav__inner {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+    .pub-nav a {
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--color-text-light);
+      white-space: nowrap;
+      padding: 0.4rem 0.8rem;
+      border-radius: 100px;
+      transition: all var(--transition);
+    }
+    .pub-nav a:hover,
+    .pub-nav a.active {
+      color: var(--color-accent);
+      background: var(--color-accent-subtle);
+    }
+    .pub-section {
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .pub-section:last-child {
+      border-bottom: none;
+    }
+    .pub-year {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--color-heading);
+      margin-bottom: var(--space-lg);
+    }
+    .pub-group {
+      font-size: var(--fs-md);
+      font-weight: 600;
+      color: var(--color-accent-dark);
+      margin: var(--space-lg) 0 var(--space-sm);
+      padding-top: var(--space-xs);
+      scroll-margin-top: 150px;
+    }
+    .pub-group:first-of-type {
+      margin-top: var(--space-md);
+    }
+    .pub-entry {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .pub-entry:last-child {
+      border-bottom: none;
+    }
+    .pub-type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--border-radius);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .pub-type--journal {
+      background: var(--color-accent-subtle);
+      color: var(--color-accent);
+    }
+    .pub-type--conference {
+      background: rgba(99, 102, 241, 0.08);
+      color: #6366f1;
+    }
+    .pub-type--patent {
+      background: rgba(234, 88, 12, 0.08);
+      color: #ea580c;
+    }
+    .pub-type--chapter {
+      background: rgba(22, 163, 74, 0.08);
+      color: #16a34a;
+    }
+    .pub-type--thesis {
+      background: rgba(168, 85, 247, 0.08);
+      color: #a855f7;
+    }
+    .pub-title {
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--color-heading);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+    .pub-title a {
+      color: var(--color-heading);
+    }
+    .pub-title a:hover {
+      color: var(--color-accent);
+    }
+    .pub-authors {
+      font-size: var(--fs-sm);
+      color: var(--color-text-light);
+      margin-bottom: 0.2rem;
+    }
+    .pub-authors strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .pub-orcid {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.55);
+      margin-top: var(--space-sm);
+      max-width: 640px;
+    }
+    .pub-orcid a { color: var(--color-accent-light); }
+    .pub-affil {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: var(--fs-sm);
+      font-style: italic;
+      color: var(--color-text-light);
+      opacity: 0.85;
+    }
+    .pub-venue {
+      font-size: var(--fs-sm);
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+    .pub-links {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      color: var(--color-text-light);
+      transition: all var(--transition);
+    }
+    .pub-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    .pub-abstract {
+      margin-top: 0.5rem;
+      font-size: var(--fs-sm);
+      color: var(--color-text-light);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .pub-abstract.is-open {
+      max-height: 500px;
+    }
+    .pub-abstract-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      color: var(--color-accent);
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      transition: all var(--transition);
+    }
+    .pub-abstract-toggle:hover {
+      border-color: var(--color-accent);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-md);
+      transition: color var(--transition);
+    }
+    .back-link:hover {
+      color: var(--color-white);
+    }
+    @media (max-width: 768px) {
+      .pub-entry {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+      .pub-type {
+        width: auto;
+        height: auto;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="pub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to homepage
+      </a>
+      <span class="section__label">Publications &amp; Patents</span>
+      <h1>Research output</h1>
+      <p>This page is in two parts. The first gathers the work produced at the SIRo Lab; the second gathers what lab members carried out earlier, at other institutions. Entries are placed by where the work was done rather than by the year in which they appeared, and lab members are shown in bold. Each person&rsquo;s own list is on their profile page.</p>
+      <p class="pub-orcid">ORCID: <a href="https://orcid.org/0000-0003-3184-7653" target="_blank" rel="noopener">H. H&ouml;ppner</a> &middot; <a href="https://orcid.org/0000-0002-3821-2127" target="_blank" rel="noopener">S. Puhlmann</a> &middot; <a href="https://orcid.org/0009-0005-6494-7433" target="_blank" rel="noopener">A. Sieler</a> &middot; <a href="https://orcid.org/0009-0008-0842-4541" target="_blank" rel="noopener">R. Santhanaraman</a> &middot; <a href="https://orcid.org/0000-0002-8478-592X" target="_blank" rel="noopener">R. Abyaad</a></p>
+    </div>
+  </section>
+
+  <!-- ===== Section Nav ===== -->
+  <div class="pub-nav">
+    <div class="pub-nav__inner">
+      <a href="#lab-work" class="active">Work of the SIRo Lab</a>
+      <a href="#earlier-dlr">Earlier &middot; DLR</a>
+      <a href="#earlier-tuberlin">Earlier &middot; TU Berlin</a>
+      <a href="#earlier-tum">Earlier &middot; TU Munich</a>
+    </div>
+  </div>
+
+  <!-- ===== Content ===== -->
+  <main class="container" id="main">
+
+    <!-- ============ PART 1: WORK OF THE SIRo LAB ============ -->
+    <section class="pub-section" id="lab-work">
+      <h2 class="pub-year">Work of the SIRo Lab</h2>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">PP</span>
+        <div>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2607.14177" target="_blank" rel="noopener">Adaptive Control of Motor-Position-Controlled Flexible Joint Robots with Uncertain Joint Stiffness</a></div>
+          <div class="pub-authors">A. Kirner, G. Zambella, I. Kovacevic, <strong>H. H&ouml;ppner</strong>, J.-H. Ryu, C. Ott</div>
+          <div class="pub-venue">arXiv preprint arXiv:2607.14177, 2026</div>
+          <span class="pub-mark">Contribution &middot; TU Wien</span>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/abs/2607.14177" target="_blank" rel="noopener">arXiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102024129066A1/de" target="_blank" rel="noopener">Passiv deformierbare Materialkomponente zur Positionierung an einem Endeffektor</a></div>
+          <div class="pub-authors"><strong>S. Puhlmann</strong>, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">DE102024129066A1. Filed 2024, published 2026. Assignee: Berliner Hochschule f&uuml;r Technik</div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10918808/" target="_blank" rel="noopener">Variable Stiffness Actuation via 3D-Printed Nonlinear Torsional Springs</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, A. Kirner, J. G&ouml;ttlich, <strong>L. Jakob</strong>, A. Dietrich, C. Ott</div>
+          <div class="pub-venue">IEEE Robotics and Automation Letters (RA-L), vol. 10, no. 5, pp. 4324&ndash;4331, 2025</div>
+          <span class="pub-mark">SIRo + DLR + TU Wien</span>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10918808/" target="_blank" rel="noopener">IEEE Xplore</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Design, implementation, and validation of a novel antagonistic Variable Stiffness Actuator using 3D-printed progressive nonlinear torsional springs. The approach enables precise stiffness control through mechanical design rather than complex control strategies, demonstrating how additive manufacturing can be leveraged for rapid prototyping of compliant actuators.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://doi.org/10.1109/ICRA55743.2025.11127353" target="_blank" rel="noopener">VSB: Variable Stiffness Based on Bowden Cables: A Simple Mechanism for Soft Robotic Hands</a></div>
+          <div class="pub-authors"><strong>S. Puhlmann</strong>, A. Albu-Sch&auml;ffer, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 5556&ndash;5562, 2025</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1109/ICRA55743.2025.11127353" target="_blank" rel="noopener">DOI</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">A novel variable stiffness mechanism using Bowden cables for soft robotic hand applications. The mechanism provides a simple, lightweight approach to achieving controllable compliance in robotic fingers, enabling safer and more adaptive grasping.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title">Spatial Configuration of Dual-Arm Visuo-Haptic Input Station: Improving Interaction and Usability</div>
+          <div class="pub-authors"><strong>R. Santhanaraman</strong>, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">IEEE-RAS 24th International Conference on Humanoid Robots (Humanoids), pp. 752&ndash;759, 2025<span class="pub-affil">Not yet indexed with a DOI at the time of writing.</span></div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">UR</span>
+        <div>
+          <div class="pub-title">Throwing beyond Tracking: Velocity-Aware Via-Point Movement Primitives for Release-State Conditioning</div>
+          <div class="pub-authors"><strong>R. Abyaad</strong>, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">Under review, 2025<span class="pub-affil">Under review, no public version available yet.</span></div>
+          <div class="pub-links">
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">In dynamic tasks such as throwing, the outcome is determined by the state at the moment of release (position and velocity together) rather than by tracking a full trajectory. This work introduces Velocity-Aware Via-Point Movement Primitives (V2MP), which condition on both position and velocity in an augmented state space, demonstrated on the TIAGo Pro platform.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://doi.org/10.1109/iros58592.2024.10801459" target="_blank" rel="noopener">Programming Passive Fingertip Deformation for Improved Grasping and Manipulation</a></div>
+          <div class="pub-authors"><strong>S. Puhlmann</strong>, L.-C. Weber, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 9175&ndash;9181, Abu Dhabi, 2024</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1109/iros58592.2024.10801459" target="_blank" rel="noopener">DOI</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Improving dexterous grasping and manipulation through controlled passive fingertip deformation. Programming the mechanical properties of soft fingertips significantly improves grasping success rates without additional sensing or control complexity.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ PART 2: EARLIER WORK, CARRIED OUT ELSEWHERE ============ -->
+    <section class="pub-section" id="earlier-work">
+      <h2 class="pub-year">Earlier work of lab members, carried out elsewhere</h2>
+
+      <h3 class="pub-group" id="earlier-dlr">German Aerospace Center (DLR)</h3>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://doi.org/10.1109/MRA.2025.3599706" target="_blank" rel="noopener">neoDavid: A Humanoid Robot With Variable-Stiffness Actuation and Dexterous Manipulation Skills</a></div>
+          <div class="pub-authors">S. Wolf, T. Bahls, B. Deutschmann, A. Dietrich, M. Harder, <strong>H. H&ouml;ppner</strong>, C. Hofmann, A. Huezo Martin, M. Keppler, L. Kl&uuml;pfel et al.</div>
+          <div class="pub-venue">IEEE Robotics &amp; Automation Magazine, 2025<span class="pub-affil">H. H&ouml;ppner contributed during his time there, through explanatory figures and text; the article appeared after he had left.</span></div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1109/MRA.2025.3599706" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://doi.org/10.1152/jn.00212.2024" target="_blank" rel="noopener">Human Short-Latency Reflexes Show Precise Short-Term Gain Adaptation After Prior Motion</a></div>
+          <div class="pub-authors">P. Stratmann, A. Schmidt, <strong>H. H&ouml;ppner</strong>, P. van der Smagt, T. Meindl</div>
+          <div class="pub-venue">Journal of Neurophysiology, vol. 132, no. 6, pp. 1680&ndash;1692, 2024</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1152/jn.00212.2024" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9779469/" target="_blank" rel="noopener">Simultaneous Motion Tracking and Joint Stiffness Control of Bidirectional Antagonistic Variable-Stiffness Actuators</a></div>
+          <div class="pub-authors">M. Harder, M. Keppler, X. Meng, C. Ott, <strong>H. H&ouml;ppner</strong>, A. Dietrich</div>
+          <div class="pub-venue">IEEE Robotics and Automation Letters (RA-L), vol. 7, no. 3, pp. 6614&ndash;6621, 2022<span class="pub-affil">H. H&ouml;ppner developed the BAVS actuators used in these experiments while at DLR; the experiments continued there after he had left.</span></div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1109/LRA.2022.3175365" target="_blank" rel="noopener">DOI</a>
+            <a class="pub-link" href="https://elib.dlr.de/188136/2/2022_simultaneous_motion_tracking_and_joint_stiffness_control__preprint.pdf" target="_blank" rel="noopener">Preprint</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">A control scheme for bidirectional, antagonistic variable-stiffness actuators achieving high-precision link-side trajectory tracking while simultaneously ensuring compliance during physical contact. Received IEEE RA-L Honorable Mention 2022.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9341156" target="_blank" rel="noopener">EDAN: An EMG-Controlled Daily Assistant to Help People with Physical Disabilities</a></div>
+          <div class="pub-authors">J. Vogel, A. Hagengruber, M. Iskandar, G. Quere, U. Leipscher, S. Bustamante, A. Dietrich, <strong>H. H&ouml;ppner</strong>, D. Leidner, P. Schmaus, A. Albu-Sch&auml;ffer</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2020</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/9341156" target="_blank" rel="noopener">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2018.00070/full" target="_blank" rel="noopener">Human-Robotic Variable-Stiffness Grasps of Small-Fruit Containers Are Successful Even Under Severely Impaired Sensory Feedback</a></div>
+          <div class="pub-authors">M. Haas, W. Friedl, G. Stillfried, <strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">Frontiers in Neurorobotics, vol. 12, art. 70, 2018</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.3389/fnbot.2018.00070" target="_blank" rel="noopener">DOI</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Variable-stiffness actuators appear promising for grasping applications because they can adapt to object shape, withstand collisions, and resist applied weight, properties that remain effective even in the absence of high-quality sensory feedback.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2018.00013/full" target="_blank" rel="noopener">Human&rsquo;s Capability to Discriminate Spatial Forces at the Big Toe</a></div>
+          <div class="pub-authors">A. Hagengruber, <strong>H. H&ouml;ppner</strong>, J. Vogel</div>
+          <div class="pub-venue">Frontiers in Neurorobotics, vol. 12, art. 13, 2018</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.3389/fnbot.2018.00013" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102017108618A1/de" target="_blank" rel="noopener">Verfahren zum Bet&auml;tigen eines Roboters</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, R. Weitschat</div>
+          <div class="pub-venue">DE102017108618A1/B4. Filed 2017, Published 2018. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102017108618A1/de" target="_blank" rel="noopener">Google Patents</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2017.00017/full" target="_blank" rel="noopener">Key Insights into Hand Biomechanics: Human Grip Stiffness Can Be Decoupled from Force by Cocontraction and Predicted from Electromyography</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, M. Gro&szlig;e-Dunker, G. Stillfried, J. Bayer, P. van der Smagt</div>
+          <div class="pub-venue">Frontiers in Neurorobotics, vol. 11, art. 17, 2017</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.3389/fnbot.2017.00017" target="_blank" rel="noopener">DOI</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Human grip stiffness can be independently modulated from grip force through muscle cocontraction, and grip stiffness can be predicted from surface electromyography (sEMG) signals. Direct implications for teleimpedance control of robotic hands.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://www.researchgate.net/publication/318489661" target="_blank" rel="noopener">Hitting the Sweet Spot: Automatic Optimization of Energy Transfer during Tool-Held Hits</a></div>
+          <div class="pub-authors">J. Vogel, N. Takemura, <strong>H. H&ouml;ppner</strong>, P. van der Smagt, G. Ganesh</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 1549&ndash;1556, 2017</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://www.researchgate.net/publication/318489661" target="_blank" rel="noopener">ResearchGate</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7390226" target="_blank" rel="noopener">Variable Stiffness Actuators: Review on Design and Components</a></div>
+          <div class="pub-authors">S. Wolf, G. Grioli, O. Eiberger, W. Friedl, M. Grebenstein, <strong>H. H&ouml;ppner</strong>, E. Burdet, D. Caldwell, R. Carloni, M. Catalano, D. Lefeber, S. Stramigioli, N. Tsagarakis, M. Van Damme, R. Van Ham, B. Vanderborght, A. Albu-Sch&auml;ffer</div>
+          <div class="pub-venue">IEEE/ASME Transactions on Mechatronics, vol. 21, no. 5, pp. 2418&ndash;2430, 2016</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1109/TMECH.2015.2501019" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://elib.dlr.de/118946/" target="_blank" rel="noopener">WHISG: A Wearable Hand to Investigate Passive Stiffness in Grasping</a></div>
+          <div class="pub-authors">W. Friedl, <strong>H. H&ouml;ppner</strong>, M. A. Roa Garz&oacute;n, M. Grebenstein</div>
+          <div class="pub-venue">ICRA 2016, Workshop &ldquo;Exploiting Contact and Dynamics in Manipulation&rdquo;, 2016</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://elib.dlr.de/118946/" target="_blank" rel="noopener">DLR eLib</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Introduction of WHISG, a three-finger wearable robotic hand using variable stiffness actuation. Users adjust grip stiffness via a wheel, enabling investigation of how passive stiffness influences grasping performance, bridging human biomechanics and robotic hand design.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102016201540A1/de" target="_blank" rel="noopener">Robotischer Greifer und Verfahren zum Betreiben eines solchen</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong> et al.</div>
+          <div class="pub-venue">DE102016201540A1/B4. Filed 2016. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102016201540A1/de" target="_blank" rel="noopener">Google Patents</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102016201541A1/de" target="_blank" rel="noopener">Robotischer Greifer sowie Verfahren zum Betreiben eines solchen</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, R. Weitschat</div>
+          <div class="pub-venue">DE102016201541A1/B4. Filed 2016. Also: WO2017134092A1, EP3302898A1. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102016201541A1/de" target="_blank" rel="noopener">Google Patents (DE)</a>
+            <a class="pub-link" href="https://patents.google.com/patent/WO2017134092A1/en" target="_blank" rel="noopener">WIPO</a>
+            <a class="pub-link" href="https://patents.google.com/patent/EP3302898A1/en" target="_blank" rel="noopener">EPO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102016209639A1/en" target="_blank" rel="noopener">Roboterhand</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong> et al.</div>
+          <div class="pub-venue">DE102016209639A1/B4. Filed 2016. Also: GB2551446A/B. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102016209639A1/en" target="_blank" rel="noopener">Google Patents (DE)</a>
+            <a class="pub-link" href="https://patents.google.com/patent/GB2551446A/en" target="_blank" rel="noopener">Google Patents (GB)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/EP3429807A1/en" target="_blank" rel="noopener">Schutzvorrichtung f&uuml;r einen Effektor eines Manipulators / Protective Device</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, R. Weitschat</div>
+          <div class="pub-venue">EP3429807A1/B1. Filed 2016. Also: WO2017158120A1, CN108778643A, US11498226B2, USD863388S, USD873877S. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/EP3429807A1/en" target="_blank" rel="noopener">EPO</a>
+            <a class="pub-link" href="https://patents.google.com/patent/US11498226B2/en" target="_blank" rel="noopener">USPTO</a>
+            <a class="pub-link" href="https://patents.google.com/patent/USD863388S1/en" target="_blank" rel="noopener">Design (US)</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">Protective device (airbag) for robot end-effectors. Inflatable safety module covers tools during motion to prevent injuries in human-robot collaboration; deflates when the robot stops. Developed as DLR&rsquo;s EE-Airbag, later commercialized via spin-off Cobotect GmbH.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102015202179B4/en" target="_blank" rel="noopener">Verfahren und Vorrichtung zur Bestimmung einer Handsteifigkeit</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">DE102015202179A1/B4. Filed 2015, Granted 2016. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102015202179B4/en" target="_blank" rel="noopener">Google Patents</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://elib.dlr.de/98564/" target="_blank" rel="noopener">Two-Dimensional Orthoglide Mechanism for Revealing Areflexive Human Arm Mechanical Properties</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, M. Grebenstein, P. van der Smagt</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 1178&ndash;1185, 2015</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://elib.dlr.de/98564/" target="_blank" rel="noopener">DLR eLib</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--chapter">B</span>
+        <div>
+          <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-662-44506-8_20" target="_blank" rel="noopener">Soft Robotics with Variable Stiffness Actuators: Tough Robots for Soft Human Robot Interaction</a></div>
+          <div class="pub-authors">S. Wolf, T. Bahls, M. Chalon, W. Friedl, M. Grebenstein, <strong>H. H&ouml;ppner</strong>, M. K&uuml;hne, D. Lakatos, N. Mansfeld, M. &Ouml;zparpucu, A. Albu-Sch&auml;ffer</div>
+          <div class="pub-venue">Book chapter in: Soft Robotics: Transferring Theory to Application, Springer, 2015</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1007/978-3-662-44506-8_20" target="_blank" rel="noopener">DOI</a>
+            <a class="pub-link" href="https://elib.dlr.de/101509/1/Soft%20robotics%20with%20VSA%20-%20Tough%20robots%20for%20soft%20HRI.pdf" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://elib.dlr.de/89509/1/2014_Ho%CC%88ppner.pdf" target="_blank" rel="noopener">A New Biarticular Joint Mechanism to Extend Stiffness Ranges</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, W. Wiedmeyer, P. van der Smagt</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 3403&ndash;3410, 2014</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://elib.dlr.de/89509/" target="_blank" rel="noopener">DLR eLib</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102012214094B3/de" target="_blank" rel="noopener">Roboter-Gelenksystem</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong> et al.</div>
+          <div class="pub-venue">DE102012214094B3. Filed 2012, Granted 2013. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102012214094B3/de" target="_blank" rel="noopener">Google Patents</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title">Wrist and Forearm Rotation of the DLR Hand Arm System: Mechanical Design, Shape Analysis and Experimental Validation</div>
+          <div class="pub-authors">W. Friedl, <strong>H. H&ouml;ppner</strong>, F. Petit, G. Hirzinger</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 1836&ndash;1842, 2011</div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--patent">P</span>
+        <div>
+          <div class="pub-title"><a href="https://patents.google.com/patent/DE102010014895A1/de" target="_blank" rel="noopener">Verfahren und Messsystem zur Messung der Steifigkeit von K&ouml;rperteilen</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong>, P. van der Smagt</div>
+          <div class="pub-venue">DE102010014895A1/B4. Filed 2010. Assignee: DLR</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://patents.google.com/patent/DE102010014895A1/de" target="_blank" rel="noopener">Google Patents</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="pub-group" id="earlier-tuberlin">Robotics and Biology Laboratory, TU Berlin</h3>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--journal">J</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9762106/" target="_blank" rel="noopener">RBO Hand 3: A Platform for Soft Dexterous Manipulation</a></div>
+          <div class="pub-authors"><strong>S. Puhlmann</strong>, J. Harris, O. Brock</div>
+          <div class="pub-venue">IEEE Transactions on Robotics, vol. 38, no. 6, pp. 3434&ndash;3449, 2022</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/9762106/" target="_blank" rel="noopener">IEEE Xplore</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">An anthropomorphic soft robotic hand with sixteen independent degrees of actuation, built as a robust research platform for real-world experiments in soft dexterous manipulation.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9811761/" target="_blank" rel="noopener">A Low-Cost, Easy-to-Manufacture, Flexible, Multi-Taxel Tactile Sensor and its Application to In-Hand Object Recognition</a></div>
+          <div class="pub-authors">T. J. Pannen, <strong>S. Puhlmann</strong>, O. Brock</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2022</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/9811761/" target="_blank" rel="noopener">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://roboticsproceedings.org/rss17/p089.html" target="_blank" rel="noopener">Surprisingly Robust In-Hand Manipulation: An Empirical Study</a></div>
+          <div class="pub-authors">A. Bhatt, <strong>A. Sieler</strong>, <strong>S. Puhlmann</strong>, O. Brock</div>
+          <div class="pub-venue">Robotics: Science and Systems (RSS), 2021</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://roboticsproceedings.org/rss17/p089.html" target="_blank" rel="noopener">RSS Proceedings</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">In-hand manipulation skills on a compliant anthropomorphic hand prove robust to variation in object shape, size, weight and placement, and to execution speeds from quasi-static to highly dynamic.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7759308/" target="_blank" rel="noopener">A Compact Representation of Human Single-Object Grasping</a></div>
+          <div class="pub-authors"><strong>S. Puhlmann</strong>, F. Heinemann, O. Brock, M. Maertens</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2016</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/7759308/" target="_blank" rel="noopener">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7139790/" target="_blank" rel="noopener">A Taxonomy of Human Grasping Behavior Suitable for Transfer to Robotic Hands</a></div>
+          <div class="pub-authors">F. Heinemann, <strong>S. Puhlmann</strong>, C. Eppner, J. &Aacute;lvarez-Ruiz, M. Maertens, O. Brock</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2015</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/7139790/" target="_blank" rel="noopener">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="pub-group" id="earlier-tum">Technical University of Munich and clinical partners</h3>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10610715" target="_blank" rel="noopener">Design and Implementation of a Robotic Testbench for Analyzing Pincer Grip Execution in Human Specimen Hands</a></div>
+          <div class="pub-authors">N. Wilhelm, C. Glowalla, S. Haddadin, J. Schote, <strong>H. H&ouml;ppner</strong>, P. van der Smagt, M. Karl, R. Burgkart</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 18465&ndash;18471, 2024</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10610715" target="_blank" rel="noopener">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--conference">C</span>
+        <div>
+          <div class="pub-title">Development and Application of a Robotic Testbench for the Investigation of Viscoelastic Parameters of the Human Hand</div>
+          <div class="pub-authors">N. Wilhelm, M. Karl, <strong>H. H&ouml;ppner</strong>, C. Micheler, J. Lang, F. Hinterwimmer et al.</div>
+          <div class="pub-venue">Joint Annual Conference of the Austrian, German and Swiss Societies for Biomedical Engineering (BMT), 2022</div>
+        </div>
+      </div>
+
+      <div class="pub-entry">
+        <span class="pub-type pub-type--thesis">T</span>
+        <div>
+          <div class="pub-title"><a href="https://elib.dlr.de/113086/" target="_blank" rel="noopener">Analysis of Human Intrinsic Stiffness Modulation and its Use in Variable-Stiffness Robots</a></div>
+          <div class="pub-authors"><strong>H. H&ouml;ppner</strong></div>
+          <div class="pub-venue">Doctoral Thesis, Technische Universit&auml;t M&uuml;nchen, 2016</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://elib.dlr.de/113086/" target="_blank" rel="noopener">DLR eLib</a>
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('is-open'); this.textContent = this.nextElementSibling.classList.contains('is-open') ? 'Hide abstract' : 'Abstract'">Abstract</button>
+            <div class="pub-abstract">How humans modulate intrinsic hand and arm stiffness during grasping and interaction tasks. Develops measurement approaches, biomechanical models, and design principles that directly inform variable-stiffness robotic hand design and teleimpedance control strategies.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Note -->
+    <div style="padding: var(--space-xl) 0; text-align: center; color: var(--color-text-light); font-size: var(--fs-sm);">
+      <p>For a complete publication list, see <a href="https://scholar.google.de/citations?user=NywhVDsAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> or <a href="https://www.researchgate.net/profile/Hannes-Hoeppner" target="_blank" rel="noopener">ResearchGate</a>.</p>
+    </div>
+
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movement Primitives &middot; SIRo Lab</title>
+  <meta name="description" content="Movement primitives at SIRo Lab: velocity-aware via-point movement primitives (V2MP) that teach humanoid robots time-critical skills from demonstration.">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Movement Primitives & Dynamic Manipulation">
+  <meta property="og:description" content="Velocity-aware movement primitives that teach humanoid robots time-critical skills, like throwing, from human demonstration.">
+  <meta property="og:image" content="images/poster-tiago-throwing.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Movement Primitives & Dynamic Manipulation">
+  <meta name="twitter:description" content="Velocity-aware movement primitives that teach humanoid robots time-critical skills from human demonstration.">
+  <meta name="twitter:image" content="images/poster-tiago-throwing.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); position: relative; overflow: hidden; }
+    .sub-hero__video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+    .sub-hero__video video { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+    .sub-hero .container { position: relative; z-index: 2; }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.55); font-size: var(--fs-md); max-width: 640px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section h3 { font-size: var(--fs-lg); margin: var(--space-xl) 0 var(--space-sm); color: var(--color-accent); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .content-section ul { margin: var(--space-md) 0 var(--space-lg) var(--space-md); max-width: var(--measure); }
+    .content-section li { margin-bottom: 0.6rem; }
+
+    .concept-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin: var(--space-lg) 0; }
+    .concept-cols--three { grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg); }
+    .concept-cols h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-accent); margin-bottom: var(--space-xs); }
+
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .spec-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .spec-card__label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); font-weight: 600; margin-bottom: 0.3rem; }
+    .spec-card__value { font-size: var(--fs-lg); font-weight: 700; color: var(--color-heading); }
+
+    .video-embed { margin: var(--space-lg) 0; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+    .video-embed video { display: block; width: 100%; background: #000; }
+
+    .figure { margin: var(--space-lg) 0; max-width: 880px; }
+    .figure img { display: block; width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); background: var(--color-bg); }
+    .figure figcaption, .video-caption { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: 0.6rem; max-width: 780px; line-height: 1.5; }
+    .video-caption { margin-top: -0.6rem; margin-bottom: var(--space-md); }
+    .figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-lg) 0; max-width: 880px; }
+    .figure-grid .figure { margin: 0; }
+
+    .review-tag { display: inline-block; vertical-align: middle; margin-left: 0.6rem; padding: 0.25rem 0.7rem; border: 1px solid var(--color-border); border-radius: 100px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-light); background: var(--color-bg); }
+
+    @media (max-width: 900px) { .concept-cols--three { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .concept-cols { grid-template-columns: 1fr; } .figure-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="sub-hero__video">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-tiago-throwing.jpg" aria-hidden="true">
+        <source data-src="images/tiago-throwing.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="container">
+      <a href="index.html#research" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to research
+      </a>
+      <span class="section__label">Research Question &middot; Movement Primitives</span>
+      <h1>Movement Primitives</h1>
+      <p>How does a robot learn movements from a person, and build tasks from them?</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>The release state decides the outcome</h2>
+      <p>Movement primitives are compact motion representations learned from demonstration. A human shows the robot a skill once or a handful of times; the primitive captures the statistical structure of that motion and lets the robot adapt to new start positions, new targets, and new contexts without replanning from scratch each time.</p>
+      <p>Most existing formulations condition on where the end-effector should be. That is enough for reaching and placing. It is not enough for dynamic tasks, where success is decided not by a trajectory but by a single instant: the moment of release in a throw, the moment of contact in a strike. At that instant, both position and velocity matter. A robot that gets the position right but the speed wrong will miss.</p>
+      <p>This research area asks how primitives can be extended to treat velocity as a first-class quantity, conditioned on explicitly rather than derived after the fact, and how that richer representation connects to higher-level control and human-robot collaboration.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Teaching by demonstration</h2>
+      <p>Skills are taught kinesthetically: a human physically guides the robot&rsquo;s arm through the motion, and both position and velocity are recorded throughout. This produces a distribution over what a good motion looks like, covering shape, timing, and speed together. The robot does not optimise from scratch; it learns the manifold of demonstrated behaviour and generalises within it.</p>
+      <div class="video-embed">
+        <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-mp-kinesthetic.jpg">
+          <source data-src="images/mp-kinesthetic-teaching.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="video-caption">A human guides TIAGo&rsquo;s arm through a throwing motion by hand. Position and velocity are recorded throughout, giving the robot a distribution over what a good throw looks like.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>V2MP: Velocity-Aware Via-Point Movement Primitives</h2>
+      <p>V2MP is the lab&rsquo;s current work in this area. It extends via-point movement primitives so that via-points carry a target velocity alongside a target position, with both enforced jointly through closed-form probabilistic inference in an augmented state space.</p>
+      <p>At query time, candidate release states are sampled from the learned distribution and evaluated using a ballistic projectile model. The best candidate conditions the weight distribution of the primitive, producing a posterior trajectory that reaches the required position and velocity without any iterative solver. If a target lies outside the demonstrated range, a smooth fallback trajectory is constructed analytically, preserving continuity without distorting the learned shape.</p>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-card__label">Conditioning</div>
+          <div class="spec-card__value">Position &amp; Velocity</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Via-points carry a target velocity, not just a target position</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Key quantity</div>
+          <div class="spec-card__value">Release State</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">The state at the moment of release, where the task is actually decided</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Learning</div>
+          <div class="spec-card__value">From Demonstration</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Skills are shown by a human, then generalised by the robot</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Platform</div>
+          <div class="spec-card__value">TIAGo Pro</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Demonstrated on one 7-DoF arm of our dual-arm humanoid, with the standard gripper</p>
+        </div>
+      </div>
+
+      <figure class="figure">
+        <img src="images/mp-synth-demo.png" alt="Plot comparing position-only VMP and velocity-aware V2MP conditioned on the same via-point" loading="lazy" width="768" height="487">
+        <figcaption>Position-only VMP (blue) and V2MP (red) conditioned on the same via-point position. With velocity conditioning, V2MP matches the target speed (&#8214;v&#8214; = 4.89 vs. target 4.85); position-only VMP falls 35% short (&#8214;v&#8214; = 3.16).</figcaption>
+      </figure>
+      <p>Given the same via-point position, position-only conditioning produces a release speed 35% below what the task requires. V2MP, conditioning on position and velocity together, matches the target.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Results <span class="review-tag">Paper under review</span></h2>
+      <p>Evaluated on TIAGo Pro across 105 hardware throws to 7 targets, V2MP achieves an 83.6% success rate at the dartboard radius (13 cm), the highest of all methods tested. At tighter tolerances, a geometry-driven baseline is more precise when dynamically compatible with the robot, but produces complete misses on some targets. V2MP stays within the demonstrated motion manifold and is more consistent across the full target distribution.</p>
+      <p style="font-size:var(--fs-sm);color:var(--color-text-light);">The results below are from a manuscript that is currently under review and may change with the final published version.</p>
+      <div class="video-embed">
+        <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-mp-montage.jpg">
+          <source data-src="images/mp-throwing-montage.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="video-caption">TIAGo throwing to multiple targets across the workspace. Each throw is planned from the learned distribution: a release candidate is sampled, checked against the projectile model, and used to condition the arm trajectory, with no manual tuning per target.</p>
+      <figure class="figure">
+        <img src="images/mp-dartboard-grid.png" alt="Impact error distributions for five methods shown as dartboard heatmaps" loading="lazy" width="1600" height="475">
+        <figcaption>Impact error distributions for five methods across 200 simulated throws. Each dartboard shows where throws landed relative to the target.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="images/mp-sim-vs-real.jpg" alt="Photo of TIAGo Pro with overlaid release trajectories comparing hardware and simulation" loading="lazy" width="1600" height="1109">
+        <figcaption>Cartesian release trajectories from V2MP: dotted lines are hardware, solid lines with &times; markers are matched simulation rollouts. Colours group target pairs. Arrows mark the release point. The close agreement validates the simulation evaluation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Where this is going</h2>
+      <div class="concept-cols concept-cols--three">
+        <div>
+          <h3>Language-conditioned primitives</h3>
+          <p>Rather than specifying a target numerically, a language model or vision-language model selects and parameterises the appropriate primitive from a description of the task or the scene. This would let a non-expert instruct the robot in natural language while the primitive handles the low-level motion.</p>
+        </div>
+        <div>
+          <h3>Shared autonomy</h3>
+          <p>In teleoperation, the human provides high-level intent and the primitive fills in the precise, velocity-critical details that are hard to specify manually. The goal is a clean division of labour between human judgment and learned motor skill.</p>
+        </div>
+        <div>
+          <h3>Beyond throwing</h3>
+          <p>The same release-state framing applies to catching, dynamic placing, striking, and any task where a brief event determines the outcome. Paired with the lab&rsquo;s <a href="multiarticular-arm.html">variable-stiffness arms</a> and <a href="softhand.html">compliant hands</a>, these tasks become physically tractable as well as learnable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Platform</h2>
+      <p>Experiments run on <a href="tiago.html">TIAGo Pro</a> (PAL Robotics), a mobile dual-arm humanoid; throwing experiments use one of its two 7-DoF arms. Motions are planned in Cartesian task space and converted to joint commands via inverse kinematics. Simulation uses the corresponding Gazebo model; results are validated against hardware through matched rollouts.</p>
+      <div class="figure-grid">
+        <figure class="figure">
+          <img src="images/mp-gazebo.jpg" alt="Gazebo simulation environment with the TIAGo model" loading="lazy" width="1383" height="866">
+          <figcaption>Gazebo simulation environment used for the 200-throw evaluation.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/mp-rviz.jpg" alt="RViz visualisation of TIAGo Pro during motion planning" loading="lazy" width="1102" height="895">
+          <figcaption>RViz visualisation of TIAGo Pro during motion planning, showing the robot model, joint configuration, and planned Cartesian trajectory.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Funding</h2>
+      <p>This work is part of the SIRo Lab&rsquo;s research on dynamic manipulation. It runs on the TIAGo Pro platform funded through the DFG project tele.interaction (533327659) and answers one of the lab&rsquo;s four research questions, alongside mechanical intelligence, stiffness shaping and immersive teleoperation.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Related Publications</h2>
+      <ul>
+        <li><strong>R. Abyaad, H. H&ouml;ppner</strong>: &ldquo;Throwing beyond Tracking: Velocity-Aware Via-Point Movement Primitives for Release-State Conditioning,&rdquo; <em>under review</em>, 2025.</li>
+      </ul>
+      <p style="margin-top:var(--space-md);"><a href="publications.html">View all publications &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Collaborators</h2>
+      <div class="collaborators">
+        <div class="collaborator">
+          <a href="rafid-abyaad.html">Rafid Abyaad</a>
+          <p>Extends via-point movement primitives so that a via-point carries a target velocity as well as a target position, and works on composing tasks from a library of learned skills.</p>
+        </div>
+        <div class="collaborator">
+          <a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a>
+          <p>Principal investigator.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+    // Lazy-load videos: only fetch + play when scrolled into view.
+    // Seit 18. September (Review F12): kein Autoplay bei reduzierter Bewegung, und jedes
+    // automatisch laufende Video bekommt einen Schalter (WCAG 2.2.2 Pause, Stop, Hide).
+    // Runde 2, N3: Schalter am eigenen Abschnitt verankern und beim Fortsetzen nur
+    // sichtbare Videos starten, nicht alle der Seite.
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let motionPaused = reduceMotion;
+
+    const loadVideo = (v) => {
+      if (v.dataset.loaded) return;
+      v.querySelectorAll('source[data-src]').forEach(s => { s.src = s.dataset.src; });
+      v.load(); v.dataset.loaded = '1';
+    };
+
+    const syncToggles = () => {
+      document.querySelectorAll('.motion-toggle').forEach(b => {
+        b.textContent = motionPaused ? 'Play background video' : 'Pause background video';
+        b.setAttribute('aria-pressed', motionPaused ? 'true' : 'false');
+      });
+    };
+
+    // Ein Schalter je Abschnitt mit automatisch laufendem Hintergrundvideo
+    lazyVideos.forEach(v => {
+      if (v.hasAttribute('controls')) return;
+      const host = v.closest('section') || v.parentElement;
+      if (!host || host.querySelector('.motion-toggle')) return;
+      // Der Schalter ist absolut positioniert und braucht einen positionierten Vorfahren,
+      // sonst landet er am Seitenanfang statt in seinem Abschnitt.
+      host.classList.add('has-motion-toggle');
+      const btn = document.createElement('button');
+      btn.className = 'motion-toggle';
+      btn.type = 'button';
+      btn.addEventListener('click', () => {
+        motionPaused = !motionPaused;
+        syncToggles();
+        lazyVideos.forEach(x => {
+          if (x.hasAttribute('controls')) return;
+          if (motionPaused) { x.pause(); return; }
+          if (x.dataset.visible === '1') { loadVideo(x); x.play().catch(() => {}); }
+        });
+      });
+      host.appendChild(btn);
+    });
+    syncToggles();
+
+    if ('IntersectionObserver' in window) {
+      const vObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const v = e.target;
+          v.dataset.visible = e.isIntersecting ? '1' : '0';
+          if (e.isIntersecting) {
+            if (motionPaused && !v.hasAttribute('controls')) return;
+            loadVideo(v);
+            v.play().catch(() => {});
+          } else { v.pause(); }
+        });
+      }, { threshold: 0.25 });
+      lazyVideos.forEach(v => vObs.observe(v));
+    } else {
+      lazyVideos.forEach(v => { v.dataset.visible = '1'; loadVideo(v); if (!motionPaused) { v.play().catch(()=>{}); } });
+    }
+  </script>
+</body>
+</html>

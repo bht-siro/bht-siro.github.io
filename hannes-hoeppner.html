@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. Dr.-Ing. Hannes H&ouml;ppner &middot; SIRo Lab</title>
+  <meta name="description" content="Prof. Dr.-Ing. Hannes Hoeppner, Professor for Humanoid Robotics at BHT Berlin and head of the SIRo Lab.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Hannes Hoeppner &middot; SIRo Lab">
+  <meta property="og:description" content="Compliant hands and arms, the measurement of human stiffness, and the transfer of both to robots.">
+  <meta property="og:image" content="images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hannes Hoeppner &middot; SIRo Lab">
+  <meta name="twitter:description" content="Compliant hands and arms, the measurement of human stiffness, and the transfer of both to robots.">
+  <meta name="twitter:image" content="images/siro_landing.jpeg">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="person-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#team" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to the team
+      </a>
+      <div class="person-hero__grid">
+        <div class="person-hero__photo"><img src="thumbs/hannes-hoeppner.jpg" alt="Hannes Hoeppner" loading="lazy" width="1024" height="1024"></div>
+        <div>
+          <span class="section__label">Lab Director &middot; Professor for Humanoid Robotics</span>
+          <h1>Prof. Dr.-Ing. Hannes H&ouml;ppner</h1>
+          <p>Compliant hands and arms, the measurement of human stiffness, and the transfer of both to robots.</p>
+          <p class="person-hero__contact"><a href="mailto:hannes.hoeppner@bht-berlin.de">hannes.hoeppner@bht-berlin.de</a> &middot; <a href="tel:+493045042357">+49 30 4504-2357</a> &middot; <a href="https://orcid.org/0000-0003-3184-7653" target="_blank" rel="noopener">ORCID 0000-0003-3184-7653</a> &middot; <a href="https://scholar.google.de/citations?user=NywhVDsAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot; <a href="https://www.researchgate.net/profile/Hannes-Hoeppner" target="_blank" rel="noopener">ResearchGate</a> &middot; <a href="https://www.bht-berlin.de/people/detail/2024" target="_blank" rel="noopener">BHT profile</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Profile</h2>
+      <p>Hannes H&ouml;ppner has been Professor for Humanoid Robotics at Berliner Hochschule f&uuml;r Technik since October 2019 and heads the Soft Interactive Robotics Laboratory. The lab studies compliant hands and arms, teleoperation with haptic feedback, and the acquisition of manipulation skills from human demonstration. He also runs the teaching laboratory for Humanoid Robotics at BHT.</p>
+      <p>His research interests centre on the design and application of soft robotic hands, on continuous and perturbation-based methods for measuring the intrinsic properties of the human hand and arm, on transferring those properties to robots through teleoperation, and on the design of variable stiffness actuators for arms and hands. A further strand concerns safety systems for close collaboration between people and robots.</p>
+      <p>Before BHT he led sports technology development at the Institute of Applied Training Science in Leipzig, and spent nine years as a researcher at the German Aerospace Center (DLR) in the Institute of Robotics and Mechatronics, latterly as principal investigator for the EU project soma. He received his doctorate from the Technical University of Munich in 2016.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research topics</h2>
+      <div class="topic-grid">
+        <a class="topic-card" href="softhand.html">
+          <h3>Soft Robotic Hands</h3>
+          <p>Variable stiffness and programmable fingertip compliance</p>
+        </a>
+        <a class="topic-card" href="multiarticular-arm.html">
+          <h3>Variable Stiffness Actuation</h3>
+          <p>Nonlinear springs and multiarticular couplings</p>
+        </a>
+        <a class="topic-card" href="vhis.html">
+          <h3>Teleoperation &amp; Teleimpedance</h3>
+          <p>Measuring human impedance and transferring it to robots</p>
+        </a>
+        <a class="topic-card" href="movement-primitives.html">
+          <h3>Learning from Demonstration</h3>
+          <p>Dynamic skills taught by humans</p>
+        </a>
+        <a class="topic-card" href="tiago.html">
+          <h3>TIAGo Pro</h3>
+          <p>The mobile humanoid platform of the lab</p>
+        </a>
+        <a class="topic-card" href="siro-aemp.html">
+          <h3>Applications</h3>
+          <p>Greenhouse, care, teaching and instrument reprocessing</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Current projects</h2>
+      <div class="person-project-grid">
+        <div class="person-project">
+          <span class="person-project__funder">DFG &middot; <span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW &middot; 533327659 &middot; 2024&ndash;2028</span>
+          <h3>tele.interaction</h3>
+          <p>Soft manipulation and visuo-haptic teleoperation for a humanoid across greenhouse, teaching and care.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">DFG &middot; <span lang="de">Forschungsimpulse</span> HAW &middot; 2024&ndash;2029</span>
+          <h3>APPL-FM</h3>
+          <p>Applied foundation model research; the SIRo contribution is data-efficient learning from demonstration for dexterous manipulation.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">IFAF Berlin &middot; 2026&ndash;2027</span>
+          <h3>Robo4Care</h3>
+          <p>Relieving care workers through robotic assistance for fine-motor tasks and through exoskeletons.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">Land Berlin (IBB) &middot; ProValid &middot; from 04/2026</span>
+          <h3>SIRo-AEMP</h3>
+          <p>Validation of the SIRo Soft Hand in the reprocessing of surgical instruments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Previous projects</h2>
+      <div class="person-project-grid">
+        <div class="person-project">
+          <span class="person-project__funder">EU &middot; 645599 &middot; 2015&ndash;2019</span>
+          <h3>soma (Soft Manipulation)</h3>
+          <p>Grasping and manipulation that exploit the physical constraints of the environment instead of avoiding them. Role at DLR: project lead, analysis of co-contraction in human grip biomechanics, development of soft robotic hands and their teleoperation in real-world scenarios. Coordinated by TU Berlin.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">EU &middot; 248587 &middot; 2010&ndash;2014</span>
+          <h3>THE (The Hand Embodied)</h3>
+          <p>How the embodiment of the human hand shapes the strategies people use to explore, grasp and manipulate. Role at DLR: devices for continuously measuring intrinsic hand properties, and feedback systems that convey grip forces of prosthetic hands to the foot.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">EU &middot; 231554 &middot; 2009&ndash;2012</span>
+          <h3>VIACTORS</h3>
+          <p>A generation of actuators with properties comparable to the human neuromechanical system, so that robots can work safely alongside people. Role at DLR: development of variable stiffness actuators for humanoid arms.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">EU &middot; 231576 &middot; 2009&ndash;2011</span>
+          <h3>STIFF</h3>
+          <p>A hand-arm system modelled on the human motor system, including methods for understanding impedance adaptation. Role at DLR: devices for continuously measuring intrinsic properties of the human hand and arm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Awards</h2>
+      <div class="person-project-grid">
+        <div class="person-project">
+          <span class="person-project__funder">2022</span>
+          <h3>Honorable Mention, IEEE RA-L</h3>
+          <p>Among the top ten of more than 1100 papers published in IEEE Robotics and Automation Letters that year.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">2018</span>
+          <h3>DLR Idea Award</h3>
+          <p>Awarded together with colleagues for the development of a novel soft robotic hand.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">2017</span>
+          <h3>KUKA Innovation Award</h3>
+          <p>For work on a safety system for safe human-robot collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Teaching</h2>
+      <p>In the Bachelor&rsquo;s programme Humanoid Robotics at BHT he teaches subjects around the mechanical design, manufacture and maintenance of robotic systems, as well as human-robot interaction.</p>
+      <p>The <a href="robotics-project.html">Robotics Project</a> is the most visible of these. Second-semester students develop a robotic hand from scratch, in groups of four, and mount it on a Franka Emika Panda arm to pick up a set of awkward objects and place them at a distance: a business card, a slice of toast, a net of limes, a wooden plate, an ice cream cone, a paper cup. Each group receives five Dynamixel servos, the necessary electronics and a coupling, and builds the hand using 3D printing, laser cutting, vacuum thermoforming and casting of polyurethane in custom moulds. A Python API lets them close the fingers until contact. The results are consistently impressive: all hands are cable-driven, many can actively oppose a thumb, and some have two.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Supervised theses</h2>
+      <p>A selection of theses supervised at BHT and, earlier, at TU M&uuml;nchen and DLR.</p>
+      <ul>
+        <li><strong>Lion Weber</strong> (2022, BHT / SIRo Lab): Programmable Morphological Computation for Improved Grasping and Manipulation</li>
+        <li><strong>Erik Schlenzka</strong> (2022, BHT / SIRo Lab): Sensing Spring Deformation for Pose Estimation of an Intrinsically Compliant Tendon-Driven Robotic Finger</li>
+        <li><strong>Florentin Marquardt</strong> (2022, BHT / SIRo Lab): Development and Evaluation of an Experimental Setup for Visual Pose Estimation of Anthropomorphic Robot Fingers</li>
+        <li><strong>Larissa Quaschning</strong> (2022, BHT / Gestalt Robotics): Untersuchung von M&ouml;glichkeiten der Sensordatenfusion bei der Navigation von mobilen Robotern</li>
+        <li><strong>Alicia Schildhauer</strong> (2021, BHT / Honda Research Institute EU): Human-robot cooperation for solving a manipulation task in the context of outpatient elderly care</li>
+        <li><strong>Wolfgang Wiedmeyer</strong> (2013, TU M&uuml;nchen / DLR): Dynamische Simulation eines biartikul&auml;ren Antriebssystems mit variabler Steifigkeit</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Publications</h2>
+      <p>The lab&rsquo;s publication list contains journal articles, conference papers, patents and theses, including the work from his time at DLR. Patents cover, among other things, robot joint systems, robotic grippers and hands, methods for measuring the stiffness of body parts and protective devices for manipulators.</p>
+      <p><a href="publications.html">All publications and patents &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Background</h2>
+      <ul>
+        <li><strong>since 2019</strong> &middot; Professor for Humanoid Robotics, Berliner Hochschule f&uuml;r Technik. Head of the SIRo Lab and of the teaching laboratory for Humanoid Robotics; member of the faculty council of Fachbereich VII.</li>
+        <li><strong>2018&ndash;2019</strong> &middot; Group leader, sports technology development, Institute of Applied Training Science (IAT), Leipzig. Automatic joint tracking, drone-based athlete following, sport-specific measurement setups.</li>
+        <li><strong>2009&ndash;2018</strong> &middot; Scientific researcher, German Aerospace Center (DLR), Institute of Robotics and Mechatronics. Principal investigator at DLR for the EU project soma from 2015.</li>
+        <li><strong>2016</strong> &middot; PhD, Technical University of Munich, supervised by Patrick van der Smagt and Veit Senner: &ldquo;Analysis of Human Intrinsic Stiffness Modulation and its Use in Variable-Stiffness Robots&rdquo;.</li>
+      </ul>
+      <p>Organisation chair of the Summer School on Impedance (2011) and the Summer School on Soft Manipulation (2017), both on Frauenchiemsee, Germany.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>

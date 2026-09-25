@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theses and internships &middot; SIRo Lab</title>
+  <meta name="description" content="How to do a thesis or an internship at SIRo Lab: where topics come from, what an enquiry should contain, and who answers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="content-reviewed" content="2026-09-18">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Theses and internships at SIRo Lab">
+  <meta property="og:description" content="Where thesis topics come from, what an enquiry should contain, and who answers.">
+  <meta property="og:image" content="images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Theses and internships at SIRo Lab">
+  <meta name="twitter:description" content="Where thesis topics come from, and how to ask.">
+  <meta name="twitter:image" content="images/siro_landing.jpeg">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.55); font-size: var(--fs-md); max-width: 660px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .highlight { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .highlight h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-heading); margin-bottom: 0.3rem; }
+    .highlight p { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: 0; }
+    .open-box { border: 1px dashed var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-lg); background: var(--color-bg-alt); max-width: 780px; margin: var(--space-lg) 0; }
+    .open-box h3 { font-size: var(--fs-md); margin-bottom: 0.4rem; }
+    .open-box p { margin-bottom: 0; }
+    .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin: var(--space-lg) 0; max-width: 880px; }
+    .field-card { border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); background: var(--color-bg); }
+    .field-card h3 { font-size: var(--fs-md); margin-bottom: 0.2rem; }
+    .field-card p { font-size: var(--fs-sm); color: var(--color-text-light); margin: 0; line-height: 1.6; }
+    .field-card__q { font-size: var(--fs-sm); font-weight: 600; color: var(--color-accent); margin-bottom: 0.4rem; display: block; }
+    @media (max-width: 768px) { .field-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>learned on TIAGo Pro</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>the robot that carries them</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="applications.html#classroom">The classroom</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory care</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Everyone</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="teaching.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to teaching
+      </a>
+      <span class="section__label">Teaching &middot; For students</span>
+      <h1>Theses and internships</h1>
+      <p>Where topics come from, what an enquiry should contain, and who answers.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>What working here looks like</h2>
+      <p>Student work in this lab is not a separate track running alongside the research. Topics are cut out of the four questions the lab is working on, which means the answer is not known in advance, by anyone. That is the appeal and the risk at the same time: a result may be that something does not work, and that result is worth just as much.</p>
+      <p>The <a href="robotics-project.html">Robotics Project</a> in the bachelor programme is where most people meet the lab first. Teams build a soft robotic hand and put it to a real test, and what comes out of that has repeatedly changed what the lab does next. The greenhouse challenges showed that picking fruit works and that the grip force is not sufficient to close a pair of scissors. Nobody had planned that finding, and it is now part of how we think about hand design.</p>
+      <p>Prototypes that hold up become lab platforms. Results from theses turn into the groundwork of the next paper. A lab of this size can only carry four research questions at once because students carry part of them.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>The four fields topics come from</h2>
+      <p>Every topic sits under one of these. If one of them is what you want to spend six months on, that is the right thing to say in your first email.</p>
+      <div class="field-grid">
+        <div class="field-card">
+          <span class="field-card__q">How much of the control can the hardware itself take over?</span>
+          <h3><a href="softhand.html">Mechanical Intelligence</a></h3>
+          <p>Variable stiffness, programmable fingertip compliance, grasping without explicit force control. Mechanical design, additive manufacturing, measurement.</p>
+        </div>
+        <div class="field-card">
+          <span class="field-card__q">What becomes possible when elasticity spans more than one joint?</span>
+          <h3><a href="multiarticular-arm.html">Stiffness Shaping</a></h3>
+          <p>Multiarticular couplings, Cartesian stiffness ellipses, energy transfer between joints. Mechanics, simulation, control.</p>
+        </div>
+        <div class="field-card">
+          <span class="field-card__q">How does a robot learn movements from a person, and build tasks from them?</span>
+          <h3><a href="movement-primitives.html">Movement Primitives</a></h3>
+          <p>Learning from demonstration, via-point primitives, a library of movements, composition through language models. Programming, machine learning, experiments on the robot.</p>
+        </div>
+        <div class="field-card">
+          <span class="field-card__q">How does someone with no training in operating a humanoid control it with ease, and feel what the robot feels?</span>
+          <h3><a href="vhis.html">Immersive Teleoperation</a></h3>
+          <p>Haptic input stations, workspace configuration, what has to be fed back for contact to arrive as contact. Control, human factors, user studies.</p>
+        </div>
+      </div>
+
+      <div class="open-box">
+        <h3>Open topics</h3>
+        <p>Currently advertised topics will be listed here. Until they are, an email describing which of the four fields interests you is the better route, because most topics are cut to fit the person rather than the other way round.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>How to ask</h2>
+      <p>Write to <a href="mailto:hannes.hoeppner@bht-berlin.de">hannes.hoeppner@bht-berlin.de</a>. A short email is enough, and these four things make it much easier to answer:</p>
+      <ul>
+        <li>Which of the four fields above interests you, and why that one.</li>
+        <li>What kind of work you are looking for: bachelor thesis, master thesis, internship, or a student assistant position.</li>
+        <li>When you would like to start, and how much time you have.</li>
+        <li>What you can already do. Hardware, CAD, Python, C++, control, machine learning, experiments with people. Nobody is expected to bring all of it.</li>
+      </ul>
+      <p>You do not need a finished topic proposal. You do need a rough idea of which question you want to sit with.</p>
+      <p class="section__quote">Students from outside BHT and from other programmes are welcome to ask. Whether it works depends on supervision capacity at the time, so the honest answer may be no.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>What you can expect</h2>
+      <ul>
+        <li>Access to the platforms the lab actually researches with, not a teaching replica.</li>
+        <li>Supervision by the person working on that question, and by the lab director.</li>
+        <li>Workshop access in the <em lang="de">Haus der Robotik</em>: laser cutting, milling, and several printing processes on the ground floor.</li>
+        <li>If the result carries, co-authorship on a publication. That is not a promise, it is what has happened.</li>
+      </ul>
+      <p>What the lab cannot offer is a topic with a guaranteed outcome. See the first paragraph.</p>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Content reviewed with the lab on 18 September 2026. Statements about what exists, what has been shown and what is planned refer to that date.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">All four settings</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Ambulatory Care</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>
