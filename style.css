@@ -156,6 +156,18 @@ a {
   transition: color var(--transition);
 }
 
+.reference-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.reference-link:hover,
+.reference-link:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
 a:hover {
   
   color: var(--color-accent-deep);

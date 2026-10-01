@@ -109,7 +109,7 @@
           <a href="index.html#projects">Projects</a>
           <ul class="nav__sub">
             <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
-            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="https://foundationmodels.bht-berlin.de/">APPL-FM</a></li>
             <li><a href="index.html#p-robo4care">Robo4Care</a></li>
             <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
           </ul>
@@ -164,11 +164,11 @@
   <section class="content-section">
     <div class="container">
       <h2>Concept</h2>
-      <p>We are developing the Visuo-Haptic Input Station (VHIS) to control TIAGo Pro through an operator&rsquo;s arm and hand movements. The intended setup uses two Franka Research 3 (FR3) cobot arms to track motion and provide haptic feedback, combined with a camera view from the remote robot.</p>
+      <p>We are developing the <a class="reference-link" href="vhis.html">Visuo-Haptic Input Station</a> (<a class="reference-link" href="vhis.html">VHIS</a>) to control <a class="reference-link" href="tiago.html">TIAGo Pro</a> through an operator&rsquo;s arm and hand movements. The intended setup uses two Franka Research 3 (FR3) cobot arms to track motion and provide haptic feedback, combined with a camera view from the remote robot.</p>
       <p>The station is designed to map the operator&rsquo;s movements onto the robot&rsquo;s workspace and return forces measured during contact. We investigate how this combination can support remote manipulation, including which properties of contact can be conveyed reliably and how the input station should be arranged around the operator.</p>
       <figure class="figure">
         <img src="images/VHIS.png" alt="Concept of the Visuo-Haptic Input Station: an operator coupled to two Franka Research 3 cobot arms teleoperates the TIAGo Pro humanoid" loading="lazy" width="1080" height="642">
-        <figcaption>Proposed VHIS setup: two Franka Research 3 (FR3) cobots track the operator&rsquo;s arm movements and provide haptic feedback while TIAGo Pro performs the remote task.</figcaption>
+        <figcaption>Proposed <a class="reference-link" href="vhis.html">VHIS</a> setup: two Franka Research 3 (FR3) cobots track the operator&rsquo;s arm movements and provide haptic feedback while <a class="reference-link" href="tiago.html">TIAGo Pro</a> performs the remote task.</figcaption>
       </figure>
 
       <div class="spec-grid">
@@ -189,7 +189,7 @@
         </div>
         <div class="spec-card">
           <div class="spec-card__label">Target Robot</div>
-          <div class="spec-card__value">TIAGo Pro</div>
+          <div class="spec-card__value"><a class="reference-link" href="tiago.html">TIAGo Pro</a></div>
           <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">PAL Robotics&rsquo; dual-arm mobile humanoid, the target platform for the station</p>
         </div>
       </div>
@@ -202,7 +202,7 @@
       <p>The station is under development. Its spatial configuration has been studied in a publication; teleoperation and haptic feedback are at the internal demonstration stage.</p>
       <ul>
         <li><span class="status-tag status-tag--running">published</span> <strong>Cobot placement.</strong> A method for positioning one cobot beside an operator using reach-envelope meshes, workspace overlap and manipulability; the second arm is mirrored (<a href="publications.html">Humanoids 2025</a>).</li>
-        <li><span class="status-tag status-tag--trials">shown internally</span> <strong>Single-arm teleoperation.</strong> A Franka Panda arm has been used to teleoperate one TIAGo arm in internal demonstrations. These demonstrations have not been formally evaluated or published.</li>
+        <li><span class="status-tag status-tag--trials">shown internally</span> <strong>Single-arm teleoperation.</strong> A Franka Panda arm has been used to teleoperate one <a class="reference-link" href="tiago.html">TIAGo</a> arm in internal demonstrations. These demonstrations have not been formally evaluated or published.</li>
         <li><span class="status-tag status-tag--trials">shown once</span> <strong>Haptic feedback.</strong> Force feedback to the operator has been demonstrated once. Its reliability and its effect on task performance remain to be evaluated.</li>
         <li><span class="status-tag status-tag--planned">planned</span> <strong>Integrated dual-arm operation.</strong> Coordinated operation of both arms and hands, with haptic feedback and evaluation by users without robotics expertise.</li>
       </ul>
@@ -309,7 +309,7 @@
   <section class="content-section">
     <div class="container">
       <h2>Research Questions</h2>
-      <p>The VHIS is the central hardware platform for the DFG-funded <strong>tele.interaction</strong> project (<span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW, project number 533327659, 2024&ndash;2028). The research investigates:</p>
+      <p>The <a class="reference-link" href="vhis.html">VHIS</a> is the central hardware platform for the DFG-funded <strong><a class="reference-link" href="index.html#p-tele-interaction">tele.interaction</a></strong> project (<span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW, project number 533327659, 2024&ndash;2028). The research investigates:</p>
       <ul>
         <li><strong>Spatial configuration</strong>: How should the input station&rsquo;s kinematic structure be arranged to maximise the operator&rsquo;s reachable and dexterous workspace?</li>
         <li><strong>Manipulability transfer</strong>: How do the manipulability characteristics of the input device map onto those of the remote robot, and how does this affect task performance?</li>
@@ -322,8 +322,8 @@
   <section class="content-section">
     <div class="container">
       <h2>Research background</h2>
-      <p>The VHIS builds on a lineage of teleimpedance and visuo-haptic research. During his time at the German Aerospace Center (DLR, 2009&ndash;2018), Prof. H&ouml;ppner developed methods for measuring human arm and hand stiffness during interaction, and for transferring these impedance profiles to robotic systems, a concept known as <em>teleimpedance</em>.</p>
-      <p>At BHT, we investigate how teleimpedance can support humanoid manipulation. The VHIS is intended to provide an interface for studying how motion, force feedback and adjustable mechanical impedance affect remote interaction.</p>
+      <p>The <a class="reference-link" href="vhis.html">VHIS</a> builds on a lineage of teleimpedance and visuo-haptic research. During his time at the German Aerospace Center (DLR, 2009&ndash;2018), Prof. H&ouml;ppner developed methods for measuring human arm and hand stiffness during interaction, and for transferring these impedance profiles to robotic systems, a concept known as <em>teleimpedance</em>.</p>
+      <p>At BHT, we investigate how teleimpedance can support humanoid manipulation. The <a class="reference-link" href="vhis.html">VHIS</a> is intended to provide an interface for studying how motion, force feedback and adjustable mechanical impedance affect remote interaction.</p>
     </div>
   </section>
 
@@ -331,7 +331,7 @@
     <div class="container">
       <h2>Related Publications</h2>
       <ul>
-        <li><strong>R. Santhanaraman, H. H&ouml;ppner</strong>, &ldquo;<a href="https://doi.org/10.1109/Humanoids65713.2025.11203110" target="_blank" rel="noopener">Spatial Configuration of Dual-Arm Visuo-Haptic Input Station: Improving Interaction and Usability</a>,&rdquo; <em>IEEE-RAS Humanoids</em>, pp.&nbsp;752&ndash;759, 2025.</li>
+        <li><strong><a class="reference-link" href="ranjit-santhanaraman.html">R. Santhanaraman</a>, <a class="reference-link" href="hannes-hoeppner.html">H. H&ouml;ppner</a></strong>, &ldquo;<a href="https://doi.org/10.1109/Humanoids65713.2025.11203110" target="_blank" rel="noopener">Spatial Configuration of Dual-Arm Visuo-Haptic Input Station: Improving Interaction and Usability</a>,&rdquo; <em>IEEE-RAS Humanoids</em>, pp.&nbsp;752&ndash;759, 2025.</li>
       </ul>
       <p style="margin-top:var(--space-md);"><a href="publications.html">View all publications &rarr;</a></p>
     </div>
@@ -354,7 +354,7 @@
           <p>Principal investigator.</p>
         </div>
       </div>
-      <p style="margin-top:var(--space-md);">The VHIS is developed within the <a href="https://www.bht-berlin.de/4822" target="_blank" rel="noopener">DFG tele.interaction project</a> at the <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener">Haus der Robotik</a>, BHT Berlin.</p>
+      <p style="margin-top:var(--space-md);">The <a class="reference-link" href="vhis.html">VHIS</a> is developed within the <a href="https://www.bht-berlin.de/4822" target="_blank" rel="noopener">DFG tele.interaction project</a> at the <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener">Haus der Robotik</a>, BHT Berlin.</p>
     </div>
   </section>
   <section class="section reviewed-note">
