@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VHIS &middot; Visuo-Haptic Input Station &middot; SIRo Lab</title>
+  <meta name="description" content="We develop a dual-arm visuo-haptic input station for humanoid teleoperation, with published research on cobot placement around the operator.">
+  <meta name="content-reviewed" content="2026-09-30">
+  <link rel="canonical" href="https://siro-lab.de/vhis.html">
+  <meta property="og:url" content="https://siro-lab.de/vhis.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="VHIS, Visuo-Haptic Input Station">
+  <meta property="og:description" content="Research on a dual-arm visuo-haptic input station: cobot placement, motion input and haptic feedback for humanoid teleoperation.">
+  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VHIS, Visuo-Haptic Input Station">
+  <meta name="twitter:description" content="Dual-arm visuo-haptic teleoperation station (DFG tele.interaction).">
+  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <style>
+    .sub-hero {
+      background: var(--color-bg-dark);
+      padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl);
+      color: var(--color-white);
+    }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.5); font-size: var(--fs-md); max-width: 620px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section h3 { font-size: var(--fs-lg); margin: var(--space-xl) 0 var(--space-sm); color: var(--color-accent); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .content-section ul { margin: var(--space-md) 0 var(--space-lg) var(--space-md); max-width: var(--measure); }
+    .content-section li { margin-bottom: 0.6rem; }
+
+    .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; margin: var(--space-lg) 0; }
+    .concept-grid__visual { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: var(--space-xl); display: flex; align-items: center; justify-content: center; min-height: 300px; }
+    .concept-grid__visual svg { width: 100%; max-width: 400px; height: auto; }
+
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .spec-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .spec-card__label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); font-weight: 600; margin-bottom: 0.3rem; }
+    .spec-card__value { font-size: var(--fs-lg); font-weight: 700; color: var(--color-heading); }
+
+    .figure { margin: var(--space-lg) 0; max-width: 880px; }
+    .figure img { display: block; width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); background: var(--color-bg); }
+    .figure figcaption { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: 0.6rem; max-width: 780px; line-height: 1.5; }
+
+    .flow { max-width: 880px; margin: var(--space-md) 0 var(--space-xl); }
+    .flow svg { display: block; width: 100%; height: auto; }
+    .flow figcaption { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: 0.6rem; line-height: 1.5; }
+
+    .figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-md) 0 var(--space-xl); max-width: 880px; align-items: start; }
+    .figure-pair .figure { margin: 0; }
+    .figure-pair .figure img { height: 260px; object-fit: scale-down; padding: var(--space-xs); }
+    @media (max-width: 768px) { .figure-pair { grid-template-columns: 1fr; } }
+
+    @media (max-width: 768px) {
+      .concept-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#platforms" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to platforms
+      </a>
+      <span class="section__label">Research Platform &middot; Immersive Teleoperation</span>
+      <h1>VHIS: Visuo-Haptic Input Station</h1>
+      <p>How does someone with no training in operating a humanoid control it with ease, and feel what the robot feels?</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Concept</h2>
+      <p>We are developing the Visuo-Haptic Input Station (VHIS) to control TIAGo Pro through an operator&rsquo;s arm and hand movements. The intended setup uses two Franka Research 3 (FR3) cobot arms to track motion and provide haptic feedback, combined with a camera view from the remote robot.</p>
+      <p>The station is designed to map the operator&rsquo;s movements onto the robot&rsquo;s workspace and return forces measured during contact. We investigate how this combination can support remote manipulation, including which properties of contact can be conveyed reliably and how the input station should be arranged around the operator.</p>
+      <figure class="figure">
+        <img src="images/VHIS.png" alt="Concept of the Visuo-Haptic Input Station: an operator coupled to two Franka Research 3 cobot arms teleoperates the TIAGo Pro humanoid" loading="lazy" width="1080" height="642">
+        <figcaption>Proposed VHIS setup: two Franka Research 3 (FR3) cobots track the operator&rsquo;s arm movements and provide haptic feedback while TIAGo Pro performs the remote task.</figcaption>
+      </figure>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-card__label">Input Modality</div>
+          <div class="spec-card__value">Dual-Arm Haptic</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Two Franka Research 3 (FR3) cobot arms are intended to track the operator&rsquo;s motion and render haptic feedback</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Visual Feedback</div>
+          <div class="spec-card__value">Immersive Stereo</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Planned stereo camera feed from the robot&rsquo;s perspective, displayed in a head-mounted or screen-based viewer</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Optimisation</div>
+          <div class="spec-card__value">Spatial Configuration</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Cobot placement derived from workspace overlap and manipulability, then evaluated using arm and joint closeness; one arm optimised, the second mirrored</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Target Robot</div>
+          <div class="spec-card__value">TIAGo Pro</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">PAL Robotics&rsquo; dual-arm mobile humanoid, the target platform for the station</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Development status</h2>
+      <p>The station is under development. Its spatial configuration has been studied in a publication; teleoperation and haptic feedback are at the internal demonstration stage.</p>
+      <ul>
+        <li><span class="status-tag status-tag--running">published</span> <strong>Cobot placement.</strong> A method for positioning one cobot beside an operator using reach-envelope meshes, workspace overlap and manipulability; the second arm is mirrored (<a href="publications.html">Humanoids 2025</a>).</li>
+        <li><span class="status-tag status-tag--trials">shown internally</span> <strong>Single-arm teleoperation.</strong> A Franka Panda arm has been used to teleoperate one TIAGo arm in internal demonstrations. These demonstrations have not been formally evaluated or published.</li>
+        <li><span class="status-tag status-tag--trials">shown once</span> <strong>Haptic feedback.</strong> Force feedback to the operator has been demonstrated once. Its reliability and its effect on task performance remain to be evaluated.</li>
+        <li><span class="status-tag status-tag--planned">planned</span> <strong>Integrated dual-arm operation.</strong> Coordinated operation of both arms and hands, with haptic feedback and evaluation by users without robotics expertise.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Design Approach</h2>
+      <p>Cobot placement affects the operator&rsquo;s reachable workspace and the robot&rsquo;s proximity to its joint limits during movement. Our <a href="publications.html">Humanoids 2025 paper</a> presents a method for selecting that placement through workspace modelling, optimisation and evaluation. One arm is optimised and the second is mirrored.</p>
+
+      <figure class="flow">
+        <svg viewBox="0 0 880 200" role="img" aria-labelledby="flowTitle flowDesc">
+          <title id="flowTitle">Cobot placement method</title>
+          <desc id="flowDesc">Two branches run in parallel. The human arm model leads to a reach-envelope mesh; the Franka Research 3 model leads to a manipulability map. Both feed into a step that finds where the two overlap, and that feeds into a search that optimises and then ranks the candidates by arm closeness and joint closeness.</desc>
+          <defs>
+            <marker id="flowArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="var(--color-accent-dark)"/>
+            </marker>
+          </defs>
+          <g fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="1.5">
+            <rect x="2"   y="16"  width="150" height="50" rx="8"/>
+            <rect x="186" y="16"  width="176" height="50" rx="8"/>
+            <rect x="2"   y="118" width="150" height="50" rx="8"/>
+            <rect x="186" y="118" width="176" height="50" rx="8"/>
+            <rect x="422" y="67"  width="186" height="50" rx="8"/>
+            <rect x="652" y="67"  width="222" height="50" rx="8"/>
+          </g>
+          <g fill="none" stroke="var(--color-accent-dark)" stroke-width="1.8" marker-end="url(#flowArrow)">
+            <path d="M156 41 H182"/>
+            <path d="M156 143 H182"/>
+            <path d="M366 41 C398 41 394 85 418 85"/>
+            <path d="M366 143 C398 143 394 99 418 99"/>
+            <path d="M612 92 H648"/>
+          </g>
+          <g fill="var(--color-heading)" font-size="13" font-weight="600" text-anchor="middle" font-family="Inter, system-ui, sans-serif">
+            <text x="77"  y="46">Human arm model</text>
+            <text x="274" y="46">Reach-envelope mesh</text>
+            <text x="77"  y="148">Franka Research 3</text>
+            <text x="274" y="148">Manipulability map</text>
+            <text x="515" y="97">Workspace overlap</text>
+            <text x="763" y="88">Optimise, then rank</text>
+            <text x="763" y="107">by arm and joint closeness</text>
+          </g>
+        </svg>
+        <figcaption>The human and robot workspaces are modelled separately. Their overlap provides candidate placements for optimisation and subsequent ranking.</figcaption>
+      </figure>
+
+      <h3>Model the human and robot arms</h3>
+      <p>We represent the human arm and the Franka Research 3 as seven-joint kinematic chains. The human model uses configuration-dependent joint limits to account for the coupling between joints through muscles and tendons.</p>
+      <div class="figure-pair">
+        <figure class="figure">
+          <img src="images/vhis-step1-human-arm-model.png" alt="Kinematic model of a human arm with shoulder, elbow and wrist frames marked" loading="lazy" width="162" height="199">
+          <figcaption>The operator&rsquo;s arm from shoulder to wrist as a seven-joint kinematic chain. Configuration-dependent joint limits follow Klop&ccaron;ar and Lenar&ccaron;i&ccaron; (2005).</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/vhis-step1-fr3.jpg" alt="Franka Research 3 cobot arm" loading="lazy" width="419" height="698">
+          <figcaption>Franka Research 3. The station design uses one cobot for each of the operator&rsquo;s arms.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Calculate the workspaces</h3>
+      <p>Inverse kinematics without appropriate human joint constraints can produce anatomically implausible postures. We therefore sample the human arm&rsquo;s allowed joint configurations and calculate the hand positions using forward kinematics. Filtering approximately 312,000 poses for self-collisions and the intended operating region leaves roughly 83,000. Their outer boundary forms a closed mesh for volumetric comparison with the robot workspace.</p>
+      <p>For the robot, we calculate the average manipulability over 216 orientations at each workspace point. This describes the robot&rsquo;s capacity for motion at that position, beyond reachability alone.</p>
+      <div class="figure-pair">
+        <figure class="figure">
+          <img src="images/vhis-step2-human-workspace.png" alt="Reachable space of a human arm shown as a closed mesh in three dimensions" loading="lazy" width="607" height="731">
+          <figcaption>The operator&rsquo;s reachable space as a closed mesh, built from forward kinematics rather than from inverse-kinematics solutions.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/vhis-step2-robot-workspace.png" alt="Manipulability map of the cobot arm as a point cloud coloured from blue to red" loading="lazy" width="1030" height="924">
+          <figcaption>The cobot&rsquo;s workspace as a point cloud, coloured by manipulability: at each point the average over 216 orientations, red high, blue low.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Optimise and evaluate candidate placements</h3>
+      <p>We screen 729,000 candidate poses by the overlap between the human and robot workspaces. Poses with at least 90 per cent overlap provide starting points for optimisation. The search then maximises manipulability across the operator&rsquo;s workspace, producing 200 refined placements.</p>
+      <p>We evaluate these placements using two further measures. <strong>Joint closeness</strong> captures proximity to joint limits, which can restrict movement during a task. <strong>Arm closeness</strong> uses the volume spanned between the human and robot arms as a heuristic for the operator&rsquo;s available space. It does not fully account for collisions. The measures also support comparison with configurations reported by other research groups.</p>
+      <div class="figure-pair">
+        <figure class="figure">
+          <img src="images/vhis-step3-candidates.png" alt="Candidate base positions around the operator as a point grid, coloured by how much the two workspaces overlap" loading="lazy" width="1400" height="874">
+          <figcaption>Candidate positions around the operator, coloured by how much the robot&rsquo;s workspace overlaps the person&rsquo;s. Red is high. The grey shape is the operator with their reachable volume.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/vhis-step3-arm-closeness-index.png" alt="Diagram spanning a volume between the outline of the cobot arm and the outline of the operator arm" loading="lazy" width="937" height="631">
+          <figcaption>Arm closeness uses the volume spanned between the operator&rsquo;s arm (orange) and the cobot arm as a proxy for available space.</figcaption>
+        </figure>
+      </div>
+      <div class="figure-pair">
+        <figure class="figure">
+          <img src="images/vhis-step3-ranked-poses.png" alt="Base poses around a torso drawn as arrows, the starting poses in red and the optimised ones in green" loading="lazy" width="554" height="510">
+          <figcaption>Candidate starting poses (red) and optimised base poses (green).</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/vhis-step3-final-configuration.png" alt="Simulation of one of the top-ranked placements: a cobot arm next to a model of the operator" loading="lazy" width="403" height="356">
+          <figcaption>One of the five best-ranked placements in simulation. This one was then rejected: it reaches into the operator&rsquo;s own workspace.</figcaption>
+        </figure>
+      </div>
+      <p>The computation took two weeks on a cluster. Inspection of the five highest-ranked placements excluded three that interfered with the operator&rsquo;s arm workspace. The remaining two were identified as candidates for testing on the physical station.</p>
+      <p>This published study evaluates spatial configuration. The integrated teleoperation system remains at the development stages described above.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research Questions</h2>
+      <p>The VHIS is the central hardware platform for the DFG-funded <strong>tele.interaction</strong> project (<span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW, project number 533327659, 2024&ndash;2028). The research investigates:</p>
+      <ul>
+        <li><strong>Spatial configuration</strong>: How should the input station&rsquo;s kinematic structure be arranged to maximise the operator&rsquo;s reachable and dexterous workspace?</li>
+        <li><strong>Manipulability transfer</strong>: How do the manipulability characteristics of the input device map onto those of the remote robot, and how does this affect task performance?</li>
+        <li><strong>Interaction quality</strong>: What metrics capture the quality of remote physical interaction (grasping, assembly, palpation), and how can the station be optimised for them?</li>
+        <li><strong>Teleimpedance</strong>: Can the operator&rsquo;s arm and hand impedance (stiffness, damping) be measured in real-time and transferred to the robot for compliant, adaptive remote manipulation?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research background</h2>
+      <p>The VHIS builds on a lineage of teleimpedance and visuo-haptic research. During his time at the German Aerospace Center (DLR, 2009&ndash;2018), Prof. H&ouml;ppner developed methods for measuring human arm and hand stiffness during interaction, and for transferring these impedance profiles to robotic systems, a concept known as <em>teleimpedance</em>.</p>
+      <p>At BHT, we investigate how teleimpedance can support humanoid manipulation. The VHIS is intended to provide an interface for studying how motion, force feedback and adjustable mechanical impedance affect remote interaction.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Related Publications</h2>
+      <ul>
+        <li><strong>R. Santhanaraman, H. H&ouml;ppner</strong>, &ldquo;<a href="https://doi.org/10.1109/Humanoids65713.2025.11203110" target="_blank" rel="noopener">Spatial Configuration of Dual-Arm Visuo-Haptic Input Station: Improving Interaction and Usability</a>,&rdquo; <em>IEEE-RAS Humanoids</em>, pp.&nbsp;752&ndash;759, 2025.</li>
+      </ul>
+      <p style="margin-top:var(--space-md);"><a href="publications.html">View all publications &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Collaborators</h2>
+      <div class="collaborators">
+        <div class="collaborator">
+          <a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a>
+          <p>Develops the input station and the methods for modelling, optimising and evaluating cobot placement around the operator.</p>
+        </div>
+        <div class="collaborator">
+          <a href="felix-schlueter.html">Felix Schl&uuml;ter</a>
+          <p>Develops a complementary low-cost input device based on the GELLO approach, without force feedback, for practical teleoperation tasks.</p>
+        </div>
+        <div class="collaborator">
+          <a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a>
+          <p>Principal investigator.</p>
+        </div>
+      </div>
+      <p style="margin-top:var(--space-md);">The VHIS is developed within the <a href="https://www.bht-berlin.de/4822" target="_blank" rel="noopener">DFG tele.interaction project</a> at the <a href="https://www.bht-berlin.de/3873/article/9952" target="_blank" rel="noopener">Haus der Robotik</a>, BHT Berlin.</p>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Research information reviewed in September 2026.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+</script>
+</body>
+</html>

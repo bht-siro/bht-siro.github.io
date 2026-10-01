@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIAGo Pro &middot; SIRo Lab</title>
+  <meta name="description" content="TIAGo Pro at SIRo Lab: motion learning, teleoperation research and planned teaching applications. SIRo Soft Hand integration is in progress, initially on one arm.">
+  <meta name="content-reviewed" content="2026-09-30">
+  <link rel="canonical" href="https://siro-lab.de/tiago.html">
+  <meta property="og:url" content="https://siro-lab.de/tiago.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="TIAGo Pro, SIRo Lab">
+  <meta property="og:description" content="TIAGo Pro supports motion learning and teleoperation research, with teaching applications planned. Soft-hand integration is in progress, initially on one arm.">
+  <meta property="og:image" content="https://siro-lab.de/images/TIAGo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TIAGo Pro, SIRo Lab">
+  <meta name="twitter:description" content="TIAGo Pro: motion learning and teleoperation research, with soft-hand integration under development on one arm first.">
+  <meta name="twitter:image" content="https://siro-lab.de/images/TIAGo.jpg">
+  <style>
+    .sub-hero {
+      background: var(--color-bg-dark);
+      padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl);
+      color: var(--color-white);
+    }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.5); font-size: var(--fs-md); max-width: 600px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section h3 { font-size: var(--fs-lg); margin: var(--space-xl) 0 var(--space-sm); color: var(--color-accent); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .content-section ul { margin: var(--space-md) 0 var(--space-lg) var(--space-md); max-width: var(--measure); }
+    .content-section li { margin-bottom: 0.6rem; }
+
+    .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+
+    .img-grid img { width: 100%; }
+
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .spec-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .spec-card__label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); font-weight: 600; margin-bottom: 0.3rem; }
+    .spec-card__value { font-size: var(--fs-lg); font-weight: 700; color: var(--color-heading); }
+
+    .use-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-lg); margin: var(--space-lg) 0; }
+    .use-case-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-lg); }
+    .use-case-card h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-xs); }
+    .use-case-card p { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: 0; }
+    .use-case-card__tag { display: inline-block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--space-sm); }
+
+    .video-embed { margin: var(--space-lg) 0; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+    .video-embed video { display: block; width: 100%; }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#platforms" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to platforms
+      </a>
+      <span class="section__label">Platform &middot; Mobile Manipulation</span>
+      <h1>TIAGo Pro</h1>
+      <p>A mobile manipulation platform for learning from demonstration, teleoperation research and planned teaching applications.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research platform</h2>
+      <p>TIAGo Pro by <a href="https://docs.pal-robotics.com/edge/hardware/tiagopro/hardware-overview" target="_blank" rel="noopener">PAL Robotics</a> has two 7-DoF torque-controlled arms with series-elastic actuation, an omnidirectional base and a lifting torso. We use the platform to study learned movements and teleoperation. Teaching applications are planned.</p>
+      <p>We are developing functional integration of the SIRo Soft Hand, starting with one arm, alongside our teleoperation interfaces. The intended system will combine compliant manipulation, motion learning and operator guidance on a shared platform.</p>
+
+      <div class="img-grid">
+        <img src="images/TIAGo_pro.webp" alt="TIAGo Pro, dual-arm humanoid robot" style="max-width: 420px; margin: 0 auto;" loading="lazy" width="2560" height="2560">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-card__label">Manufacturer</div>
+          <div class="spec-card__value">PAL Robotics</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Arms</div>
+          <div class="spec-card__value">2 &times; 7-DoF</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">End Effector</div>
+          <div class="spec-card__value">Standard grippers</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Research use</div>
+          <div class="spec-card__value">Motion learning &amp; teleoperation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>SIRo Soft Hand integration</h2>
+      <p class="status-line"><span class="status-tag status-tag--planned">in development</span> The hands were previously mounted for photographic documentation. We are now working on mounting and completing functional integration on one side first. Operation of the combined system has not yet been demonstrated.</p>
+      <p>The integration design replaces TIAGo&rsquo;s wrist roll and pitch axes with the SIRo Soft Hand and its own compliant wrist. This places the variable-stiffness wrist mechanism in the hand assembly.</p>
+      <p>In this configuration, the arm contributes five controlled degrees of freedom. The hand is intended to provide variable-stiffness actuation and passive adaptation to objects, allowing us to investigate the contribution of compliant mechanics to grasping.</p>
+      <p>Planned applications include plant handling and assistance with fine-motor tasks in care. The throwing demonstrations shown below use TIAGo&rsquo;s standard gripper.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Application contexts</h2>
+      <p>TIAGo connects our research with three application contexts, each at a different stage of development.</p>
+      <div class="use-case-grid">
+        <div class="use-case-card">
+          <span class="use-case-card__tag">tele.interaction &middot; DFG</span>
+          <h3>Greenhouse</h3>
+          <p>We plan to investigate teleoperated harvesting and plant handling in the greenhouse. This scenario brings together manipulation in constrained spaces and contact with delicate, variable objects; TIAGo has not yet been tested there.</p>
+        </div>
+        <div class="use-case-card">
+          <span class="use-case-card__tag">Robo4Care &middot; IFAF</span>
+          <h3>Care Robotics</h3>
+          <p>Together with care providers, we assess which everyday fine-motor tasks could benefit from teleoperated assistance. Candidate tasks include handling small objects and preparing medication; suitability remains under investigation.</p>
+        </div>
+        <div class="use-case-card">
+          <span class="use-case-card__tag">B.Eng. HROB</span>
+          <h3>Teaching</h3>
+          <p>A planned scenario will investigate TIAGo Pro as Scrum Master or team member in the Ball Point Game. This prospective use is separate from the established student robotics challenges, which involve hands and controllers built by the students.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Teleoperation via VHIS</h2>
+      <p>TIAGo is the target robot for the <a href="vhis.html">Visuo-Haptic Input Station (VHIS)</a> developed in tele.interaction. Single-arm teleoperation from a Franka Panda arm has been demonstrated internally. The complete dual-arm setup with visual and haptic feedback is under development.</p>
+      <p>We investigate how compliant hardware affects remote manipulation. Passive adaptation to an object&rsquo;s shape may reduce the need for the operator to specify individual finger motions. The intended integration will allow us to evaluate this effect on task performance.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Demonstrations</h2>
+      <div class="video-embed">
+        <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-tiago-throwing.jpg">
+          <source data-src="images/tiago-throwing.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p>TIAGo performs a throwing motion as part of our research on <a href="movement-primitives.html">learning from demonstration</a>. The related work is under review for IEEE ICRA 2027.</p>
+
+      <div class="video-embed" style="margin-top: var(--space-xl);">
+        <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-tiago-cutting-rope.jpg">
+          <source data-src="images/tiago-cutting-rope.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p>TIAGo cutting the ribbon at the opening of BHT&rsquo;s <em lang="de">Haus der Robotik</em>.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Collaborators</h2>
+      <div class="collaborators">
+        <div class="collaborator">
+          <a href="rafid-abyaad.html">Rafid Abyaad</a>
+          <p>Researches learning from demonstration and dynamic manipulation on TIAGo.</p>
+        </div>
+        <div class="collaborator">
+          <a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a>
+          <p>Develops the <a href="vhis.html">visuo-haptic input station</a> and investigates the teleoperation interface to TIAGo.</p>
+        </div>
+        <div class="collaborator">
+          <a href="felix-schlueter.html">Felix Schl&uuml;ter</a>
+          <p>Develops a low-cost input device for teleoperating TIAGo&rsquo;s arms.</p>
+        </div>
+        <div class="collaborator">
+          <a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a>
+          <p>Principal investigator.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Research information reviewed in September 2026.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let motionPaused = reduceMotion;
+
+    const loadVideo = (v) => {
+      if (v.dataset.loaded) return;
+      v.querySelectorAll('source[data-src]').forEach(s => { s.src = s.dataset.src; });
+      v.load(); v.dataset.loaded = '1';
+    };
+
+    const syncToggles = () => {
+      document.querySelectorAll('.motion-toggle').forEach(b => {
+        b.textContent = motionPaused ? 'Play background video' : 'Pause background video';
+      });
+    };
+
+    lazyVideos.forEach(v => {
+      if (v.hasAttribute('controls')) return;
+      const host = v.closest('section') || v.parentElement;
+      if (!host || host.querySelector('.motion-toggle')) return;
+
+      host.classList.add('has-motion-toggle');
+      const btn = document.createElement('button');
+      btn.className = 'motion-toggle';
+      btn.type = 'button';
+      btn.addEventListener('click', () => {
+        motionPaused = !motionPaused;
+        syncToggles();
+        lazyVideos.forEach(x => {
+          if (x.hasAttribute('controls')) return;
+          if (motionPaused) { x.pause(); return; }
+          if (x.dataset.visible === '1') { loadVideo(x); x.play().catch(() => {}); }
+        });
+      });
+      host.appendChild(btn);
+    });
+    syncToggles();
+
+    if ('IntersectionObserver' in window) {
+      const vObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const v = e.target;
+          v.dataset.visible = e.isIntersecting ? '1' : '0';
+          if (e.isIntersecting) {
+            if (motionPaused && !v.hasAttribute('controls')) return;
+            loadVideo(v);
+            v.play().catch(() => {});
+          } else { v.pause(); }
+        });
+      }, { threshold: 0.25 });
+      lazyVideos.forEach(v => vObs.observe(v));
+    } else {
+      lazyVideos.forEach(v => { v.dataset.visible = '1'; loadVideo(v); if (!motionPaused) { v.play().catch(()=>{}); } });
+    }
+</script>
+</body>
+</html>

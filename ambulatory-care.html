@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Robotics &middot; SIRo Lab</title>
+  <meta name="description" content="SIRo Lab develops teleoperation and grasping systems for research on medication preparation in ambulatory care within the Robo4Care project.">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Care Robotics, SIRo Lab">
+  <meta property="og:description" content="SIRo Lab develops robotic hands and teleoperation interfaces to investigate assistance with medication preparation in ambulatory care.">
+  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Care Robotics, SIRo Lab">
+  <meta name="twitter:description" content="Research on teleoperated manipulation for medication preparation in ambulatory care.">
+  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta name="content-reviewed" content="2026-09-30">
+  <link rel="canonical" href="https://siro-lab.de/ambulatory-care.html">
+  <meta property="og:url" content="https://siro-lab.de/ambulatory-care.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.55); font-size: var(--fs-md); max-width: 640px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0; }
+    .approach-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-lg); }
+    .approach-card__num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--color-accent); color: #fff; font-weight: 700; margin-bottom: var(--space-sm); }
+    .approach-card h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-heading); margin-bottom: var(--space-xs); }
+    .approach-card p { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: 0; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: var(--space-md); margin: var(--space-md) 0; }
+    .meta-pill { font-size: var(--fs-sm); font-weight: 600; color: var(--color-accent); background: var(--color-accent-subtle); border-radius: 100px; padding: 0.4rem 1rem; }
+    @media (max-width: 768px) { .approach-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#ecosystem" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to applications
+      </a>
+      <span class="section__label">Application &middot; Robo4Care</span>
+      <h1>Care Robotics</h1>
+      <p>We develop robotic manipulation and teleoperation systems for research in ambulatory care. Our focus is medication preparation and other fine-motor handling tasks in the context of care at home.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Teleoperated medication preparation</h2>
+      <p>Within <a href="https://www.ifaf-berlin.de/projekte/robo4care/" target="_blank" rel="noopener">Robo4Care</a>, we develop compliant manipulation and teleoperation for repetitive handling tasks in ambulatory care. Medication preparation provides a concrete setting for investigating precision, object variability and operator assistance.</p>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-card__num">1</div>
+          <h3>Compliant manipulation</h3>
+          <p>We are equipping <a href="tiago.html">TIAGo Pro</a> with a <a href="softhand.html">SIRo Soft Hand</a>, initially on one side, and developing its functional integration with a compact input station. Medication preparation is a target workflow, including removing tablets from blister packs and sorting them into organisers. Planned studies with our practice partners will investigate the system&rsquo;s capabilities and limits.</p>
+          <p style="font-size:var(--fs-sm);color:var(--color-text-light);">Our research concerns hardware and teleoperation. The lab does not develop medical devices or diagnostic systems.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card__num">2</div>
+          <h3>Operator interface</h3>
+          <p>A compact input device is designed to let the operator guide the robot through corresponding arm movements. We are developing this interface for use with the manipulation system, so that care professionals can contribute task knowledge without programming individual robot motions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Project partners</h2>
+      <p>Robo4Care is funded by the State of Berlin through IFAF Berlin&rsquo;s Verbund programme from January 2026 to December 2027. It brings together three universities of applied sciences, research organisations and practice partners. The wider project considers both residential and ambulatory care, with studies planned in laboratories and partner facilities.</p>
+      <div class="meta-row">
+        <span class="meta-pill">State of Berlin &middot; IFAF Verbund &middot; 01/2026&ndash;12/2027</span>
+        <span class="meta-pill">ASH Berlin</span>
+        <span class="meta-pill">HTW Berlin</span>
+        <span class="meta-pill">BHT</span>
+        <span class="meta-pill">Johannesstift Diakonie</span>
+        <span class="meta-pill">IFA / DGUV</span>
+        <span class="meta-pill">Fraunhofer IZM / IPK</span>
+        <span class="meta-pill">Deutsche Rentenversicherung Bund</span>
+        <span class="meta-pill">Berlin Partner</span>
+      </div>
+      <p>ASH Berlin contributes nursing science and study design; HTW Berlin develops measurement methods and equipment. At BHT, SIRo Lab develops teleoperated manipulation systems, while another research laboratory addresses exoskeleton comfort. Johannesstift Diakonie contributes care expertise and supports the selection and assessment of application scenarios.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Evaluating manipulation in care</h2>
+      <p>Under what conditions can a teleoperated robot support medication preparation in ambulatory care? The planned evaluation considers task success, handling errors, time requirements and manual intervention across different tablets and packaging. Together with care professionals, we aim to assess technical feasibility, usability and compatibility with care workflows.</p>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Research information reviewed in September 2026.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+</script>
+</body>
+</html>

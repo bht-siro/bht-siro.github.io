@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steffen Puhlmann &middot; SIRo Lab</title>
+  <meta name="description" content="Steffen Puhlmann, PhD researcher at SIRo Lab: the SIRo Soft Hand, variable stiffness and soft dexterous manipulation.">
+  <link rel="canonical" href="https://siro-lab.de/steffen-puhlmann.html">
+  <meta property="og:url" content="https://siro-lab.de/steffen-puhlmann.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Steffen Puhlmann &middot; SIRo Lab">
+  <meta property="og:description" content="Soft robotic hands with variable stiffness and mechanically programmed fingertip deformation.">
+  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Steffen Puhlmann &middot; SIRo Lab">
+  <meta name="twitter:description" content="Soft robotic hands with variable stiffness and mechanically programmed fingertip deformation.">
+  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="person-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#team" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to the team
+      </a>
+      <div class="person-hero__grid">
+        <div class="person-hero__photo"><img src="thumbs/st_puh.png" alt="Steffen Puhlmann" loading="lazy" width="200" height="200"></div>
+        <div>
+          <span class="section__label">PhD Researcher</span>
+          <h1>Steffen Puhlmann</h1>
+          <p class="person-hero__question">How much of the control can the hardware itself take over?</p>
+          <p>Soft robotic hands with variable stiffness and mechanically programmed fingertip deformation.</p>
+          <p class="person-hero__contact"><a href="mailto:Steffen.Puhlmann@bht-berlin.de">Steffen.Puhlmann@bht-berlin.de</a> &middot; <a href="https://orcid.org/0000-0002-3821-2127" target="_blank" rel="noopener">ORCID 0000-0002-3821-2127</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research focus</h2>
+      <p>Steffen designed and built the SIRo Soft Hand and leads its further development. He investigates how mechanical design can support grasping and manipulation, and how compliant mechanisms interact with the robot&rsquo;s controller.</p>
+      <p>His work includes two mechanisms: variable stiffness based on Bowden cables, using inexpensive standard components, and programmable passive fingertip deformation. By shaping how a fingertip deforms under load, its mechanical structure can contribute to the desired grasping behaviour.</p>
+      <p>The hand is developed within APPL-FM. Mounting and functional integration with TIAGo Pro are currently under way, initially on one side of the robot. In Robo4Care, SIRo investigates its potential for fine-motor tasks in ambulatory care. In SIRo-AEMP, the hand is being evaluated for handling surgical instruments.</p>
+      <p>At the Robotics and Biology Laboratory, TU Berlin, he previously developed the RBO Hand 3, an anthropomorphic soft hand with sixteen independent degrees of actuation. His research there also examined in-hand manipulation under variations in object shape, weight and movement speed, and human grasping behaviour.</p>
+      <p>His doctoral research is conducted in cooperation with the Technical University of Munich, with Hannes H&ouml;ppner as his BHT supervisor.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Research topics</h2>
+      <div class="topic-grid">
+        <a class="topic-card" href="softhand.html">
+          <h3>SIRo Soft Hand</h3>
+          <p>Variable stiffness and programmable fingertip compliance</p>
+        </a>
+        <a class="topic-card" href="siro-aemp.html">
+          <h3>Instrument Reprocessing</h3>
+          <p>Evaluating compliant instrument handling</p>
+        </a>
+        <a class="topic-card" href="ambulatory-care.html">
+          <h3>Care Robotics</h3>
+          <p>Fine-motor tasks in care settings</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="person-project-grid">
+        <div class="person-project">
+          <span class="person-project__funder">DFG &middot; <span lang="de">Forschungsimpulse</span> HAW &middot; 2024&ndash;2029</span>
+          <h3>APPL-FM</h3>
+          <p>Funds the development of the SIRo Soft Hand.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">DFG &middot; <span lang="de">Gro&szlig;ger&auml;teinitiative</span> HAW &middot; 533327659</span>
+          <h3>tele.interaction</h3>
+          <p>Integration of the hand into the teleoperated system.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">IFAF Berlin &middot; 2026&ndash;2027</span>
+          <h3>Robo4Care</h3>
+          <p>Investigating fine-motor tasks such as medication preparation.</p>
+        </div>
+        <div class="person-project">
+          <span class="person-project__funder">State of Berlin &middot; ProValid &middot; from 04/2026</span>
+          <h3>SIRo-AEMP</h3>
+          <p>Validation of the hand in surgical instrument reprocessing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Publications</h2>
+      <h3>At SIRo Lab</h3>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICRA55743.2025.11127353" target="_blank" rel="noopener">VSB: Variable Stiffness Based on Bowden Cables: A Simple Mechanism for Soft Robotic Hands</a></div>
+            <div class="pub-authors"><strong>S. Puhlmann</strong>, A. Albu-Sch&auml;ffer, H. H&ouml;ppner</div>
+            <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 5556&ndash;5562, 2025</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/iros58592.2024.10801459" target="_blank" rel="noopener">Programming Passive Fingertip Deformation for Improved Grasping and Manipulation</a></div>
+            <div class="pub-authors"><strong>S. Puhlmann</strong>, L.-C. Weber, H. H&ouml;ppner</div>
+            <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 9175&ndash;9181, Abu Dhabi, 2024</div>
+          </div>
+        </div>
+      <h3>Previous work <span class="pub-affil">carried out at RBO, TU Berlin, before joining the SIRo Lab</span></h3>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">J</span>
+          <div>
+            <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9762106/" target="_blank" rel="noopener">RBO Hand 3: A Platform for Soft Dexterous Manipulation</a></div>
+            <div class="pub-authors"><strong>S. Puhlmann</strong>, J. Harris, O. Brock</div>
+            <div class="pub-venue">IEEE Transactions on Robotics, vol. 38, no. 6, pp. 3434&ndash;3449, 2022</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9811761/" target="_blank" rel="noopener">A Low-Cost, Easy-to-Manufacture, Flexible, Multi-Taxel Tactile Sensor and its Application to In-Hand Object Recognition</a></div>
+            <div class="pub-authors">T. J. Pannen, <strong>S. Puhlmann</strong>, O. Brock</div>
+            <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2022</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://roboticsproceedings.org/rss17/p089.html" target="_blank" rel="noopener">Surprisingly Robust In-Hand Manipulation: An Empirical Study</a></div>
+            <div class="pub-authors">A. Bhatt, <strong>A. Sieler</strong>, <strong>S. Puhlmann</strong>, O. Brock</div>
+            <div class="pub-venue">Robotics: Science and Systems (RSS), 2021</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7759308/" target="_blank" rel="noopener">A Compact Representation of Human Single-Object Grasping</a></div>
+            <div class="pub-authors"><strong>S. Puhlmann</strong>, F. Heinemann, O. Brock, M. Maertens</div>
+            <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2016</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">C</span>
+          <div>
+            <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7139790/" target="_blank" rel="noopener">A Taxonomy of Human Grasping Behavior Suitable for Transfer to Robotic Hands</a></div>
+            <div class="pub-authors">F. Heinemann, <strong>S. Puhlmann</strong>, C. Eppner, J. &Aacute;lvarez-Ruiz, M. Maertens, O. Brock</div>
+            <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2015</div>
+          </div>
+        </div>
+      <h3>Datasets <span class="pub-affil">RBO, TU Berlin</span></h3>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">D</span>
+          <div>
+            <div class="pub-title">Human hand grasping experiments: annotated grasp segments &middot; raw grasping data</div>
+            <div class="pub-authors">F. Heinemann, <strong>S. Puhlmann</strong>, C. Eppner, J. &Aacute;lvarez-Ruiz, M. Maertens, O. Brock</div>
+            <div class="pub-venue">DepositOnce, TU Berlin, 2019</div>
+          </div>
+        </div>
+      <h3>Patents</h3>
+        <div class="pub-item">
+          <span class="pub-type pub-type--conference">P</span>
+          <div>
+            <div class="pub-title"><a href="https://patents.google.com/patent/DE102024129066A1/de" target="_blank" rel="noopener">Passiv deformierbare Materialkomponente zur Positionierung an einem Endeffektor</a></div>
+            <div class="pub-authors"><strong>S. Puhlmann</strong>, H. H&ouml;ppner</div>
+            <div class="pub-venue">DE102024129066A1. Filed 2024, published 2026. Assignee: Berliner Hochschule f&uuml;r Technik</div>
+          </div>
+        </div>
+      <p style="margin-top:var(--space-lg);"><a href="publications.html">All publications of the lab &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Science communication</h2>
+      <p>Steffen received BHT&rsquo;s best-pitch awards in <a href="https://projekt.bht-berlin.de/harmonik/aktuelles/detailansicht?cHash=da6c1f93b629c07b806401052514383c&amp;tx_news_pi1%5Baction%5D=detail&amp;tx_news_pi1%5Bcontroller%5D=News&amp;tx_news_pi1%5Bnews%5D=1196" target="_blank" rel="noopener">2024</a> and <a href="https://projekt.bht-berlin.de/harmonik/aktuelles/detailansicht?cHash=ce090216617419bf60baaa16e8445c08&amp;tx_news_pi1%5Baction%5D=detail&amp;tx_news_pi1%5Bcontroller%5D=News&amp;tx_news_pi1%5Bnews%5D=1273" target="_blank" rel="noopener">2025</a> for presenting his research in the university&rsquo;s doctoral science-pitch competitions.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications &middot; SIRo Lab</title>
+  <meta name="description" content="SIRo Lab investigates robotic manipulation and human-robot interaction in horticulture, care, surgical instrument reprocessing and higher education.">
+  <meta name="content-reviewed" content="2026-09-30">
+  <link rel="canonical" href="https://siro-lab.de/applications.html">
+  <meta property="og:url" content="https://siro-lab.de/applications.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Applications of compliant manipulation, SIRo Lab">
+  <meta property="og:description" content="Research applications in horticulture, care, surgical instrument reprocessing and higher education, with the current stage of each project.">
+  <meta property="og:image" content="https://siro-lab.de/images/greenhouse.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Applications of compliant manipulation">
+  <meta name="twitter:description" content="Robotic manipulation and human-robot interaction across four application areas.">
+  <meta name="twitter:image" content="https://siro-lab.de/images/greenhouse.jpg">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.55); font-size: var(--fs-md); max-width: 660px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .highlight { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .highlight h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-heading); margin-bottom: 0.3rem; }
+    .highlight p { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: 0; }
+    .app-block { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-xl); align-items: start; margin-bottom: var(--space-2xl); }
+    .app-block:last-child { margin-bottom: 0; }
+    .app-block__figure { margin: 0; }
+    .app-block__figure img { width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); }
+    .app-block__figure figcaption { font-size: var(--fs-xs); color: var(--color-text-light); margin-top: 0.5rem; line-height: 1.5; }
+    .app-block h2 { margin-bottom: 0.3rem; }
+    .app-block__meta { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: var(--space-sm); }
+    @media (max-width: 860px) { .app-block { grid-template-columns: 1fr; gap: var(--space-md); } }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to homepage
+      </a>
+      <span class="section__label">Applications</span>
+      <h1>Research in four application areas</h1>
+      <p>We investigate how robotic manipulation and human-robot interaction can support plant handling, care, surgical instrument reprocessing and university teaching.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <p>Each application introduces different requirements for the robot, the task and its users. Our work ranges from student experiments and early grasping trials to system development; the status labels distinguish these stages.</p>
+      <p>Plant handling and instrument reprocessing emphasise manipulation. The classroom provides a setting for studying human-robot interaction, while care combines manipulation with teleoperation and workflow requirements.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <div class="app-block" id="classroom">
+        <figure class="app-block__figure">
+          <img src="images/thumb-teaching.jpg" alt="AI visualisation: students and a humanoid robot playing the ball point game in a seminar room" loading="lazy" width="420" height="280">
+          <figcaption>AI-generated illustration of the application scenario.</figcaption>
+        </figure>
+        <div>
+          <h2>Teaching applications</h2>
+          <p class="app-block__meta"><span class="status-tag status-tag--planned">planned scenario</span> &middot; B.Eng. <span lang="de">Humanoide Robotik</span></p>
+          <p>We plan to investigate TIAGo Pro as a Scrum Master or team member in the Ball Point Game. The scenario will examine how robot participation influences collaboration and students&rsquo; understanding of agile project management. It has not yet been used in teaching.</p>
+          <p>Our <a href="teaching.html">teaching</a> also connects student engineering projects with the lab&rsquo;s research.</p>
+        </div>
+      </div>
+
+      <div class="app-block">
+        <figure class="app-block__figure">
+          <img src="images/thumb-sterile.jpg" alt="AI visualisation: a robot hand sorting surgical instruments in a sterile processing department" loading="lazy" width="420" height="280">
+          <figcaption>AI-generated illustration of the application scenario.</figcaption>
+        </figure>
+        <div>
+          <h2>Surgical instrument reprocessing</h2>
+          <p class="app-block__meta"><span class="status-tag status-tag--trials">first trials</span> &middot; SIRo-AEMP, with enamentis GmbH</p>
+          <p>We investigate grasping, separating and opening surgical instruments in preparation for machine cleaning. Reflective surfaces, interlocked objects and sharp edges create challenges for perception and manipulation. First grasps have been demonstrated; a complete instrument-handling sequence remains a development goal.</p>
+          <p><a href="siro-aemp.html">The project in detail &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="app-block">
+        <figure class="app-block__figure">
+          <img src="images/thumb-greenhouse.jpg" alt="AI visualisation: a humanoid robot harvesting tomatoes in a greenhouse" loading="lazy" width="420" height="280">
+          <figcaption>AI-generated illustration. Experiments to date used student-built robotic hands.</figcaption>
+        </figure>
+        <div>
+          <h2>The greenhouse</h2>
+          <p class="app-block__meta"><span class="status-tag status-tag--trials">first student experiments</span> &middot; DFG tele.interaction</p>
+          <p>Tomato cultivation requires delicate fruit and plant handling. Student-built hands successfully picked individual fruits, while de-suckering and defoliation caused plant damage. In two challenge rounds, the tested hands lacked sufficient grip force to close harvesting scissors.</p>
+          <p>Experiments with TIAGo Pro in the greenhouse are planned. <a href="greenhouse.html">The scenario in detail &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="app-block">
+        <figure class="app-block__figure">
+          <img src="images/thumb-care.jpg" alt="AI visualisation: a humanoid robot assisting an older person" loading="lazy" width="420" height="280">
+          <figcaption>AI-generated illustration of the application scenario.</figcaption>
+        </figure>
+        <div>
+          <h2>Care Robotics</h2>
+          <p class="app-block__meta"><span class="status-tag status-tag--running">in development</span> &middot; Robo4Care, IFAF Berlin</p>
+          <p>Within Robo4Care, we develop teleoperation and grasping systems to investigate medication preparation in ambulatory care. A partner laboratory studies wearable exoskeletons for physically demanding care work.</p>
+          <p>Our research focuses on technical feasibility and the requirements of care at home. <a href="ambulatory-care.html">The project in detail &rarr;</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>From application requirements to research</h2>
+      <p>These settings connect technical development with task requirements and user needs. Observations from experiments inform the next design steps: the greenhouse challenges, for example, identified insufficient grip force for operating the tested scissors.</p>
+      <p>The relationship between platforms and applications is shown on the <a href="index.html#ecosystem">homepage</a>.</p>
+    </div>
+  </section>
+
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Research information reviewed in September 2026.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+</script>
+</body>
+</html>

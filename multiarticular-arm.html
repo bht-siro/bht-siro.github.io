@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiarticular VSA Arm &middot; SIRo Lab</title>
+  <meta name="description" content="SIRo Lab develops a two-degree-of-freedom arm with six drives, combining monoarticular and biarticular variable-stiffness actuation.">
+  <meta name="content-reviewed" content="2026-09-30">
+  <link rel="canonical" href="https://siro-lab.de/multiarticular-arm.html">
+  <meta property="og:url" content="https://siro-lab.de/multiarticular-arm.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon-only-dark.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIRo Lab">
+  <meta property="og:title" content="Multiarticular VSA Arm, SIRo Lab">
+  <meta property="og:description" content="A two-degree-of-freedom research arm with six drives, two monoarticular variable-stiffness actuators and one biarticular coupling.">
+  <meta property="og:image" content="https://siro-lab.de/images/arm-biarticular-schematic.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Multiarticular VSA Arm, SIRo Lab">
+  <meta name="twitter:description" content="Variable stiffness and biarticular couplings for dynamic tasks.">
+  <meta name="twitter:image" content="https://siro-lab.de/images/arm-biarticular-schematic.png">
+  <style>
+    .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
+    .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
+    .sub-hero p { color: rgba(255,255,255,0.5); font-size: var(--fs-md); max-width: 620px; }
+    .sub-hero .section__label { color: var(--color-accent-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-bottom: var(--space-md); }
+    .back-link:hover { color: var(--color-white); }
+    .content-section { padding: var(--space-section) 0; }
+    .content-section:nth-child(even) { background: var(--color-bg-alt); }
+    .content-section h2 { font-size: var(--fs-xl); margin-bottom: var(--space-lg); }
+    .content-section p { margin-bottom: var(--space-md); max-width: var(--measure); }
+    .content-section ul { margin: var(--space-md) 0 var(--space-lg) var(--space-md); max-width: var(--measure); }
+    .content-section li { margin-bottom: 0.6rem; }
+    .concept-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin: var(--space-lg) 0; }
+    .concept-cols h3 { font-size: var(--fs-md); font-weight: 700; color: var(--color-accent); margin-bottom: var(--space-xs); }
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+    .spec-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--space-md); }
+    .spec-card__label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); font-weight: 600; margin-bottom: 0.3rem; }
+    .spec-card__value { font-size: var(--fs-lg); font-weight: 700; color: var(--color-heading); }
+    .figure { margin: var(--space-lg) 0; max-width: 880px; }
+    .figure img { display: block; width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); background: var(--color-bg); }
+    .figure figcaption { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: 0.6rem; max-width: 780px; line-height: 1.5; }
+    .figure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin: var(--space-lg) 0; max-width: 880px; align-items: start; }
+    .figure-grid .figure { margin: 0; }
+    @media (max-width: 768px) { .concept-cols { grid-template-columns: 1fr; } .figure-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-full-dark.png" alt="SIRo Lab" class="nav__logo-dark" width="5334" height="749">
+        <img src="images/logo-nav-light.png" alt="SIRo Lab" class="nav__logo-light" width="5334" height="749">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#about">About</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#about">The lab</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#research">Research</a>
+          <ul class="nav__sub nav__sub--wide">
+            <li><a href="softhand.html"><strong>Mechanical Intelligence</strong><span>SIRo Soft Hand</span></a></li>
+            <li><a href="multiarticular-arm.html"><strong>Stiffness Shaping</strong><span>Multiarticular VSA Arm</span></a></li>
+            <li><a href="movement-primitives.html"><strong>Movement Primitives</strong><span>Learning from demonstration</span></a></li>
+            <li><a href="vhis.html"><strong>Immersive Teleoperation</strong><span>Visuo-Haptic Input Station</span></a></li>
+            <li><a href="tiago.html"><strong>TIAGo Pro</strong><span>Mobile manipulation platform</span></a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="applications.html">Applications</a>
+          <ul class="nav__sub">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="applications.html#classroom">Teaching applications</a></li>
+            <li><a href="siro-aemp.html">Instrument reprocessing</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#projects">Projects</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#p-tele-interaction">tele.interaction</a></li>
+            <li><a href="index.html#p-appl-fm">APPL-FM</a></li>
+            <li><a href="index.html#p-robo4care">Robo4Care</a></li>
+            <li><a href="siro-aemp.html">SIRo-AEMP</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="teaching.html">Teaching</a>
+          <ul class="nav__sub">
+            <li><a href="teaching.html">Research and teaching</a></li>
+            <li><a href="robotics-project.html">Robotics Project</a></li>
+            <li><a href="theses.html">Theses and internships</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="publications.html">Publications</a></li>
+        <li class="nav__item nav__item--sub">
+          <a href="index.html#team">Team</a>
+          <ul class="nav__sub">
+            <li><a href="index.html#team">Team overview</a></li>
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <section class="sub-hero" data-dark-section>
+    <div class="container">
+      <a href="index.html#platforms" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to platforms
+      </a>
+      <span class="section__label">Research Platform &middot; Stiffness Shaping</span>
+      <h1>Multiarticular VSA Arm</h1>
+      <p>What becomes possible when elasticity spans more than one joint?</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Variable stiffness across coupled joints</h2>
+      <p>We develop a two-degree-of-freedom robot arm with variable-stiffness actuation (VSA) and an elastic coupling that spans both joints. The approach is inspired by <em>biarticular</em> muscles, such as the biceps, which transfer energy between joints and influence how a limb responds to external forces.</p>
+      <p>Adjustable stiffness at individual joints limits the combinations of end-effector stiffness that an arm can achieve. Biarticular couplings add off-diagonal terms to the joint stiffness matrix, extending that range. We investigate how these couplings can shape the arm&rsquo;s response to contact and support dynamic movements.</p>
+
+      <div class="concept-cols">
+        <div>
+          <h3>Monoarticular only</h3>
+          <p>Each joint has independent actuation and elasticity. The joint stiffness matrix is diagonal, limiting the achievable combinations of stiffness at the end-effector.</p>
+        </div>
+        <div>
+          <h3>With biarticular couplings</h3>
+          <p>Across a million Cartesian stiffness combinations evaluated for a two-joint arm model, the monoarticular version reached 0.2 per cent of them and the biarticular version 14.5 per cent: a <strong>70-fold</strong> gain in versatility, measured as the range of achievable ellipse shapes and orientations.</p>
+          <p class="pub-affil">Figures from H&ouml;ppner, Wiedmeyer and van der Smagt, ICRA 2014. That work was carried out at the German Aerospace Center (DLR), before the SIRo Lab existed.</p>
+        </div>
+      </div>
+
+      <figure class="figure">
+        <img src="images/arm-biarticular-schematic.png" alt="Schematic of two robot joints with dashed lines indicating biarticular couplings spanning both joints" loading="lazy" width="1240" height="886">
+        <figcaption>The dashed lines show the placement of biarticular couplings.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Shaping end-effector stiffness</h2>
+      <p>In a planar model, a stiffness ellipse describes how strongly the arm resists displacement in different directions. A longer principal axis represents greater stiffness in that direction. The corresponding compliance, the inverse of stiffness, describes deflection under force. We aim to adjust the ellipse&rsquo;s shape, size and orientation to match the requirements of a task.</p>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-card__label">Shape</div>
+          <div class="spec-card__value">Directional response</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">An elongated ellipse indicates different stiffness along its principal axes; a circle represents equal stiffness in all planar directions.</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Size</div>
+          <div class="spec-card__value">Overall stiffness</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">The overall resistance to displacement, while retaining the relative stiffness between directions.</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Orientation</div>
+          <div class="spec-card__value">Aligned to the task</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">The directions in which the arm should resist displacement or yield during contact.</p>
+        </div>
+      </div>
+
+      <h3>Research objectives</h3>
+      <p>We investigate the following potential benefits of coupled elasticity. Their performance on the complete arm remains to be evaluated.</p>
+      <p><strong>Contact-guided insertion.</strong> Compliance across an insertion axis may allow contact to correct small alignment errors, while stiffness along the axis supports insertion. A key and lock provide a simple example of this task-dependent response.</p>
+      <p><strong>Directional guidance during impact.</strong> For tasks such as hammering, we investigate whether high lateral stiffness can limit sideways motion while allowing movement along the direction of impact.</p>
+      <p><strong>Interaction between mechanics and control.</strong> Aligning the principal directions of stiffness and inertia may simplify control. We aim to quantify the effect across arm configurations.</p>
+      <p><strong>Energy transfer between joints.</strong> Biarticular couplings can redistribute stored elastic energy during movement. We investigate their potential to support dynamic tasks such as throwing and catching.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Open research questions</h2>
+      <p>We use the platform to examine where coupled elasticity and adjustable stiffness justify the additional mechanical complexity.</p>
+      <ul>
+        <li><strong>Coupling arrangement.</strong> Which pairs of joints should be coupled, and how does their placement affect the achievable end-effector stiffness?</li>
+        <li><strong>Actuator selection.</strong> Where is adjustable stiffness beneficial, and where is a simpler series-elastic actuator sufficient?</li>
+        <li><strong>Mechanical and controlled compliance.</strong> Which responses should be provided by passive elasticity, and which require active control?</li>
+        <li><strong>Spatial mechanisms.</strong> How do the findings from planar models extend to arms with three-dimensional motion and redundant joints?</li>
+      </ul>
+      <p>The two-degree-of-freedom arm is an independent research platform for elastic humanoid limbs and is not mounted on <a href="tiago.html">TIAGo Pro</a>. It has been built and measured several times; final evaluation of those measurements is pending.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Prototype configuration</h2>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-card__label">Degrees of freedom</div>
+          <div class="spec-card__value">2 DoF</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Six drives actuate the arm through three variable-stiffness units</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Actuation layout</div>
+          <div class="spec-card__value">Monoarticular &amp; biarticular</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Two monoarticular VSAs act at the individual joints; one biarticular VSA couples both joints</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Springs</div>
+          <div class="spec-card__value">3D-Printed Nonlinear</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Custom torsional springs (3DNS) with progressive nonlinear force-displacement profiles from the RA-L 2025 paper</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-card__label">Heritage</div>
+          <div class="spec-card__value">Biarticular VSA (2014)</div>
+          <p style="margin-top:0.5rem;font-size:var(--fs-sm);color:var(--color-text-light);">Builds on the biarticular joint mechanism H&ouml;ppner introduced to extend stiffness ranges (ICRA 2014)</p>
+        </div>
+      </div>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <img src="images/arm-3dns-mechanics.png" alt="Mechanical abstraction of the nonlinear torsional spring with forces and moments" loading="lazy" width="1418" height="1418">
+          <figcaption>Mechanical abstraction of nonlinear torsional spring.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/arm-3dns-cad.png" alt="CAD model of the 3D-printed nonlinear torsional spring" loading="lazy" width="754" height="819">
+          <figcaption>CAD model of nonlinear torsional spring.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/arm-3dns-fea.png" alt="Finite element analysis of the deflected nonlinear torsional spring" loading="lazy" width="382" height="382">
+          <figcaption>FEA model of deflected nonlinear torsional spring.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Published foundations and current development</h2>
+      <p>The platform builds on a biarticular mechanism developed by Prof. H&ouml;ppner at DLR in 2014. It uses springs and cam discs to extend the achievable stiffness range. The 70-fold increase reported above refers to that study.</p>
+      <p class="pub-affil">The 2014 work was carried out at the German Aerospace Center (DLR), before the SIRo Lab was established.</p>
+      <p>At SIRo Lab, we developed 3D-printed nonlinear torsional springs (3DNS), published in IEEE RA-L in 2025. Their geometry produces a progressive stiffness characteristic as sections of the spring come into contact. The paper evaluates individual springs and a single antagonistic variable-stiffness joint through static and dynamic measurements. That published joint does not implement bidirectional antagonism; the current two-degree-of-freedom arm extends the work to coupled joints.</p>
+      <p>Separately, we have built a first one-degree-of-freedom prototype of a bidirectional antagonistic variable-stiffness actuator (BAVS). This actuator is distinct from the coupled arm, and the prototype work is unpublished. The BAVS control paper from 2022 concerns earlier experiments on the DLR David forearm joint.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Related Publications</h2>
+      <ul>
+        <li><strong>H. H&ouml;ppner</strong>, A. Kirner, J. G&ouml;ttlich, L. Jakob, A. Dietrich, C. Ott, &ldquo;<a href="https://doi.org/10.1109/LRA.2025.3549658" target="_blank" rel="noopener">Variable Stiffness Actuation via 3D-Printed Nonlinear Torsional Springs</a>,&rdquo; <em>IEEE Robotics and Automation Letters (RA-L)</em>, vol.&nbsp;10, no.&nbsp;5, pp.&nbsp;4324&ndash;4331, 2025.</li>
+        <li>M. Harder, M. Keppler, X. Meng, C. Ott, <strong>H. H&ouml;ppner</strong>, A. Dietrich, &ldquo;<a href="https://doi.org/10.1109/LRA.2022.3176094" target="_blank" rel="noopener">Simultaneous Motion Tracking and Joint Stiffness Control of Bidirectional Antagonistic Variable-Stiffness Actuators</a>,&rdquo; <em>IEEE RA-L</em>, vol.&nbsp;7, no.&nbsp;3, pp.&nbsp;6614&ndash;6621, 2022.</li>
+        <li><strong>H. H&ouml;ppner</strong>, W. Wiedmeyer, P. van der Smagt, &ldquo;<a href="https://elib.dlr.de/89509/1/2014_Ho%CC%88ppner.pdf" target="_blank" rel="noopener">A New Biarticular Joint Mechanism to Extend Stiffness Ranges</a>,&rdquo; <em>IEEE ICRA</em>, pp.&nbsp;3403&ndash;3410, 2014.</li>
+      </ul>
+      <p style="margin-top:var(--space-md);"><a href="publications.html">View all publications &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Collaborators</h2>
+      <div class="collaborators">
+        <div class="collaborator">
+          <a href="linnea-jakob.html">Linn&eacute;a Jakob</a>
+          <p>Designs the 3D-printed nonlinear torsional springs and the couplings that span two joints, and builds the arm prototype from them.</p>
+        </div>
+        <div class="collaborator">
+          <a href="hannes-hoeppner.html">Prof. Dr.-Ing. Hannes H&ouml;ppner</a>
+          <p>Principal investigator.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section reviewed-note">
+    <div class="container">
+      <p>Research information reviewed in September 2026.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__sitemap">
+        <div>
+          <h3>Research &amp; Platforms</h3>
+          <ul class="footer__links">
+            <li><a href="softhand.html">SIRo Soft Hand</a></li>
+            <li><a href="tiago.html">TIAGo Pro</a></li>
+            <li><a href="vhis.html">VHIS Teleoperation</a></li>
+            <li><a href="multiarticular-arm.html">Multiarticular VSA Arm</a></li>
+            <li><a href="movement-primitives.html">Movement Primitives</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <ul class="footer__links">
+            <li><a href="applications.html">Application overview</a></li>
+            <li><a href="greenhouse.html">Greenhouse</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="ambulatory-care.html">Care Robotics</a></li>
+            <li><a href="siro-aemp.html">Instrument Reprocessing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>People</h3>
+          <ul class="footer__links">
+            <li><a href="hannes-hoeppner.html">Hannes H&ouml;ppner</a></li>
+            <li><a href="rafid-abyaad.html">Rafid Abyaad</a></li>
+            <li><a href="linnea-jakob.html">Linn&eacute;a Jakob</a></li>
+            <li><a href="steffen-puhlmann.html">Steffen Puhlmann</a></li>
+            <li><a href="ranjit-santhanaraman.html">Ranjit Santhanaraman</a></li>
+            <li><a href="felix-schlueter.html">Felix Schl&uuml;ter</a></li>
+            <li><a href="adrian-sieler.html">Adrian Sieler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul class="footer__links">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="robotics-project.html">Student Robotics Project</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="theses.html">Theses &amp; Internships</a></li>
+            <li><a href="index.html#house"><span lang="de">Haus der Robotik</span></a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__legal"><a href="index.html#contact">Contact</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+        <span>&copy; 2026 SIRo Lab &middot; Berliner Hochschule f&uuml;r Technik</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const nav = document.getElementById('nav');
+    const darkSections = document.querySelectorAll('[data-dark-section]');
+    function updateNav() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('is-scrolled', scrollY > 60);
+      if (scrollY <= 60) {
+        const navBottom = nav.getBoundingClientRect().bottom;
+        let overDark = false;
+        darkSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < navBottom && rect.bottom > 0) overDark = true;
+        });
+        nav.classList.toggle('is-over-dark', overDark);
+      } else {
+        nav.classList.remove('is-over-dark');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+</script>
+</body>
+</html>
