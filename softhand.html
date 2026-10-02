@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIRo Soft Hand &middot; SIRo Lab</title>
   <meta name="description" content="The SIRo Soft Hand: research on variable-stiffness actuation, programmable fingertip compliance and contact-rich manipulation.">
-  <meta name="content-reviewed" content="2026-09-30">
+  <meta name="content-reviewed" content="2026-10-02">
   <link rel="canonical" href="https://siro-lab.de/softhand.html">
   <meta property="og:url" content="https://siro-lab.de/softhand.html">
   <link rel="stylesheet" href="style.css">
@@ -42,6 +42,20 @@
     .figure { margin: var(--space-lg) 0; max-width: 880px; }
     .figure img { display: block; width: 100%; height: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border); background: var(--color-bg); }
     .figure figcaption { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: 0.6rem; max-width: 780px; line-height: 1.5; }
+    .hand-topics { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: var(--space-lg); }
+    .hand-topics a { color: var(--color-accent-light); font-size: var(--fs-sm); }
+    .hand-study { scroll-margin-top: 100px; }
+    .hand-study__grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr); gap: var(--space-xl); align-items: start; }
+    .hand-study__text p { max-width: 58ch; }
+    .hand-video { margin: 0; min-width: 0; }
+    .hand-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #10151b; border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); }
+    .hand-video figcaption { margin-top: 0.9rem; font-size: var(--fs-sm); line-height: 1.6; color: var(--color-text-light); }
+    .hand-video__meta { display: block; margin-bottom: 0.35rem; font-weight: 600; color: var(--color-text); }
+    .hand-video__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 0.75rem; font-size: var(--fs-sm); }
+    @media (max-width: 900px) {
+      .hand-study__grid { grid-template-columns: 1fr; gap: var(--space-md); }
+      .hand-study__text p { max-width: none; }
+    }
 </style>
 </head>
 <body>
@@ -136,6 +150,10 @@
       <span class="section__label">Research Platform &middot; Mechanical Intelligence</span>
       <h1>SIRo Soft Hand</h1>
       <p>How much of the control can the hardware itself take over?</p>
+      <div class="hand-topics" aria-label="Research demonstrations">
+        <a href="#fingertip-compliance">Fingertip deformation &darr;</a>
+        <a href="#vsb">Variable-stiffness actuation &darr;</a>
+      </div>
     </div>
   </section>
 
@@ -143,27 +161,66 @@
     <div class="container">
       <h2>Compliant mechanics for manipulation</h2>
       <p>We develop soft robotic hands whose mechanics contribute to grasping and manipulation. Compliant fingers deform on contact and adapt to an object&rsquo;s shape, reducing the need to specify every contact through sensing and control. Our research examines how this passive response can be designed for a task, and where additional control is needed.</p>
-      <p>Compliance alone does not determine whether a grasp succeeds. A finger may conform to an object or bend away from it. We investigate programmable fingertip compliance: local changes in the thickness of a soft lattice structure shape how a fingertip deforms under load. This makes the distribution of compliance a design parameter for grasping and manipulation.</p>
 
       <figure class="figure">
         <img src="images/siro-softhand.png" alt="The SIRo Soft Hand, a tendon-driven anthropomorphic hand with translucent compliant fingers and Bowden cables running into the base" loading="lazy" width="1687" height="1125">
-        <figcaption>The <a class="reference-link" href="softhand.html">SIRo Soft Hand</a>: tendon-driven anthropomorphic fingers with intrinsic compliance, driven through Bowden cables that decouple the motors from the elastic elements.</figcaption>
+        <figcaption>The SIRo Soft Hand: tendon-driven anthropomorphic fingers with intrinsic compliance. Bowden cables allow the motors and elastic elements to be positioned separately.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section hand-study" id="fingertip-compliance" aria-labelledby="fingertip-heading">
     <div class="container">
-      <h2>Variable-stiffness actuation</h2>
-      <p>Our Variable Stiffness based on Bowden Cables (VSB) mechanism uses two opposing tendon drives. Bowden cables transmit tendon tension to elastic elements while allowing the motors to be placed separately. Increasing tension in both tendons changes joint stiffness; moving them in opposite directions changes the joint position.</p>
-      <p>The evaluated mechanism uses readily available compression springs to provide a set of adjustable stiffness levels. We have characterised its passive deflection and contact torques, and compared analytical and data-driven models. The <a class="reference-link" href="softhand.html">SIRo Soft Hand</a> provides the platform for investigating how these mechanisms affect contact-rich manipulation.</p>
+      <span class="section__label">Morphological computation</span>
+      <h2 id="fingertip-heading">Programming fingertip deformation</h2>
+      <div class="hand-study__grid">
+        <div class="hand-study__text">
+          <p>A soft fingertip can conform to an object or bend away from it. We shape this response by varying the thickness of its lattice structure, creating regions with different compliance. The deformation is programmed into the material geometry during fabrication and responds passively to contact.</p>
+          <p>Our study compared five compliance profiles in human-operated grasping and manipulation tasks. Selected combinations of softer and firmer regions improved performance compared with uniformly soft fingertips. This illustrates morphological computation: the physical structure itself contributes to the task.</p>
+        </div>
+        <figure class="hand-video">
+          <video controls playsinline preload="none" poster="images/poster-softhand-fingertip.jpg" width="1920" height="1080" aria-label="Programming passive fingertip deformation, research video" aria-describedby="fingertip-video-caption">
+            <source src="images/softhand-fingertip-deformation.mp4" type="video/mp4">
+            <a href="images/softhand-fingertip-deformation.mp4">Open the fingertip research video.</a>
+          </video>
+          <figcaption id="fingertip-video-caption"><span class="hand-video__meta">Research video &middot; IROS 2024 &middot; 1:00</span>Different fingertip designs tested with grippers worn as extensions of human fingers. Watch how the local compliance changes the response to contact.</figcaption>
+          <div class="hand-video__links">
+            <a href="https://doi.org/10.1109/IROS58592.2024.10801459" target="_blank" rel="noopener">Read the paper &rarr;</a>
+            <a href="images/softhand-fingertip-deformation.mp4">Open video (MP4, 1.9 MB)</a>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section hand-study" id="vsb" aria-labelledby="vsb-heading">
+    <div class="container">
+      <span class="section__label">VSB &middot; Variable Stiffness based on Bowden Cables</span>
+      <h2 id="vsb-heading">Adjusting how a joint yields to contact</h2>
+      <div class="hand-study__grid">
+        <div class="hand-study__text">
+          <p>The VSB mechanism combines opposing tendon drives, Bowden cables and compression springs to adjust a joint&rsquo;s mechanical stiffness. Increasing preload compresses the spring series until individual springs reach their limits, producing distinct stiffness modes. The cable transmission allows the motors and elastic elements to be placed away from the joint, supporting compact hand designs.</p>
+          <p>The published experiments evaluate a single-joint mechanism with a set of stiffness modes. We characterised its passive deflection and contact torques, and compared analytical and data-driven models. This work provides a basis for investigating adjustable compliance in the SIRo Soft Hand.</p>
+        </div>
+        <figure class="hand-video">
+          <video controls playsinline preload="none" poster="images/poster-softhand-vsb.jpg" width="1920" height="1080" aria-label="Variable Stiffness based on Bowden Cables, research video" aria-describedby="vsb-video-caption">
+            <source src="images/softhand-vsb.mp4" type="video/mp4">
+            <a href="images/softhand-vsb.mp4">Open the VSB research video.</a>
+          </video>
+          <figcaption id="vsb-video-caption"><span class="hand-video__meta">Research video &middot; ICRA 2025 &middot; 2:36</span>The mechanism and its laboratory evaluation: joint deflection at different stiffness settings and experiments on contact torque.</figcaption>
+          <div class="hand-video__links">
+            <a href="https://doi.org/10.1109/ICRA55743.2025.11127353" target="_blank" rel="noopener">Read the paper &rarr;</a>
+            <a href="images/softhand-vsb.mp4">Open video (MP4, 9.1 MB)</a>
+          </div>
+        </figure>
+      </div>
     </div>
   </section>
 
   <section class="content-section">
     <div class="container">
-      <h2>Research outputs and development</h2>
-      <p>Our <a href="https://doi.org/10.1109/ICRA55743.2025.11127353" target="_blank" rel="noopener">ICRA 2025 paper</a> documents the VSB mechanism, including its geometry, components, analytical model and experimental evaluation. It provides the technical basis for reproducing the mechanism and adapting it to other designs.</p>
+      <h2>From mechanisms to manipulation</h2>
+      <p>Fingertip geometry shapes the local response at the object, while variable-stiffness actuation adjusts compliance at the joint. The SIRo Soft Hand brings these research directions together as a platform for contact-rich manipulation.</p>
       <p>The hand remains under active development. <a href="siro-aemp.html">SIRo-AEMP</a> investigates its application to surgical instrument handling and contributes to a possible spin-off from BHT.</p>
     </div>
   </section>
@@ -206,7 +263,7 @@
   </section>
   <section class="section reviewed-note">
     <div class="container">
-      <p>Research information reviewed in September 2026.</p>
+      <p>Research information reviewed in October 2026.</p>
     </div>
   </section>
   </main>
