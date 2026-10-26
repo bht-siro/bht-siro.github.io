@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIRo Soft Hand &middot; SIRo Lab</title>
   <meta name="description" content="The SIRo Soft Hand: research on variable-stiffness actuation, programmable fingertip compliance and contact-rich manipulation.">
-  <meta name="content-reviewed" content="2026-10-02">
+  <meta name="content-reviewed" content="2026-10-26">
   <link rel="canonical" href="https://siro-lab.de/softhand.html">
   <meta property="og:url" content="https://siro-lab.de/softhand.html">
   <link rel="stylesheet" href="style.css">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="SIRo Lab">
   <meta property="og:title" content="SIRo Soft Hand, SIRo Lab">
   <meta property="og:description" content="Variable-stiffness robotic hands using Bowden-cable actuation (VSB) and programmable fingertip compliance.">
-  <meta property="og:image" content="https://siro-lab.de/images/siro-softhand.jpg">
+  <meta property="og:image" content="https://siro-lab.de/media/posters/social-softhand.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SIRo Soft Hand, SIRo Lab">
   <meta name="twitter:description" content="Variable-stiffness hands: Bowden-cable VSB and programmable fingertip compliance.">
-  <meta name="twitter:image" content="https://siro-lab.de/images/siro-softhand.jpg">
+  <meta name="twitter:image" content="https://siro-lab.de/media/posters/social-softhand.jpg">
   <style>
     .sub-hero {
       background: var(--color-bg-dark);
@@ -57,6 +57,8 @@
       .hand-study__text p { max-width: none; }
     }
 </style>
+  <link rel="stylesheet" href="media.css">
+  <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
 </head>
 <body>
 
@@ -151,12 +153,54 @@
       <h1>SIRo Soft Hand</h1>
       <p>How much of the control can the hardware itself take over?</p>
       <div class="hand-topics" aria-label="Research demonstrations">
+        <a href="#grasping">Grasping &darr;</a>
+        <a href="#teleoperation">Teleoperation &darr;</a>
+        <a href="#robustness">Robustness &darr;</a>
         <a href="#fingertip-compliance">Fingertip deformation &darr;</a>
         <a href="#vsb">Variable-stiffness actuation &darr;</a>
       </div>
     </div>
   </section>
 
+  <section class="content-section film-section" id="grasping" aria-labelledby="grasping-heading">
+    <div class="container">
+      <span class="section__label">The hand in action</span>
+      <h2 id="grasping-heading">Grasping delicate objects</h2>
+      <p class="film-section__intro">Different shapes, sizes and contact conditions. Watch the SIRo Soft Hand pick up fruit and an egg using its compliant fingers.</p>
+      <figure class="film">
+        <div class="film__screen">
+          <video id="grasping-film" data-video-src="media/videos/softhand-grasping.mp4" playsinline preload="none" poster="media/posters/grasping-1600.webp" width="1920" height="1080" aria-label="Grasping delicate objects" aria-describedby="grasping-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="grasping-film" aria-controls="grasping-film" aria-label="Play: Grasping delicate objects"><span class="film__play">Watch film <span>0:23</span></span></button>
+        </div>
+        <figcaption id="grasping-film-caption"><div class="film__meta"><span>Grasping delicate objects</span><span class="film__duration">0:23</span></div>An operator positions and moves the hand. The grasping sequence is manually triggered and shown at its original speed.<br><a class="film__link" href="media/videos/softhand-grasping.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="grasping-film-status" class="film__status" role="status"></p>
+      </figure>
+    </div>
+  </section>
+  <section class="content-section film-section">
+    <div class="container film-pair">
+      <div class="film-panel" id="teleoperation"><span class="section__label">Commanding movement</span><h3>Teleoperated hand movements</h3>
+        <figure class="film">
+        <div class="film__screen">
+          <video id="teleoperation-film" data-video-src="media/videos/softhand-teleoperation.mp4" playsinline preload="none" poster="media/posters/teleoperation-1600.webp" width="1920" height="1080" aria-label="From glove to hand" aria-describedby="teleoperation-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="teleoperation-film" aria-controls="teleoperation-film" aria-label="Play: From glove to hand"><span class="film__play">Watch film <span>0:32</span></span></button>
+        </div>
+        <figcaption id="teleoperation-film-caption"><div class="film__meta"><span>From glove to hand</span><span class="film__duration">0:32</span></div>A glove interface commands finger movements and hand postures. Both the human input and the robotic hand remain visible.<br><a class="film__link" href="media/videos/softhand-teleoperation.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="teleoperation-film-status" class="film__status" role="status"></p>
+      </figure>
+      </div>
+      <div class="film-panel" id="robustness"><span class="section__label">Responding to impact</span><h3>Grasping after impact</h3>
+        <figure class="film">
+        <div class="film__screen">
+          <video id="robustness-film" data-video-src="media/videos/softhand-robustness.mp4" playsinline preload="none" poster="media/posters/robustness-1600.webp" width="1920" height="1080" aria-label="Impact, then another grasp" aria-describedby="robustness-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="robustness-film" aria-controls="robustness-film" aria-label="Play: Impact, then another grasp"><span class="film__play">Watch film <span>0:39</span></span></button>
+        </div>
+        <figcaption id="robustness-film-caption"><div class="film__meta"><span>Impact, then another grasp</span><span class="film__duration">0:39</span></div>Repeated impacts are followed by successful tomato grasps. The hand is held by an operator during this demonstration.<br><a class="film__link" href="media/videos/softhand-robustness.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="robustness-film-status" class="film__status" role="status"></p>
+      </figure>
+      </div>
+    </div>
+  </section>
   <section class="content-section">
     <div class="container">
       <h2>Compliant mechanics for manipulation</h2>
@@ -354,5 +398,6 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 </script>
+  <script src="media.js" defer></script>
 </body>
 </html>

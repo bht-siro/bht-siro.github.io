@@ -10,12 +10,12 @@
   <meta property="og:site_name" content="SIRo Lab">
   <meta property="og:title" content="Greenhouse, SIRo Lab">
   <meta property="og:description" content="Compliant manipulation for tomato cultivation: research objectives and initial observations from student-built robotic hands.">
-  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta property="og:image" content="https://siro-lab.de/media/posters/student-greenhouse.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Greenhouse, SIRo Lab">
   <meta name="twitter:description" content="Research on compliant manipulation for delicate fruit and plant handling.">
-  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
-  <meta name="content-reviewed" content="2026-09-30">
+  <meta name="twitter:image" content="https://siro-lab.de/media/posters/student-greenhouse.jpg">
+  <meta name="content-reviewed" content="2026-10-26">
   <link rel="canonical" href="https://siro-lab.de/greenhouse.html">
   <meta property="og:url" content="https://siro-lab.de/greenhouse.html">
   <link rel="stylesheet" href="style.css">
@@ -38,6 +38,8 @@
     .meta-row { display: flex; flex-wrap: wrap; gap: var(--space-md); margin: var(--space-md) 0; }
     .meta-pill { font-size: var(--fs-sm); font-weight: 600; color: var(--color-accent); background: var(--color-accent-subtle); border-radius: 100px; padding: 0.4rem 1rem; }
 </style>
+  <link rel="stylesheet" href="media.css">
+  <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
 </head>
 <body>
 
@@ -143,6 +145,22 @@
     </div>
   </section>
 
+  <section class="content-section film-section" id="student-experiments" aria-labelledby="student-film-heading">
+    <div class="container">
+      <span class="section__label">Research-based teaching</span>
+      <h2 id="student-film-heading">Student experiments in tomato cultivation</h2>
+      <p class="film-section__intro">Student teams take their own robotic hands into the BHT greenhouse, exploring the contact and positioning needed to work among real plants.</p>
+      <figure class="film">
+        <div class="film__screen">
+          <video id="student-greenhouse-film" data-video-src="images/hero-greenhouse.mp4" playsinline preload="none" poster="media/posters/student-greenhouse-1280.webp" width="1920" height="1080" aria-label="Student-built hands among tomato plants" aria-describedby="student-greenhouse-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="student-greenhouse-film" aria-controls="student-greenhouse-film" aria-label="Play: Student-built hands among tomato plants"><span class="film__play">Watch film <span>0:07</span></span></button>
+        </div>
+        <figcaption id="student-greenhouse-film-caption"><div class="film__meta"><span>Student-built hands among tomato plants</span><span class="film__duration">0:07</span></div>A student prototype and its human operator in the greenhouse. These experiments connect hand design with practical manipulation tasks.<br><a class="film__link" href="images/hero-greenhouse.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="student-greenhouse-film-status" class="film__status" role="status"></p>
+      </figure>
+      <p style="margin-top:24px"><a class="media-link" href="robotics-project.html#catch-up-challenge">Watch the full Catch-Up Challenge &rarr;</a></p>
+    </div>
+  </section>
   <section class="content-section">
     <div class="container">
       <h2>The tasks</h2>
@@ -180,7 +198,7 @@
   </section>
   <section class="section reviewed-note">
     <div class="container">
-      <p>Research information reviewed in September 2026.</p>
+      <p>Research information reviewed in October 2026.</p>
     </div>
   </section>
   </main>
@@ -271,5 +289,6 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 </script>
+  <script src="media.js" defer></script>
 </body>
 </html>

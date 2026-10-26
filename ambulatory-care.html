@@ -10,12 +10,12 @@
   <meta property="og:site_name" content="SIRo Lab">
   <meta property="og:title" content="Care Robotics, SIRo Lab">
   <meta property="og:description" content="SIRo Lab develops robotic hands and teleoperation interfaces to investigate assistance with medication preparation in ambulatory care.">
-  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta property="og:image" content="https://siro-lab.de/media/posters/social-care.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Care Robotics, SIRo Lab">
   <meta name="twitter:description" content="Research on teleoperated manipulation for medication preparation in ambulatory care.">
-  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
-  <meta name="content-reviewed" content="2026-09-30">
+  <meta name="twitter:image" content="https://siro-lab.de/media/posters/social-care.jpg">
+  <meta name="content-reviewed" content="2026-10-26">
   <link rel="canonical" href="https://siro-lab.de/ambulatory-care.html">
   <meta property="og:url" content="https://siro-lab.de/ambulatory-care.html">
   <link rel="stylesheet" href="style.css">
@@ -39,6 +39,8 @@
     .meta-pill { font-size: var(--fs-sm); font-weight: 600; color: var(--color-accent); background: var(--color-accent-subtle); border-radius: 100px; padding: 0.4rem 1rem; }
     @media (max-width: 768px) { .approach-grid { grid-template-columns: 1fr; } }
 </style>
+  <link rel="stylesheet" href="media.css">
+  <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
 </head>
 <body>
 
@@ -131,6 +133,21 @@
     </div>
   </section>
 
+  <section class="content-section film-section" id="care-demonstration" aria-labelledby="care-film-heading">
+    <div class="container">
+      <span class="section__label">Robo4Care in the laboratory</span>
+      <h2 id="care-film-heading">Exploring operator-guided manipulation</h2>
+      <p class="film-section__intro">An arm input device, a compliant hand and a shared workspace: this scene illustrates the manipulation setup we are developing for care research.</p>
+      <figure class="film">
+        <div class="film__screen">
+          <video id="care-operator-film" data-video-src="media/videos/care-operator.mp4" playsinline preload="none" poster="media/posters/care-operator-1600.webp" width="1920" height="1080" aria-label="The operator and the robot" aria-describedby="care-operator-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="care-operator-film" aria-controls="care-operator-film" aria-label="Play: The operator and the robot"><span class="film__play">Watch film <span>0:05</span></span></button>
+        </div>
+        <figcaption id="care-operator-film-caption"><div class="film__meta"><span>The operator and the robot</span><span class="film__duration">0:05</span></div>Recorded during a laboratory demonstration session. Functional integration of the hand and operator interface is in development.<br><a class="film__link" href="media/videos/care-operator.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="care-operator-film-status" class="film__status" role="status"></p>
+      </figure>
+    </div>
+  </section>
   <section class="content-section">
     <div class="container">
       <h2>Teleoperated medication preparation</h2>
@@ -151,6 +168,21 @@
     </div>
   </section>
 
+  <section class="content-section film-section" id="care-workspace">
+    <div class="container">
+      <span class="section__label">The manipulation workspace</span>
+      <h2>A hand at the medication-preparation table</h2>
+      <p class="film-section__intro">The gloved hand and small containers make the intended handling context concrete. Medication preparation is the target workflow for our ongoing development.</p>
+      <figure class="film">
+        <div class="film__screen">
+          <video id="care-hand-film" data-video-src="media/videos/care-hand.mp4" playsinline preload="none" poster="media/posters/care-hand-1600.webp" width="1920" height="1080" aria-label="Hand and objects in the care scenario" aria-describedby="care-hand-film-caption"></video>
+          <button type="button" class="film__start" data-video-start="care-hand-film" aria-controls="care-hand-film" aria-label="Play: Hand and objects in the care scenario"><span class="film__play">Watch film <span>0:03</span></span></button>
+        </div>
+        <figcaption id="care-hand-film-caption"><div class="film__meta"><span>Hand and objects in the care scenario</span><span class="film__duration">0:03</span></div>A short scene from the same laboratory session, showing the robotic hand at the medication-preparation table.<br><a class="film__link" href="media/videos/care-hand.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="care-hand-film-status" class="film__status" role="status"></p>
+      </figure>
+    </div>
+  </section>
   <section class="content-section">
     <div class="container">
       <h2>Project partners</h2>
@@ -178,7 +210,7 @@
   </section>
   <section class="section reviewed-note">
     <div class="container">
-      <p>Research information reviewed in September 2026.</p>
+      <p>Research information reviewed in October 2026.</p>
     </div>
   </section>
   </main>
@@ -269,5 +301,6 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 </script>
+  <script src="media.js" defer></script>
 </body>
 </html>

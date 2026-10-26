@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Applications &middot; SIRo Lab</title>
   <meta name="description" content="SIRo Lab investigates robotic manipulation and human-robot interaction in horticulture, care, surgical instrument reprocessing and higher education.">
-  <meta name="content-reviewed" content="2026-09-30">
+  <meta name="content-reviewed" content="2026-10-26">
   <link rel="canonical" href="https://siro-lab.de/applications.html">
   <meta property="og:url" content="https://siro-lab.de/applications.html">
   <link rel="stylesheet" href="style.css">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="SIRo Lab">
   <meta property="og:title" content="Applications of compliant manipulation, SIRo Lab">
   <meta property="og:description" content="Research applications in horticulture, care, surgical instrument reprocessing and higher education, with the current stage of each project.">
-  <meta property="og:image" content="https://siro-lab.de/images/greenhouse.jpg">
+  <meta property="og:image" content="https://siro-lab.de/media/posters/care-operator.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Applications of compliant manipulation">
   <meta name="twitter:description" content="Robotic manipulation and human-robot interaction across four application areas.">
-  <meta name="twitter:image" content="https://siro-lab.de/images/greenhouse.jpg">
+  <meta name="twitter:image" content="https://siro-lab.de/media/posters/care-operator.jpg">
   <style>
     .sub-hero { background: var(--color-bg-dark); padding: calc(100px + var(--space-3xl)) 0 var(--space-2xl); color: var(--color-white); }
     .sub-hero h1 { color: var(--color-white); font-size: var(--fs-2xl); margin-bottom: var(--space-xs); }
@@ -43,6 +43,8 @@
     .app-block__meta { font-size: var(--fs-sm); color: var(--color-text-light); margin-bottom: var(--space-sm); }
     @media (max-width: 860px) { .app-block { grid-template-columns: 1fr; gap: var(--space-md); } }
 </style>
+  <link rel="stylesheet" href="media.css">
+  <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
 </head>
 <body>
 
@@ -172,10 +174,7 @@
       </div>
 
       <div class="app-block">
-        <figure class="app-block__figure">
-          <img src="images/thumb-greenhouse.jpg" alt="AI visualisation: a humanoid robot harvesting tomatoes in a greenhouse" loading="lazy" width="420" height="280">
-          <figcaption>AI-generated illustration. Experiments to date used student-built robotic hands.</figcaption>
-        </figure>
+        <figure class="app-block__figure"><picture><source type="image/webp" srcset="media/posters/student-greenhouse-800.webp 800w, media/posters/student-greenhouse-1280.webp 1280w" sizes="(max-width: 800px) 100vw, 55vw"><img class="real-footage" src="media/posters/student-greenhouse.jpg" alt="Students operating their own robotic hand among tomato plants" loading="lazy" decoding="async" width="1280" height="720"></picture><figcaption>Student-built hands tested in the BHT greenhouse.</figcaption></figure>
         <div>
           <h2>The <a class="reference-link" href="greenhouse.html">greenhouse</a></h2>
           <p class="app-block__meta"><span class="status-tag status-tag--trials">first student experiments</span> &middot; DFG <a class="reference-link" href="index.html#p-tele-interaction">tele.interaction</a></p>
@@ -185,10 +184,7 @@
       </div>
 
       <div class="app-block">
-        <figure class="app-block__figure">
-          <img src="images/thumb-care.jpg" alt="AI visualisation: a humanoid robot assisting an older person" loading="lazy" width="420" height="280">
-          <figcaption>AI-generated illustration of the application scenario.</figcaption>
-        </figure>
+        <figure class="app-block__figure"><picture><source type="image/webp" srcset="media/posters/care-operator-800.webp 800w, media/posters/care-operator-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 55vw"><img class="real-footage" src="media/posters/care-operator.jpg" alt="Person operating an arm input device beside TIAGo in a Robo4Care laboratory scene" loading="lazy" decoding="async" width="1600" height="900"></picture><figcaption>Robo4Care laboratory scene illustrating the planned operator-guided care setup.</figcaption></figure>
         <div>
           <h2><a class="reference-link" href="ambulatory-care.html">Care Robotics</a></h2>
           <p class="app-block__meta"><span class="status-tag status-tag--running">in development</span> &middot; <a class="reference-link" href="ambulatory-care.html">Robo4Care</a>, IFAF Berlin</p>
@@ -210,7 +206,7 @@
 
   <section class="section reviewed-note">
     <div class="container">
-      <p>Research information reviewed in September 2026.</p>
+      <p>Research information reviewed in October 2026.</p>
     </div>
   </section>
   </main>

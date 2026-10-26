@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIRo Lab &middot; Soft Interactive Robotics Laboratory</title>
   <meta name="description" content="SIRo Lab at Berliner Hochschule f&uuml;r Technik: compliant robotic hands, variable stiffness, teleoperation and physical human-robot interaction.">
-  <meta name="content-reviewed" content="2026-09-30">
+  <meta name="content-reviewed" content="2026-10-26">
   <link rel="canonical" href="https://siro-lab.de/">
   <meta property="og:url" content="https://siro-lab.de/">
   <link rel="stylesheet" href="style.css">
@@ -14,11 +14,13 @@
   <meta property="og:site_name" content="SIRo Lab">
   <meta property="og:title" content="SIRo Lab, Soft Interactive Robotics Laboratory">
   <meta property="og:description" content="Compliant robotic hands and arms, variable stiffness, teleoperation, and physical human-robot interaction at Berliner Hochschule f&uuml;r Technik.">
-  <meta property="og:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta property="og:image" content="https://siro-lab.de/media/posters/social-home.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SIRo Lab, Soft Interactive Robotics Laboratory">
   <meta name="twitter:description" content="Compliant hands and arms, teleoperation, dynamic manipulation. BHT Berlin.">
-  <meta name="twitter:image" content="https://siro-lab.de/images/siro_landing.jpeg">
+  <meta name="twitter:image" content="https://siro-lab.de/media/posters/social-home.jpg">
+  <link rel="stylesheet" href="media.css">
+  <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
 </head>
 <body>
 
@@ -103,28 +105,26 @@
 
   <main id="main">
 
-  <section class="hero" id="hero">
-
-    <div class="hero__video" aria-hidden="true">
-      <video class="lazy-video" muted loop playsinline preload="none" poster="images/poster-hero-greenhouse.jpg">
-        <source data-src="images/hero-greenhouse.mp4" type="video/mp4">
-      </video>
+  <section class="hero hero--film" id="hero">
+    <div class="container hero-film__grid">
+      <div class="hero__content">
+        <span class="hero__label">Soft Interactive Robotics Laboratory</span>
+        <h1 class="hero__title"><em>Compliance</em><br> makes the difference.</h1>
+        <p class="hero__subtitle">We build compliant robotic hands and arms, and develop learning and teleoperation methods for manipulation.</p>
+        <div class="hero-film__actions"><a class="hero-film__primary" href="softhand.html#grasping">See the hand in action <span aria-hidden="true">&rarr;</span></a><a class="hero-film__secondary" href="#research">Explore our research &darr;</a></div>
+      </div>
+      <div class="hero-film__media">
+        <div class="hero-film__number"><span>01 / SIRo Soft Hand</span><span>Grasping delicate objects</span></div>
+        <figure class="film">
+        <div class="film__screen">
+          <video id="hero-grasping" data-video-src="media/videos/hero-grasping.mp4" playsinline preload="none" poster="media/posters/grasping-960.webp" width="1920" height="1080" aria-label="SIRo Soft Hand in action" aria-describedby="hero-grasping-caption" muted loop data-preview="auto"></video>
+          <button type="button" class="film__start" data-video-start="hero-grasping" aria-controls="hero-grasping" aria-label="Play: SIRo Soft Hand in action"><span class="film__play">Play preview <span>0:09</span></span></button>
+        </div>
+        <figcaption id="hero-grasping-caption"><div class="film__meta"><span>SIRo Soft Hand in action</span><button type="button" class="film__toggle" data-video-toggle="hero-grasping" aria-controls="hero-grasping">Play preview</button></div>Operator-positioned grasping &middot; <a href="softhand.html#grasping">Watch the full 23-second demonstration &rarr;</a><br><a class="film__link" href="media/videos/hero-grasping.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="hero-grasping-status" class="film__status" role="status"></p>
+      </figure>
+      </div>
     </div>
-
-<svg class="hero__spring-decor hero__spring-decor--left" viewBox="0 0 120 300" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.08">
-      <path d="M60 10 C90 30, 30 50, 60 70 C90 90, 30 110, 60 130 C90 150, 30 170, 60 190 C90 210, 30 230, 60 250 C90 270, 30 290, 60 300" stroke="#0a7e8c"/>
-    </svg>
-<div class="hero__content">
-      <img src="images/logo-icon-only-transparent.png" alt="SIRo Lab Logo" class="hero__logo-main" width="726" height="725">
-      <span class="hero__label">Berliner Hochschule f&uuml;r Technik</span>
-      <h1 class="hero__title"><em>Compliance</em> makes<br>the difference</h1>
-      <p class="hero__subtitle">We develop compliant robotic hands and arms, methods for learning movements from demonstration, and interfaces for humanoid teleoperation. We investigate applications in horticulture, care, instrument handling and university teaching.</p>
-      <a href="#research" class="hero__cta">
-        Explore our research
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
-      </a>
-    </div>
-
   </section>
 
   <section class="section" id="about">
@@ -146,6 +146,25 @@
         <div class="about__image reveal reveal-delay-2">
           <img src="images/siro_landing.jpeg" alt="SIRo Lab team at a conference" loading="lazy" width="1280" height="660">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="care-feature" id="care-in-action" aria-labelledby="care-in-action-heading">
+    <div class="container care-feature__grid">
+      <figure class="film">
+        <div class="film__screen">
+          <video id="care-preview" data-video-src="media/videos/care-operator.mp4" playsinline preload="none" poster="media/posters/care-operator-1600.webp" width="1920" height="1080" aria-label="An operator-guided care scenario" aria-describedby="care-preview-caption"></video>
+          <button type="button" class="film__start" data-video-start="care-preview" aria-controls="care-preview" aria-label="Play: An operator-guided care scenario"><span class="film__play">Watch film <span>0:05</span></span></button>
+        </div>
+        <figcaption id="care-preview-caption"><div class="film__meta"><span>An operator-guided care scenario</span><span class="film__duration">0:05</span></div>A laboratory scene brings together the operator interface, TIAGo and the medication-preparation workspace.<br><a class="film__link" href="media/videos/care-operator.mp4">Open video (MP4) &rarr;</a></figcaption>
+        <p id="care-preview-status" class="film__status" role="status"></p>
+      </figure>
+      <div class="care-feature__text">
+        <span class="section__label">02 / Robo4Care &middot; In development</span>
+        <h2 id="care-in-action-heading">Exploring teleoperation for care</h2>
+        <p>Care professionals bring the task knowledge. We are developing compliant manipulation and an operator interface to investigate assistance with medication preparation.</p>
+        <a class="media-link" href="ambulatory-care.html#care-demonstration">Explore Robo4Care <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -381,7 +400,7 @@
           </div>
           <div class="ecosystem__card ecosystem__card--app">
             <span class="ecosystem__app-num">3</span>
-            <div class="ecosystem__thumb"><img src="images/thumb-greenhouse.jpg" alt="AI visualisation: a humanoid robot harvesting tomatoes in a greenhouse" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__thumb"><picture><source type="image/webp" srcset="media/posters/student-greenhouse-800.webp 800w, media/posters/student-greenhouse-1280.webp 1280w" sizes="(max-width: 800px) 100vw, 55vw"><img class="real-footage" src="media/posters/student-greenhouse.jpg" alt="Students operating their robotic hand among tomato plants in the BHT greenhouse" loading="lazy" decoding="async" width="1280" height="720"></picture></div>
             <div class="ecosystem__card-body">
               <h3><a href="greenhouse.html">Greenhouse</a></h3>
               <p>Teleoperated harvesting and plant handling</p>
@@ -390,7 +409,7 @@
           </div>
           <div class="ecosystem__card ecosystem__card--app">
             <span class="ecosystem__app-num">4</span>
-            <div class="ecosystem__thumb"><img src="images/thumb-care.jpg" alt="AI visualisation: a humanoid robot assisting an older person" loading="lazy" width="420" height="280"></div>
+            <div class="ecosystem__thumb"><picture><source type="image/webp" srcset="media/posters/care-operator-800.webp 800w, media/posters/care-operator-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 55vw"><img class="real-footage" src="media/posters/care-operator.jpg" alt="Operator wearing an arm input interface beside TIAGo in a Robo4Care laboratory scene" loading="lazy" decoding="async" width="1600" height="900"></picture></div>
             <div class="ecosystem__card-body">
               <h3><a href="ambulatory-care.html">Care Robotics</a></h3>
               <p>Teleoperated assistance with medication preparation</p>
@@ -399,7 +418,7 @@
           </div>
         </div>
       </div>
-      <p class="ecosystem__note reveal">The application images are AI-generated concept illustrations. <a class="reference-link" href="greenhouse.html">Greenhouse</a> experiments have used student-built hands; instrument-reprocessing trials use a <a class="reference-link" href="softhand.html">SIRo Soft Hand</a> on a separate arm. The <a class="reference-link" href="tiago.html">TIAGo-based</a> application systems are under development.</p>
+      <p class="ecosystem__note reveal">The teaching and instrument-reprocessing images are AI-generated concept illustrations. The greenhouse and care images are frames from laboratory recordings. <a class="reference-link" href="greenhouse.html">Greenhouse</a> experiments have used student-built hands; instrument-reprocessing trials use a <a class="reference-link" href="softhand.html">SIRo Soft Hand</a> on a separate arm. The <a class="reference-link" href="tiago.html">TIAGo-based</a> application systems are under development.</p>
 
       <div class="ecosystem__aside reveal">
         <h3>Research on elastic arms</h3>
@@ -456,6 +475,7 @@
           <p>In the <a href="robotics-project.html">Robotics Project</a>, teams develop robotic hands and handheld controllers, then test them in defined manipulation tasks. Challenges include handling everyday objects and harvesting <a class="reference-link" href="greenhouse.html">greenhouse</a> crops.</p>
           <p>A planned teaching scenario will investigate <a class="reference-link" href="tiago.html">TIAGo Pro</a> as a facilitator or team member in agile project-management exercises, including the Ball Point Game. The research interest is how robot participation affects collaboration and learning.</p>
           <p>Student experiments also inform research priorities. <a class="reference-link" href="greenhouse.html">Greenhouse</a> trials, for example, identified insufficient hand force for operating pruning scissors in the tested configurations. These observations help define requirements for subsequent designs.</p>
+<figure class="student-teaser"><a href="greenhouse.html#student-experiments"><picture><source type="image/webp" srcset="media/posters/student-greenhouse-800.webp 800w, media/posters/student-greenhouse-1280.webp 1280w" sizes="(max-width: 800px) 100vw, 55vw"><img class="" src="media/posters/student-greenhouse.jpg" alt="A student-built robotic hand and its operator among tomato plants" loading="lazy" decoding="async" width="1280" height="720"></picture></a><figcaption>Student-built hands in the BHT greenhouse. <a href="greenhouse.html#student-experiments">Watch the experiment &rarr;</a></figcaption></figure>
         </div>
         <div class="teaching__highlights reveal reveal-delay-1">
           <div class="teaching__highlight">
@@ -639,7 +659,7 @@
 
   <section class="section reviewed-note">
     <div class="container">
-      <p>Research information reviewed in September 2026.</p>
+      <p>Research information reviewed in October 2026.</p>
     </div>
   </section>
   </main>
@@ -808,60 +828,7 @@
       });
     }, { passive: true });
 
-    const lazyVideos = document.querySelectorAll('video.lazy-video');
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let motionPaused = true;
-
-    const loadVideo = (v) => {
-      if (v.dataset.loaded) return;
-      v.querySelectorAll('source[data-src]').forEach(s => { s.src = s.dataset.src; });
-      v.load(); v.dataset.loaded = '1';
-    };
-
-    const syncToggles = () => {
-      document.querySelectorAll('.motion-toggle').forEach(b => {
-        b.textContent = motionPaused ? 'Play background video' : 'Pause background video';
-      });
-    };
-
-    lazyVideos.forEach(v => {
-      if (v.hasAttribute('controls')) return;
-      const host = v.closest('section') || v.parentElement;
-      if (!host || host.querySelector('.motion-toggle')) return;
-
-      host.classList.add('has-motion-toggle');
-      const btn = document.createElement('button');
-      btn.className = 'motion-toggle';
-      btn.type = 'button';
-      btn.addEventListener('click', () => {
-        motionPaused = !motionPaused;
-        syncToggles();
-        lazyVideos.forEach(x => {
-          if (x.hasAttribute('controls')) return;
-          if (motionPaused) { x.pause(); return; }
-          if (x.dataset.visible === '1') { loadVideo(x); x.play().catch(() => {}); }
-        });
-      });
-      host.appendChild(btn);
-    });
-    syncToggles();
-
-    if ('IntersectionObserver' in window) {
-      const vObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          const v = e.target;
-          v.dataset.visible = e.isIntersecting ? '1' : '0';
-          if (e.isIntersecting) {
-            if (motionPaused && !v.hasAttribute('controls')) return;
-            loadVideo(v);
-            v.play().catch(() => {});
-          } else { v.pause(); }
-        });
-      }, { threshold: 0.25 });
-      lazyVideos.forEach(v => vObs.observe(v));
-    } else {
-      lazyVideos.forEach(v => { v.dataset.visible = '1'; loadVideo(v); if (!motionPaused) { v.play().catch(()=>{}); } });
-    }
 </script>
+  <script src="media.js" defer></script>
 </body>
 </html>
