@@ -1,0 +1,32 @@
+News content
+
+Edit news.json, then run from the website-public directory:
+
+  node scripts/build-news.mjs
+
+Commit/deploy the generated HTML and sitemap together with the source changes.
+No Node.js or build step is required on the web host; all pages are static.
+
+The generator updates:
+- the newest three entries on the homepage
+- news.html, grouped by publication year
+- one standalone page for every entry
+- News links in the site's navigation and footer
+- sitemap.xml
+
+Categories: Team, Projects, Publications, Events.
+Use a unique slug starting with news- and an ISO publication date (YYYY-MM-DD).
+paragraphs contains trusted, editor-authored HTML; title/summary/intro are plain text.
+event is optional. Its start/end values must include the UTC offset for Berlin on
+that date (+01:00 in winter, +02:00 in summer). hours lists the actual stand hours.
+news.js calculates Upcoming/Event underway/Past event in the visitor's browser,
+removes expired preview badges and hides expired registration links.
+Without JavaScript the complete content, absolute dates and links remain readable;
+relative event-status badges stay hidden.
+
+media is optional. Use existing local video/poster paths, the video's width and
+height, a duration label, title, accessible description and factual caption.
+The poster is visible immediately; the video loads only when the visitor plays it.
+
+For a correction, keep the original published date and URL. For a substantive
+event recap, add a separate entry. Do not edit generated news HTML directly.

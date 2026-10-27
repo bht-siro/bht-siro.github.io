@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "news-berlin-science-week-2026",
+    "published": "2026-10-27",
+    "category": "Events",
+    "title": "Meet SIRo at Berlin Science Week",
+    "summary": "Explore Robo4Care and try robot teleoperation in a simulated care task.",
+    "intro": "Join us at the Robo4Care stand to explore how robotics could support care professionals. Try robot teleoperation in a simulated medication-handling task and talk to us about soft robotic hands, human control and the challenges of assistance in care.",
+    "media": {
+      "video": "media/videos/care-operator.mp4",
+      "poster": "media/posters/care-operator-1600.webp",
+      "width": 1920,
+      "height": 1080,
+      "duration": "0:05",
+      "title": "Robo4Care in the laboratory",
+      "description": "An operator using an arm input interface beside TIAGo and a medication-preparation workspace.",
+      "caption": "The operator interface, TIAGo and the medication-preparation workspace during a laboratory demonstration. Functional integration is in development."
+    },
+    "sections": [
+      {
+        "title": "Try teleoperation for yourself",
+        "paragraphs": [
+          "At the IFAF Berlin stand, <span lang=\"de\">Robotik: Rückenwind für die Pflege</span>, visitors can use an input station to guide a robot through a medication-handling task in simulation. The wider Robo4Care exhibit also introduces exoskeletons and their potential to support physically demanding care work.",
+          "Our research connects <a href=\"softhand.html\">compliant robotic hands</a> with <a href=\"vhis.html\">teleoperation interfaces</a>. Medication preparation provides a setting for investigating fine-motor manipulation, operator assistance and the limits of robotic support."
+        ]
+      },
+      {
+        "title": "Part of Robo4Care",
+        "paragraphs": [
+          "Robo4Care — Robotics for Care Enhancement — brings together BHT, ASH Berlin and HTW Berlin with research and practice partners. Funded by the State of Berlin through IFAF Berlin, the project runs from January 2026 to December 2027.",
+          "At SIRo Lab, we develop manipulation and teleoperation systems for research in ambulatory care. <a href=\"ambulatory-care.html\">Explore our work in Robo4Care →</a>"
+        ]
+      }
+    ],
+    "event": {
+      "start": "2026-11-06T13:00:00+01:00",
+      "end": "2026-11-08T19:00:00+01:00",
+      "dateLabel": "6–8 November 2026",
+      "venue": "Haus der Kulturen der Welt (HKW)",
+      "venueShort": "HKW, Berlin",
+      "room": "Sylvia Wynter Foyer",
+      "address": "John-Foster-Dulles-Allee 10, 10557 Berlin",
+      "language": "German",
+      "hours": [
+        { "date": "2026-11-06", "label": "Friday, 6 November", "time": "13:00–18:00" },
+        { "date": "2026-11-07", "label": "Saturday, 7 November", "time": "10:00–18:00" },
+        { "date": "2026-11-08", "label": "Sunday, 8 November", "time": "10:00–19:00" }
+      ],
+      "programme": "https://berlinscienceweek.com/de/programme/robotik-ruckenwind-fur-die-pflege",
+      "registration": "https://pretix.eu/berlinscienceweek/2026-festival/5039347/"
+    },
+    "sources": [
+      { "label": "Berlin Science Week programme", "url": "https://berlinscienceweek.com/de/programme/robotik-ruckenwind-fur-die-pflege" },
+      { "label": "Robo4Care at IFAF Berlin", "url": "https://www.ifaf-berlin.de/projekte/robo4care/" }
+    ]
+  }
+]

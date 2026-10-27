@@ -21,6 +21,7 @@
   <meta name="twitter:image" content="https://siro-lab.de/media/posters/social-home.jpg">
   <link rel="stylesheet" href="media.css">
   <noscript><style>.film__start,.film__toggle{display:none}.hero--film .film__link{display:inline-block}</style></noscript>
+  <script src="news.js" defer></script>
 </head>
 <body>
 
@@ -41,6 +42,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </li>
+        <li class="nav__item"><a href="news.html">News</a></li>
         <li class="nav__item nav__item--sub">
           <a href="#research">Research</a>
           <ul class="nav__sub nav__sub--wide">
@@ -126,6 +128,23 @@
       </div>
     </div>
   </section>
+
+<!-- NEWS:START -->
+  <section class="news-home" id="news" aria-labelledby="latest-news-heading">
+    <div class="container">
+      <div class="news-heading"><div><span class="section__label">News</span><h2 id="latest-news-heading">Latest from the lab</h2></div><a class="news-text-link" href="news.html">All news <span aria-hidden="true">→</span></a></div>
+      <article class="news-row" data-news-event data-start="2026-11-06T13:00:00+01:00" data-end="2026-11-08T19:00:00+01:00">
+        <div class="news-row__meta"><time datetime="2026-10-27">27 Oct 2026</time><span>Events</span><span class="news-status" data-event-status hidden></span></div>
+        <div class="news-row__body">
+          <h3><a href="news-berlin-science-week-2026.html">Meet SIRo at Berlin Science Week</a></h3>
+          <p>Explore Robo4Care and try robot teleoperation in a simulated care task.</p>
+          <p class="news-row__event">6–8 November 2026 · HKW, Berlin</p>
+          <a class="news-text-link" href="news-berlin-science-week-2026.html" aria-label="Read more: Meet SIRo at Berlin Science Week">Read more <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- NEWS:END -->
 
   <section class="section" id="about">
     <div class="container">
@@ -737,6 +756,7 @@
         <div>
           <h3>More</h3>
           <ul class="footer__links">
+            <li><a href="news.html">News</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="robotics-project.html">Student Robotics Project</a></li>
             <li><a href="index.html#team">Team</a></li>
